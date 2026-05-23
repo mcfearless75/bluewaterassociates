@@ -308,11 +308,11 @@ button{font-family:inherit;cursor:pointer}
             <button class="btn btn-ghost" id="showContact" type="button">Email me the detailed report</button>
           </div>
 
-          <!-- FORMSPREE: replace REPLACE_WITH_FORMSPREE_ID in the form action below.
-               1) Sign up at https://formspree.io
-               2) Create a new form pointed at hello@bluewaterassociates.co.uk
-               3) Copy the form's hashid and paste it in place of REPLACE_WITH_FORMSPREE_ID -->
-          <form class="contact" id="contactForm" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST" novalidate>
+          <!-- Submits JSON to the Bluewater API (Cloudflare Worker).
+               After `wrangler deploy`, replace WORKER_URL in the <script> below
+               with the live URL, e.g. https://bluewater-api.<account>.workers.dev
+               or https://api.bluewaterassociates.co.uk once a custom route is set. -->
+          <form class="contact" id="contactForm" method="POST" novalidate>
             <h3>Get the detailed report</h3>
             <p class="sub">We'll send a written breakdown of your score, the gaps to close, and a fixed-price path to certification. One working day, no spam.</p>
 
@@ -335,7 +335,7 @@ button{font-family:inherit;cursor:pointer}
               </div>
               <div class="field full">
                 <label for="f-context">What's prompting the readiness check? <span style="color:var(--ink-mute);font-weight:400">(optional)</span></label>
-                <textarea id="f-context" name="context" placeholder="e.g. tender deadline, insurance renewal, client requirement"></textarea>
+                <textarea id="f-context" name="prompt" placeholder="e.g. tender deadline, insurance renewal, client requirement"></textarea>
               </div>
             </div>
 
@@ -345,8 +345,6 @@ button{font-family:inherit;cursor:pointer}
               <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
             </div>
 
-            <input type="hidden" name="_subject" value="New CE readiness submission">
-            <input type="hidden" name="_replyto" id="replyTo" value="">
             <input type="hidden" name="score" id="hiddenScore" value="">
             <input type="hidden" name="band" id="hiddenBand" value="">
             <input type="hidden" name="answers_json" id="hiddenAnswers" value="">
@@ -554,28 +552,44 @@ button{font-family:inherit;cursor:pointer}
     if(n)n.focus();
   });
 
-  // Form submit
+  // Form submit — POSTs JSON to the Bluewater API (Cloudflare Worker).
+  // Replace WORKER_URL after `wrangler deploy` (see worker/wrangler.toml).
+  var WORKER_URL='https://bluewater-api.REPLACE_ACCOUNT.workers.dev';
   var form=document.getElementById('contactForm');
   var msg=document.getElementById('formMsg');
   var success=document.getElementById('formSuccess');
   form.addEventListener('submit',function(e){
     e.preventDefault();
     msg.classList.remove('err');msg.textContent='';
-    var email=document.getElementById('f-email').value.trim();
-    document.getElementById('replyTo').value=email;
 
     var btn=document.getElementById('submitBtn');
     btn.disabled=true;btn.textContent='Sending...';
 
-    var fd=new FormData(form);
-    fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(r.ok){
+    var payload={
+      name:document.getElementById('f-name').value.trim(),
+      email:document.getElementById('f-email').value.trim(),
+      company:document.getElementById('f-company').value.trim(),
+      phone:document.getElementById('f-phone').value.trim(),
+      prompt:document.getElementById('f-context').value.trim(),
+      score:Number(document.getElementById('hiddenScore').value)||null,
+      band:document.getElementById('hiddenBand').value||null,
+      answers_json:document.getElementById('hiddenAnswers').value||null,
+      _gotcha:document.getElementById('f-gotcha').value
+    };
+
+    fetch(WORKER_URL+'/forms/readiness',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(payload)
+    })
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
+      .then(function(res){
+        if(res.ok && res.d && res.d.ok){
           form.style.display='none';
           success.classList.add('active');
           success.scrollIntoView({behavior:'smooth',block:'center'});
         }else{
-          return r.json().then(function(d){throw new Error((d && d.error)||'Submission failed');});
+          throw new Error((res.d && res.d.error)||'Submission failed');
         }
       })
       .catch(function(err){
