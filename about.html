@@ -6,6 +6,8 @@
 <title>About Bluewater Associates | UK Cyber & IT Partner for SMBs</title>
 <meta name="description" content="Bluewater Associates is a Wirral-based, productised cyber and IT partner for UK SMBs. Founded by Paul McWilliam with a direct line to a certified Cyber Essentials assessor." />
 <link rel="canonical" href="https://bluewaterassociates.co.uk/about.html" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="About Bluewater Associates | UK Cyber & IT Partner for SMBs" />
@@ -251,8 +253,9 @@
   /* MEET PAUL */
   .meet-grid{
     display:grid;
-    grid-template-columns:240px 1fr;
-    gap:clamp(36px,5vw,72px);
+    grid-template-columns:180px 1fr;
+    gap:clamp(28px,4vw,56px);
+    align-items:start;
     align-items:start;
   }
   @media(max-width:820px){
@@ -286,18 +289,18 @@
     margin-top:12px;letter-spacing:.04em;
   }
   .portrait-img{
-    width:240px;
-    height:340px;
-    border-radius:var(--radius);
+    width:180px;
+    height:225px;
+    border-radius:12px;
     object-fit:cover;
     object-position:center 22%;
-    box-shadow:0 20px 40px -20px rgba(15,27,45,.3);
+    box-shadow:0 12px 28px -16px rgba(15,27,45,.35);
     display:block;
     background:var(--ink-08);
   }
   @media(max-width:820px){
-    .portrait-img{width:200px;height:283px;margin:0 auto}
-    .portrait-caption{text-align:center}
+    .portrait-img{width:140px;height:175px}
+    .portrait-caption{font-size:.75rem}
   }
 
   /* PRINCIPLES (dark block) */

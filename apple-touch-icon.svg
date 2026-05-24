@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Bluewater">
+  <defs>
+    <radialGradient id="bg" cx="65%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#1a2a44"/>
+      <stop offset="55%" stop-color="#0F1B2D"/>
+      <stop offset="100%" stop-color="#070d18"/>
+    </radialGradient>
+  </defs>
+  <rect width="180" height="180" rx="38" ry="38" fill="url(#bg)"/>
+  <!-- Hex tessellation accent (very subtle) -->
+  <g opacity="0.18" stroke="#C9A961" stroke-width="1" fill="none">
+    <path d="M22 50 L42 38 L62 50 L62 74 L42 86 L22 74 Z"/>
+    <path d="M118 106 L138 94 L158 106 L158 130 L138 142 L118 130 Z"/>
+  </g>
+  <!-- Main hex outline -->
+  <path d="M90 22 L146 54 L146 126 L90 158 L34 126 L34 54 Z" fill="none" stroke="#C9A961" stroke-width="3" opacity="0.55"/>
+  <!-- "B" mark -->
+  <text x="90" y="124" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="106" fill="#F5F1EA" letter-spacing="-3">B</text>
+  <!-- Accent dot -->
+  <circle cx="128" cy="124" r="10" fill="#C75634"/>
+</svg>
