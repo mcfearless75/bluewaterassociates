@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Bluewater Associates — Cyber Essentials and IT for UK SMBs">
+  <defs>
+    <radialGradient id="bg" cx="65%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#1a2a44"/>
+      <stop offset="55%" stop-color="#0F1B2D"/>
+      <stop offset="100%" stop-color="#070d18"/>
+    </radialGradient>
+    <pattern id="hex" width="56" height="64.8" patternUnits="userSpaceOnUse">
+      <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z" fill="none" stroke="rgba(201,169,97,0.18)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#hex)" opacity="0.55"/>
+
+  <!-- Diagonal sheen -->
+  <rect width="1200" height="630" fill="url(#bg)" opacity="0"/>
+
+  <!-- Live hex nodes -->
+  <g filter="url(#glow)" opacity="0.92">
+    <path d="M120,140 L160,118 L200,140 L200,184 L160,206 L120,184 Z" fill="rgba(199,86,52,0.06)" stroke="#C75634" stroke-width="1.8"/>
+    <path d="M1020,420 L1060,398 L1100,420 L1100,464 L1060,486 L1020,464 Z" fill="rgba(201,169,97,0.06)" stroke="#C9A961" stroke-width="1.8"/>
+    <path d="M980,150 L1010,134 L1040,150 L1040,182 L1010,198 L980,182 Z" fill="rgba(199,86,52,0.06)" stroke="#C75634" stroke-width="1.5"/>
+    <path d="M150,470 L185,452 L220,470 L220,506 L185,524 L150,506 Z" fill="rgba(201,169,97,0.06)" stroke="#C9A961" stroke-width="1.5"/>
+  </g>
+
+  <!-- Status chip -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="270" height="38" rx="19" fill="rgba(15,27,45,0.55)" stroke="rgba(201,169,97,0.35)" stroke-width="1"/>
+    <circle cx="20" cy="19" r="5" fill="#7fd49a"/>
+    <text x="36" y="25" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="#C9A961">SYSTEM ONLINE · UK CYBER PARTNER</text>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(80,140)">
+    <text font-family="Fraunces, Georgia, serif" font-weight="800" font-size="42" fill="#F5F1EA" letter-spacing="-1.2">Bluewater<tspan fill="#C75634">.</tspan></text>
+  </g>
+
+  <!-- Main headline -->
+  <g transform="translate(80,210)">
+    <text font-family="Fraunces, Georgia, serif" font-weight="600" font-size="84" line-height="1" fill="#F5F1EA" letter-spacing="-2.8">
+      <tspan x="0" dy="0">Cyber Essentials</tspan>
+      <tspan x="0" dy="92" fill="#F5F1EA">in 30 days. <tspan font-style="italic" fill="#C9A961">Fixed price.</tspan></tspan>
+    </text>
+  </g>
+
+  <!-- Underline accent under "Cyber Essentials" -->
+  <rect x="80" y="290" width="640" height="8" rx="3" fill="#C75634" opacity="0.85"/>
+
+  <!-- Subline -->
+  <g transform="translate(80,440)">
+    <text font-family="DM Sans, system-ui, sans-serif" font-weight="400" font-size="24" fill="rgba(245,241,234,0.78)" letter-spacing="-0.3">
+      <tspan x="0" dy="0">Direct line to a certified CE assessor.</tspan>
+      <tspan x="0" dy="34">One partner. No agency politics. Quoted in 48 hours.</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom meta chips -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="14" letter-spacing="1.2" fill="rgba(245,241,234,0.78)">
+    <g transform="translate(80,540)">
+      <rect x="0" y="0" width="218" height="36" rx="6" fill="rgba(15,27,45,0.5)" stroke="rgba(245,241,234,0.14)" stroke-width="1"/>
+      <rect x="14" y="13" width="9" height="9" fill="#C75634" transform="rotate(45 18.5 17.5)"/>
+      <text x="34" y="23">FIXED PRICE · 48 HRS</text>
+    </g>
+    <g transform="translate(310,540)">
+      <rect x="0" y="0" width="178" height="36" rx="6" fill="rgba(15,27,45,0.5)" stroke="rgba(245,241,234,0.14)" stroke-width="1"/>
+      <rect x="14" y="13" width="9" height="9" fill="#C75634" transform="rotate(45 18.5 17.5)"/>
+      <text x="34" y="23">30-DAY DELIVERY</text>
+    </g>
+    <g transform="translate(500,540)">
+      <rect x="0" y="0" width="208" height="36" rx="6" fill="rgba(15,27,45,0.5)" stroke="rgba(245,241,234,0.14)" stroke-width="1"/>
+      <rect x="14" y="13" width="9" height="9" fill="#C75634" transform="rotate(45 18.5 17.5)"/>
+      <text x="34" y="23">IASME-ALIGNED</text>
+    </g>
+  </g>
+
+  <!-- Domain bottom-right -->
+  <text x="1120" y="588" font-family="DM Sans, system-ui, sans-serif" font-size="16" font-weight="500" text-anchor="end" fill="rgba(245,241,234,0.55)" letter-spacing="0.2">bluewaterassociates.co.uk</text>
+
+  <!-- Decorative corner hex outline -->
+  <g opacity="0.4">
+    <path d="M1080,80 L1130,52 L1180,80 L1180,136 L1130,164 L1080,136 Z" fill="none" stroke="#C9A961" stroke-width="1.5"/>
+    <path d="M1098,98 L1130,80 L1162,98 L1162,134 L1130,152 L1098,134 Z" fill="none" stroke="#C9A961" stroke-width="1" opacity="0.7"/>
+  </g>
+</svg>
