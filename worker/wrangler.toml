@@ -11,7 +11,7 @@ compatibility_date = "2026-05-01"
 # Public (non-secret) vars below:
 
 [vars]
-ALERT_FROM    = "tickets@bluewaterassociates.co.uk"
+ALERT_FROM    = "hello@bluewaterassociates.co.uk"
 ALERT_TO      = "hello@bluewaterassociates.co.uk"
 ALLOWED_ORIGIN = "https://bluewaterassociates.co.uk"
 TWILIO_PHONE_E164 = ""   # e.g. +441512XXXXXX (your Twilio UK number)

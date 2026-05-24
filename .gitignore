@@ -7,3 +7,16 @@ node_modules/
 .env
 .env.local
 *.tmp
+
+# Local-only tooling — never commit
+.claude/
+.claude-flow/
+.swarm/
+.hive-mind/
+.ruflo/
+coordination/
+memory/
+worker/.dev.vars
+worker/.wrangler/
+.mcp.json
+CLAUDE.md
