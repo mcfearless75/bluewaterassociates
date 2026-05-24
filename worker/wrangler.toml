@@ -14,8 +14,8 @@ compatibility_date = "2026-05-01"
 ALERT_FROM    = "hello@bluewaterassociates.co.uk"
 ALERT_TO      = "hello@bluewaterassociates.co.uk"
 ALLOWED_ORIGIN = "https://bluewaterassociates.co.uk"
-TWILIO_PHONE_E164 = ""   # e.g. +441512XXXXXX (your Twilio UK number)
-FORWARD_TO_E164   = ""   # your mobile, e.g. +447XXXXXXXXX (rings before voicemail)
+TWILIO_PHONE_E164 = ""              # pending Twilio UK number approval; fill in then redeploy
+FORWARD_TO_E164   = "+447841636133" # rings before voicemail kicks in
 
 # Custom domain (requires DNS on Cloudflare). Uncomment after migrating DNS:
 # [[routes]]
