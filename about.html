@@ -689,5 +689,16 @@ Cal("init","15min",{origin:"https://cal.com"});
 Cal.ns["15min"]("ui",{styles:{branding:{brandColor:"#C75634"}},hideEventTypeDetails:false,layout:"month_view"});
 </script>
 
+<button id="back-to-top" type="button" aria-label="Back to top" hidden>&uarr;</button>
+<style>
+#back-to-top{position:fixed;right:18px;bottom:18px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--ink,#0F1B2D);color:var(--bg,#F5F1EA);border:1px solid rgba(245,241,234,.15);box-shadow:0 8px 24px -8px rgba(15,27,45,.4);cursor:pointer;font-size:1.35rem;font-weight:600;line-height:1;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease,background .2s ease;padding:0;font-family:inherit}
+#back-to-top.visible{opacity:1;transform:translateY(0)}
+#back-to-top:hover{background:var(--accent,#C75634)}
+#back-to-top:focus-visible{outline:2px solid var(--accent,#C75634);outline-offset:3px}
+@media print{#back-to-top{display:none}}
+</style>
+<script>
+(function(){var b=document.getElementById('back-to-top');if(!b)return;b.hidden=false;function tick(){window.scrollY>400?b.classList.add('visible'):b.classList.remove('visible')}window.addEventListener('scroll',tick,{passive:true});tick();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})})();
+</script>
 </body>
 </html>
