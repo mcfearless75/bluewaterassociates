@@ -337,6 +337,102 @@
   /* Skip link */
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px;z-index:100}
   .skip:focus{left:16px;top:16px}
+
+  /* === MOBILE POLISH (added by responsive audit) === */
+  html,body{overflow-x:hidden;max-width:100%}
+  /* Prevent iOS zoom on focus — inputs must be >=16px (handled per-file). */
+  /* Nav: show a compact CTA on mobile, hide on desktop where full nav-links shows */
+  .nav-cta-mobile{display:inline-flex;padding:10px 16px;font-size:.88rem}
+  @media (min-width:880px){.nav-cta-mobile{display:none}}
+  @media (max-width:520px){
+    .nav-inner{gap:12px;padding:10px 0}
+    .brand{font-size:1.1rem}
+    .nav-cta-mobile{padding:9px 14px;font-size:.82rem}
+  }
+  @media (max-width:380px){
+    .nav-cta-mobile{padding:8px 12px;font-size:.78rem}
+  }
+
+  /* Hero polish */
+  @media (max-width:560px){
+    .hero{padding:56px 0 64px}
+    .h-display{font-size:clamp(2rem, 1.2rem + 6vw, 3.2rem);word-wrap:break-word;overflow-wrap:break-word;hyphens:auto}
+    .h-display .underline{display:inline}
+    .hero-stack{gap:12px}
+    .status-chip{font-size:.66rem;padding:6px 10px;letter-spacing:.1em}
+    .eyebrow{font-size:.74rem;letter-spacing:.12em}
+    .lead{font-size:1rem;margin:18px 0 26px}
+    .hero-meta{margin-top:36px;gap:8px;font-size:.72rem}
+    .hero-meta span{padding:7px 11px}
+    /* Reduce parallax visual weight on small screens */
+    .hex-live{width:34px;height:39px}
+    .hex-grid-svg{opacity:.22}
+  }
+  @media (max-width:420px){
+    .cta-row{flex-direction:column;align-items:stretch;gap:10px}
+    .cta-row .btn{width:100%;justify-content:center;padding:15px 20px}
+  }
+  @media (max-width:360px){
+    .h-display{font-size:1.8rem}
+    /* Hide some decorative live hexes on tiny screens to avoid clutter */
+    .hex-live:nth-child(n+4){display:none}
+  }
+
+  /* Trust strip — tighten on very small */
+  @media (max-width:480px){
+    .trust{padding:22px 0}
+    .trust-grid{grid-template-columns:1fr;gap:12px;font-size:.95rem}
+    .trust-grid div{font-size:.95rem}
+  }
+
+  /* Wedge / price card */
+  @media (max-width:560px){
+    .wedge{padding:28px 22px;border-radius:18px}
+    .price-card{padding:22px 20px}
+    .checks li{font-size:.93rem;padding-left:26px}
+    .wedge .btn-accent{width:100%;justify-content:center}
+    .price-card .btn-ghost{width:100%;justify-content:center;text-align:center}
+  }
+
+  /* Services / steps */
+  @media (max-width:560px){
+    .svc{min-height:0;padding:22px 20px}
+    .step{padding:28px 22px 24px}
+    .step h3{padding-right:48px;font-size:1.1rem;word-break:break-word}
+    .step::before{font-size:1.4rem;top:16px;right:18px}
+  }
+
+  /* Section heads & general spacing */
+  @media (max-width:560px){
+    .section-head{margin-bottom:36px;gap:14px}
+    .section-head p{font-size:.98rem}
+  }
+
+  /* FAQ — keep + aligned and prevent overflow */
+  @media (max-width:560px){
+    summary{padding:18px 20px;font-size:1rem;gap:14px}
+    summary .plus{width:24px;height:24px}
+    .faq-body{padding:0 20px 20px;font-size:.95rem}
+  }
+
+  /* Final CTA */
+  @media (max-width:560px){
+    .final{padding:32px 22px;border-radius:18px}
+    .final .cta-row{flex-direction:column;align-items:stretch}
+    .final .cta-row .btn{width:100%;justify-content:center}
+    .cal-embed-wrap{margin-top:32px;min-height:520px}
+  }
+
+  /* Footer stacking */
+  @media (max-width:560px){
+    footer{padding:56px 0 32px}
+    .foot-grid{gap:32px}
+    .foot-bottom{flex-direction:column;align-items:flex-start;gap:10px;font-size:.78rem}
+  }
+
+  /* Touch targets — ensure 44px min hit area */
+  .btn,summary,.nav-links a{min-height:44px}
+  .nav-links a{display:inline-flex;align-items:center}
 </style>
 </head>
 <body>
@@ -352,6 +448,7 @@
       <a href="#faq">FAQ</a>
       <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call <span class="arrow" aria-hidden="true">&rarr;</span></button>
     </nav>
+    <button type="button" class="btn btn-accent nav-cta-mobile" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}' aria-label="Book a call">Book a call</button>
   </div>
 </header>
 

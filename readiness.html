@@ -249,6 +249,64 @@ button{font-family:inherit;cursor:pointer}
   *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
   html{scroll-behavior:auto}
 }
+
+/* === MOBILE POLISH (added by responsive audit) === */
+html,body{overflow-x:hidden;max-width:100%}
+/* Inputs >=16px to avoid iOS auto-zoom on focus */
+.field input,.field textarea{font-size:16px}
+
+@media(max-width:560px){
+  .container{padding:0 18px}
+  .hero{padding:48px 0 40px}
+  .h1{font-size:clamp(32px, 8vw, 44px);max-width:none;word-wrap:break-word;hyphens:auto}
+  .lede{font-size:16px}
+  .hero-meta{gap:14px 18px;margin-top:22px;font-size:13px}
+  .card{margin-top:28px;padding:22px 18px;border-radius:14px}
+
+  .progress-wrap{gap:10px;margin-bottom:22px}
+  .progress-label{font-size:12px}
+
+  .q{font-size:20px}
+  .q-help{font-size:14px;margin-bottom:20px}
+
+  /* Answer buttons — full width, large tap target */
+  .answers{grid-template-columns:1fr;gap:10px;max-width:none}
+  .ans{padding:18px 16px;min-height:54px;font-size:16px}
+
+  .step-nav{margin-top:24px;gap:10px}
+  .link-back{font-size:15px;padding:10px 6px;min-height:44px;display:inline-flex;align-items:center}
+
+  /* Result */
+  .score{font-size:clamp(72px, 22vw, 108px);word-break:break-all}
+  .score-row{gap:14px}
+  .band{font-size:18px;max-width:none}
+  .summary li{font-size:15px}
+  .result-ctas{flex-direction:column;align-items:stretch;gap:10px}
+  .result-ctas .btn{width:100%;justify-content:center;text-align:center}
+
+  /* Contact form */
+  .contact h3{font-size:22px}
+  .grid{gap:14px}
+  .field input,.field textarea{padding:14px 14px;border-radius:10px}
+  .form-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .form-actions .btn{width:100%;justify-content:center}
+
+  /* Footer */
+  .foot{margin-top:64px;padding:36px 0 28px}
+  .foot-bot{flex-direction:column;align-items:flex-start;gap:8px}
+}
+
+@media(max-width:380px){
+  .container{padding:0 16px}
+  .ans{padding:16px 12px;font-size:15px}
+  .h1{font-size:28px}
+  .nav-inner{height:60px}
+  .brand{font-size:20px}
+}
+
+/* Touch targets */
+.btn,.ans,.link-back,.nav-toggle{min-height:44px}
+.btn{padding:14px 22px}
 </style>
 </head>
 <body>

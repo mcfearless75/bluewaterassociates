@@ -71,6 +71,26 @@ button.primary:disabled{opacity:.55;cursor:not-allowed}
 .drawer-actions{display:flex;gap:.5rem;margin-top:1.5rem}
 .close-x{position:absolute;top:1rem;right:1.25rem;background:transparent;border:none;font-size:1.5rem;color:var(--muted);cursor:pointer;line-height:1}
 @media (max-width:640px){.row2{grid-template-columns:1fr}.drawer-panel{padding:1.5rem 1.25rem}}
+
+/* === MOBILE POLISH (added by responsive audit) === */
+html,body{overflow-x:hidden;max-width:100%}
+input,select,textarea{font-size:16px}
+@media (max-width:560px){
+  header{padding:.85rem 1rem;flex-wrap:wrap;gap:.5rem}
+  header nav{font-size:.85rem;gap:.6rem;flex-wrap:wrap}
+  main{padding:1.25rem 1rem 3rem}
+  .signin{margin:2.5rem auto;padding:1.75rem;border-radius:10px}
+  .signin h1{font-size:1.5rem}
+  .bar h1{font-size:1.5rem}
+  .ticket{grid-template-columns:1fr;gap:.5rem;padding:.9rem 1rem}
+  .ticket .when{align-self:auto}
+  .filters{gap:.4rem}
+  .chip{padding:.4rem .8rem;font-size:.8rem;min-height:36px;display:inline-flex;align-items:center}
+  button.primary{width:100%;padding:.85rem 1.2rem;min-height:44px}
+  .drawer-panel{padding:1.25rem 1rem;width:100%}
+  .drawer-actions{flex-direction:column}
+  .drawer-actions button{width:100%;min-height:44px}
+}
 </style>
 </head>
 <body>
