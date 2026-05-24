@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Tickets — Bluewater Admin</title>
+<title>Tickets - Bluewater Admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
@@ -102,7 +102,7 @@ input,select,textarea{font-size:16px}
 <main>
 <div id="auth" class="signin" hidden>
 <h1>Admin sign in</h1>
-<p>Enter your admin email. We'll send a magic link — click it to sign in.</p>
+<p>Enter your admin email. We'll send a magic link - click it to sign in.</p>
 <div id="auth-msg"></div>
 <form id="signin-form" style="display:grid;gap:.75rem">
 <input id="email" type="email" placeholder="paul@bluewaterassociates.co.uk" autocomplete="email" required>
@@ -138,7 +138,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────
 // Set these once after creating the Supabase project (Project Settings → API).
-// Use the ANON / publishable key here — RLS in the database is what enforces access.
+// Use the ANON / publishable key here - RLS in the database is what enforces access.
 const SUPABASE_URL = 'https://qjwemrarhnjrvdzwaudm.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqd2VtcmFyaG5qcnZkendhdWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NDU3NjgsImV4cCI6MjA5NTEyMTc2OH0.gOAr4qG-7FsCe8-kw-0rsx4tpZAaUMWSOh2vi3ogSXU';
 // ─────────────────────────────────────────────────────────────────────────
@@ -216,7 +216,7 @@ function fmt(ts) {
 function renderRow(t) {
   const el = document.createElement('div');
   el.className = 'ticket';
-  const who = t.contact_name || t.contact_phone || t.contact_email || '—';
+  const who = t.contact_name || t.contact_phone || t.contact_email || '-';
   const sub = t.subject || '(no subject)';
   el.innerHTML = `
     <span class="src ${t.source}">${t.source.replace('_', ' ')}</span>
@@ -243,10 +243,10 @@ function openDrawer(t) {
     <div class="when">${new Date(t.created_at).toLocaleString('en-GB')} · ${t.source.replace('_', ' ')}</div>
 
     <div class="row2">
-      <div class="field"><div class="label">Name</div><div class="value">${escape(t.contact_name || '—')}</div></div>
-      <div class="field"><div class="label">Company</div><div class="value">${escape(t.company || '—')}</div></div>
-      <div class="field"><div class="label">Email</div><div class="value">${t.contact_email ? `<a href="mailto:${escape(t.contact_email)}">${escape(t.contact_email)}</a>` : '—'}</div></div>
-      <div class="field"><div class="label">Phone</div><div class="value">${t.contact_phone ? `<a href="tel:${escape(t.contact_phone)}">${escape(t.contact_phone)}</a>` : '—'}</div></div>
+      <div class="field"><div class="label">Name</div><div class="value">${escape(t.contact_name || '-')}</div></div>
+      <div class="field"><div class="label">Company</div><div class="value">${escape(t.company || '-')}</div></div>
+      <div class="field"><div class="label">Email</div><div class="value">${t.contact_email ? `<a href="mailto:${escape(t.contact_email)}">${escape(t.contact_email)}</a>` : '-'}</div></div>
+      <div class="field"><div class="label">Phone</div><div class="value">${t.contact_phone ? `<a href="tel:${escape(t.contact_phone)}">${escape(t.contact_phone)}</a>` : '-'}</div></div>
     </div>
 
     ${t.body ? `<div class="field"><div class="label">Body</div><div class="body-block">${escape(t.body)}</div></div>` : ''}

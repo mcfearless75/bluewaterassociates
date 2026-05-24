@@ -35,7 +35,7 @@
       "@id": "https://bluewaterassociates.co.uk/about.html#aboutpage",
       "url": "https://bluewaterassociates.co.uk/about.html",
       "name": "About Bluewater Associates",
-      "description": "About Bluewater Associates Limited — a productised UK cyber and IT partner for SMBs, founded by Paul McWilliam.",
+      "description": "About Bluewater Associates Limited - a productised UK cyber and IT partner for SMBs, founded by Paul McWilliam.",
       "isPartOf": { "@id": "https://bluewaterassociates.co.uk/#website" },
       "about": { "@id": "https://bluewaterassociates.co.uk/#org" },
       "mainEntity": { "@id": "https://bluewaterassociates.co.uk/about.html#paul" }
@@ -261,7 +261,7 @@
   @media(max-width:820px){
     .meet-grid{grid-template-columns:1fr;}
   }
-  /* Replace with real headshot — 800x1000 JPG ideal */
+  /* Replace with real headshot - 800x1000 JPG ideal */
   .portrait-ph{
     aspect-ratio:4/5;
     width:100%;
@@ -449,7 +449,7 @@
 <header class="nav">
   <div class="container nav-inner">
     <a href="/" class="brand">Bluewater<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="/#services">Services</a>
       <a href="/cyber-essentials.html">Cyber Essentials</a>
       <a href="/about.html" class="is-current" aria-current="page">About</a>
@@ -457,8 +457,50 @@
       <a href="/#faq">FAQ</a>
       <a href="#book" class="btn" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call</a>
     </nav>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span class="bar"></span></button>
   </div>
 </header>
+
+<style>
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(15,27,45,.15);border-radius:10px;cursor:pointer;padding:0;transition:border-color .2s ease}
+.nav-toggle:hover{border-color:var(--ink)}
+.nav-toggle .bar{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .25s ease,background .15s ease}
+.nav-toggle .bar::before,.nav-toggle .bar::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .25s ease}
+.nav-toggle .bar::before{top:-6px}
+.nav-toggle .bar::after{top:6px}
+[data-nav-open] .nav-toggle .bar{background:transparent}
+[data-nav-open] .nav-toggle .bar::before{transform:translateY(6px) rotate(45deg)}
+[data-nav-open] .nav-toggle .bar::after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:879px){
+  .nav-toggle{display:inline-flex}
+  .nav-inner{position:relative}
+  .nav-links{
+    position:absolute !important;top:100% !important;left:0;right:0;
+    display:flex !important;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg);border-bottom:1px solid rgba(15,27,45,.08);
+    box-shadow:0 18px 32px -22px rgba(15,27,45,.22);
+    padding:0;max-height:0;overflow:hidden;
+    transition:max-height .3s ease,padding .3s ease;
+    pointer-events:none;
+  }
+  [data-nav-open] .nav-links{max-height:90vh;padding:8px 0 22px;pointer-events:auto}
+  .nav-links a{padding:16px 28px !important;font-size:1.05rem !important;color:var(--ink) !important;text-align:center;border-top:1px solid rgba(15,27,45,.08);justify-content:center;display:block !important}
+  .nav-links a:first-child{border-top:none}
+  .nav-links a:hover{background:rgba(15,27,45,.04);color:var(--accent) !important}
+  .nav-links a.btn,.nav-links .btn,.nav-links .btn-cta{margin:16px auto 0 !important;justify-content:center;width:calc(100% - 56px);padding:16px 20px !important;font-size:1rem !important;display:flex !important}
+}
+</style>
+<script>
+(function(){
+  var btn=document.getElementById('nav-toggle');if(!btn)return;
+  var doc=document.documentElement;
+  function close(){doc.removeAttribute('data-nav-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu');}
+  function open(){doc.setAttribute('data-nav-open','');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Close menu');}
+  btn.addEventListener('click',function(){doc.hasAttribute('data-nav-open')?close():open();});
+  document.querySelectorAll('.nav-links a, .nav-links .btn, .nav-links button').forEach(function(el){el.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -468,7 +510,7 @@
     </nav>
     <span class="eyebrow">About Bluewater</span>
     <h1 class="h-display">Built for SMBs that need to look credible, ship fast, and <em>pass procurement.</em></h1>
-    <p class="lead">Bluewater Associates is a Wirral-based, productised cyber and IT partner for UK small and mid-sized businesses. Fixed-price scopes, 30-day delivery windows, and a direct working relationship with a certified Cyber Essentials assessor — so the certificate that wins you the contract actually lands when we said it would.</p>
+    <p class="lead">Bluewater Associates is a Wirral-based, productised cyber and IT partner for UK small and mid-sized businesses. Fixed-price scopes, 30-day delivery windows, and a direct working relationship with a certified Cyber Essentials assessor - so the certificate that wins you the contract actually lands when we said it would.</p>
   </div>
 </section>
 
@@ -494,10 +536,10 @@
         <p class="portrait-caption">Paul McWilliam, Founder &middot; Wirral, Merseyside</p>
       </div>
       <div>
-        <p>Paul is a Wirral-based technologist with over <strong>30 years in IT</strong> and more than <strong>20 years in IT delivery and programme management</strong> &mdash; running large structured programmes for enterprise and the day-to-day operational work that small UK businesses need, often at the same time. Web manager, SEO strategist, portal builder, M365 administrator, GDPR caretaker, and the person handling the bits no one else wants to own: domains, mailboxes, Companies House filings, the booking form that stopped sending emails on a bank holiday.</p>
+        <p>Paul is a Wirral-based technologist with over <strong>30 years in IT</strong> and more than <strong>20 years in IT delivery and programme management</strong> - running large structured programmes for enterprise and the day-to-day operational work that small UK businesses need, often at the same time. Web manager, SEO strategist, portal builder, M365 administrator, GDPR caretaker, and the person handling the bits no one else wants to own: domains, mailboxes, Companies House filings, the booking form that stopped sending emails on a bank holiday.</p>
         <p>The portfolio is deliberately broad. He operates and supports digital across SMBs in compliance technology (including <strong>Compliance Passport</strong>, a SaaS platform managing contractor compliance for UK construction), healthcare administration (<strong>TruthCare Group</strong>), industrial services, security firms, regional service businesses, e-commerce and EdTech (<strong>MyWay</strong>, a dyslexia-focused GCSE revision app). Different industries, same pattern: small teams that need to look credible, ship fast, and pass procurement.</p>
-        <p>The stack covers what SMBs actually run on. Wix Studio with Velo for brochure and booking sites, Shopify and OpenCart for retail, Python with Flask and Streamlit for internal tools and dashboards, Supabase for back-end and auth, Excel and xlwings where finance still lives, GitHub and Railway for ship-it-yesterday deployments, and Microsoft 365 for everything in between &mdash; tenant builds, Entra ID, conditional access, Intune, SharePoint. PRINCE2 and Scrum for controlled delivery; neither for show. The newest addition is the Claude API and Claude Code for AI-assisted operations, used in production across multiple ventures.</p>
-        <p>Cyber Essentials sits comfortably in this stack because the underlying work is already familiar &mdash; M365 hardening, identity protection, device baselines, written policies, evidence gathering, IASME submission. The Bluewater unlock is a direct working relationship with a certified Cyber Essentials assessor, scheduled before delivery starts. That's why a 30-day turnaround is a date, not a hope.</p>
+        <p>The stack covers what SMBs actually run on. Wix Studio with Velo for brochure and booking sites, Shopify and OpenCart for retail, Python with Flask and Streamlit for internal tools and dashboards, Supabase for back-end and auth, Excel and xlwings where finance still lives, GitHub and Railway for ship-it-yesterday deployments, and Microsoft 365 for everything in between - tenant builds, Entra ID, conditional access, Intune, SharePoint. PRINCE2 and Scrum for controlled delivery; neither for show. The newest addition is the Claude API and Claude Code for AI-assisted operations, used in production across multiple ventures.</p>
+        <p>Cyber Essentials sits comfortably in this stack because the underlying work is already familiar - M365 hardening, identity protection, device baselines, written policies, evidence gathering, IASME submission. The Bluewater unlock is a direct working relationship with a certified Cyber Essentials assessor, scheduled before delivery starts. That's why a 30-day turnaround is a date, not a hope.</p>
         <p style="font-family:var(--serif);font-style:italic;color:var(--ink-70);font-size:1.1rem;">One operator. Direct line. Fixed price. That's the entire pitch.</p>
       </div>
     </div>
@@ -511,7 +553,7 @@
       <div class="container">
         <span class="eyebrow">How we work</span>
         <h2>Four rules. <em>Non-negotiable.</em></h2>
-        <p style="max-width:60ch;">Every package, every engagement, every client. These aren't aspirations — they're how the business is priced and scheduled.</p>
+        <p style="max-width:60ch;">Every package, every engagement, every client. These aren't aspirations - they're how the business is priced and scheduled.</p>
         <div class="principles">
           <div class="principle">
             <span class="num">01</span>
@@ -526,7 +568,7 @@
           <div class="principle">
             <span class="num">03</span>
             <h3>30-day delivery windows.</h3>
-            <p>We schedule the certified assessor before we start, not after. That's why a date is a date — not a hope tied to someone else's diary.</p>
+            <p>We schedule the certified assessor before we start, not after. That's why a date is a date - not a hope tied to someone else's diary.</p>
           </div>
           <div class="principle">
             <span class="num">04</span>
@@ -544,21 +586,21 @@
   <div class="container">
     <span class="eyebrow">Credentials</span>
     <h2>Verified, accountable, <em>on the record.</em></h2>
-    <p style="max-width:60ch;">Every claim on this site is checkable. If something needs documenting for your procurement file, ask — it exists.</p>
+    <p style="max-width:60ch;">Every claim on this site is checkable. If something needs documenting for your procurement file, ask - it exists.</p>
 
     <ul class="creds">
       <li class="cred">
         <div class="cred-hex"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#C9A961" opacity=".18"/><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="#C9A961" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="15" fill="#0F1B2D">CH</text></svg></div>
         <div class="cred-body">
           <strong>Companies House 16663061</strong>
-          <span>Bluewater Associates Limited — registered May 2026. <a href="https://find-and-update.company-information.service.gov.uk/company/16663061" target="_blank" rel="noopener">Verify on the register &rarr;</a></span>
+          <span>Bluewater Associates Limited - registered May 2026. <a href="https://find-and-update.company-information.service.gov.uk/company/16663061" target="_blank" rel="noopener">Verify on the register &rarr;</a></span>
         </div>
       </li>
       <li class="cred">
         <div class="cred-hex"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#C75634" opacity=".15"/><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="#C75634" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="15" fill="#0F1B2D">UK</text></svg></div>
         <div class="cred-body">
           <strong>Registered office</strong>
-          <span>[Registered office address &mdash; placeholder], Wirral, Merseyside, United Kingdom.</span>
+          <span>[Registered office address - placeholder], Wirral, Merseyside, United Kingdom.</span>
         </div>
       </li>
       <li class="cred">
@@ -586,7 +628,7 @@
         <div class="cred-hex"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0F1B2D" opacity=".1"/><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="#0F1B2D" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#0F1B2D">IASME</text></svg></div>
         <div class="cred-body">
           <strong>IASME affiliation</strong>
-          <span>[Formal IASME partner affiliation &mdash; placeholder, in progress.]</span>
+          <span>[Formal IASME partner affiliation - placeholder, in progress.]</span>
         </div>
       </li>
     </ul>
@@ -598,7 +640,7 @@
   <div class="container section-narrow">
     <span class="eyebrow">Honest disqualifiers</span>
     <h2>What we <em>won't</em> sell you.</h2>
-    <p>If you're shopping for any of the below, Bluewater is the wrong partner — and we'd rather say that on the first call than waste three weeks of yours.</p>
+    <p>If you're shopping for any of the below, Bluewater is the wrong partner - and we'd rather say that on the first call than waste three weeks of yours.</p>
     <ul class="wont">
       <li>We don't sell hardware, firewalls, or licences you don't need so we can add a margin.</li>
       <li>We don't lock you into multi-year retainers. Engagements are fixed-scope and finite.</li>
@@ -629,7 +671,7 @@
   <div class="container">
     <div class="foot-meta">
       <a href="/" class="brand">Bluewater<span class="dot">.</span></a>
-      <p style="margin-top:14px;color:rgba(255,255,255,.7);">Bluewater Associates Limited &middot; Companies House <strong style="color:#fff;font-weight:500;">16663061</strong>.<br/>Registered office: [Registered office address &mdash; placeholder], Wirral, Merseyside.</p>
+      <p style="margin-top:14px;color:rgba(255,255,255,.7);">Bluewater Associates Limited &middot; Companies House <strong style="color:#fff;font-weight:500;">16663061</strong>.<br/>Registered office: [Registered office address - placeholder], Wirral, Merseyside.</p>
     </div>
     <div class="foot-links">
       <a href="/privacy.html">Privacy</a>

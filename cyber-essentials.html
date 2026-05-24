@@ -92,7 +92,7 @@ Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
         {
           "@type": "Question",
           "name": "What happens if we fail Cyber Essentials on first submission?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Bluewater includes free re-submission. If anything is flagged by the IASME assessor, we fix it and resubmit at no extra cost — that is part of the fixed price." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Bluewater includes free re-submission. If anything is flagged by the IASME assessor, we fix it and resubmit at no extra cost - that is part of the fixed price." }
         },
         {
           "@type": "Question",
@@ -107,7 +107,7 @@ Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
         {
           "@type": "Question",
           "name": "What technology do we need in place for Cyber Essentials?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You need supported operating systems and applications, a managed firewall, anti-malware, MFA on cloud admin accounts, a documented patching cadence and basic user-access controls. Most UK SMBs already have most of these — we close the gaps." }
+          "acceptedAnswer": { "@type": "Answer", "text": "You need supported operating systems and applications, a managed firewall, anti-malware, MFA on cloud admin accounts, a documented patching cadence and basic user-access controls. Most UK SMBs already have most of these - we close the gaps." }
         },
         {
           "@type": "Question",
@@ -252,7 +252,7 @@ p{max-width:62ch;color:var(--ink-70);margin:0 0 1em}
 .faq-item summary{list-style:none;cursor:pointer;padding:22px 0;font:500 1.1rem/1.35 var(--serif);color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:1em}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:"+";font:400 1.6rem/1 var(--serif);color:var(--accent);flex-shrink:0;transition:transform .2s ease}
-.faq-item[open] summary::after{content:"–"}
+.faq-item[open] summary::after{content:"-"}
 .faq-item .faq-body{padding:0 0 22px;color:var(--ink-70);max-width:68ch}
 
 /* Final CTA */
@@ -279,17 +279,63 @@ input,button,select,textarea{font-size:16px}
 
 <header class="nav" role="banner">
   <div class="container nav-inner">
-    <a href="/" class="brand" aria-label="Bluewater Associates — home">Bluewater<span class="brand-dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <a href="/" class="brand" aria-label="Bluewater Associates - home">Bluewater<span class="brand-dot">.</span></a>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="/#services">Services</a>
       <a href="/about.html">About</a>
       <a href="/blog/">Blog</a>
       <a href="/#faq">FAQ</a>
       <a href="/readiness.html">Readiness check</a>
+      <button class="btn btn-accent nav-cta-drawer" type="button" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call</button>
     </nav>
-    <button class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call</button>
+    <button class="btn btn-accent nav-cta-desk" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call</button>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span class="bar"></span></button>
   </div>
 </header>
+
+<style>
+.nav-cta-drawer{display:none}
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(15,27,45,.15);border-radius:10px;cursor:pointer;padding:0;transition:border-color .2s ease}
+.nav-toggle:hover{border-color:var(--ink)}
+.nav-toggle .bar{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .25s ease,background .15s ease}
+.nav-toggle .bar::before,.nav-toggle .bar::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .25s ease}
+.nav-toggle .bar::before{top:-6px}
+.nav-toggle .bar::after{top:6px}
+[data-nav-open] .nav-toggle .bar{background:transparent}
+[data-nav-open] .nav-toggle .bar::before{transform:translateY(6px) rotate(45deg)}
+[data-nav-open] .nav-toggle .bar::after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:879px){
+  .nav-toggle{display:inline-flex}
+  .nav-cta-desk{display:none !important}
+  .nav-cta-drawer{display:flex}
+  .nav-inner{position:relative}
+  .nav-links{
+    position:absolute !important;top:100% !important;left:0;right:0;
+    display:flex !important;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg);border-bottom:1px solid rgba(15,27,45,.08);
+    box-shadow:0 18px 32px -22px rgba(15,27,45,.22);
+    padding:0;max-height:0;overflow:hidden;
+    transition:max-height .3s ease,padding .3s ease;
+    pointer-events:none;
+  }
+  [data-nav-open] .nav-links{max-height:90vh;padding:8px 0 22px;pointer-events:auto}
+  .nav-links a{padding:16px 28px !important;font-size:1.05rem !important;color:var(--ink) !important;text-align:center;border-top:1px solid rgba(15,27,45,.08);justify-content:center;display:block !important}
+  .nav-links a:first-child{border-top:none}
+  .nav-links a:hover{background:rgba(15,27,45,.04);color:var(--accent) !important}
+  .nav-links .btn{margin:16px auto 0 !important;justify-content:center;width:calc(100% - 56px);padding:16px 20px !important;font-size:1rem !important;display:flex !important}
+}
+</style>
+<script>
+(function(){
+  var btn=document.getElementById('nav-toggle');if(!btn)return;
+  var doc=document.documentElement;
+  function close(){doc.removeAttribute('data-nav-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu');}
+  function open(){doc.setAttribute('data-nav-open','');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Close menu');}
+  btn.addEventListener('click',function(){doc.hasAttribute('data-nav-open')?close():open();});
+  document.querySelectorAll('.nav-links a, .nav-links .btn, .nav-links button').forEach(function(el){el.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 
 <main id="main">
 
@@ -328,7 +374,7 @@ input,button,select,textarea{font-size:16px}
     <div class="section-head">
       <span class="eyebrow">The five controls</span>
       <h2 class="h2">The five <em>Cyber Essentials</em> controls</h2>
-      <p class="lead">Cyber Essentials is built on five technical controls. Get these right and you remove most opportunistic attack paths. Here is what each one means in practice — and what Bluewater configures for you.</p>
+      <p class="lead">Cyber Essentials is built on five technical controls. Get these right and you remove most opportunistic attack paths. Here is what each one means in practice - and what Bluewater configures for you.</p>
     </div>
 
     <div class="grid grid-controls">
@@ -339,7 +385,7 @@ input,button,select,textarea{font-size:16px}
           <span class="hex-num">1</span>
         </span>
         <h3 class="h3">Firewalls &amp; boundary protection</h3>
-        <p>Every device that connects to the internet needs a properly configured firewall — both at the network edge and on each laptop. Default passwords go, inbound rules get locked down, and remote-admin interfaces stop facing the open internet.</p>
+        <p>Every device that connects to the internet needs a properly configured firewall - both at the network edge and on each laptop. Default passwords go, inbound rules get locked down, and remote-admin interfaces stop facing the open internet.</p>
         <ul>
           <li>Boundary firewall configuration and review</li>
           <li>Host-based firewall enforcement on every device</li>
@@ -353,7 +399,7 @@ input,button,select,textarea{font-size:16px}
           <span class="hex-num">2</span>
         </span>
         <h3 class="h3">Secure configuration</h3>
-        <p>Devices and cloud services should ship in a known-good state, with unused accounts and services disabled. We harden Windows, macOS and your core SaaS — Microsoft 365, Google Workspace — against the obvious mistakes.</p>
+        <p>Devices and cloud services should ship in a known-good state, with unused accounts and services disabled. We harden Windows, macOS and your core SaaS - Microsoft 365, Google Workspace - against the obvious mistakes.</p>
         <ul>
           <li>Baseline configuration for endpoints and cloud tenants</li>
           <li>Unused accounts, services and ports disabled</li>
@@ -395,7 +441,7 @@ input,button,select,textarea{font-size:16px}
           <span class="hex-num">5</span>
         </span>
         <h3 class="h3">Security update management</h3>
-        <p>High and critical patches must be applied within 14 days. That means supported operating systems and applications only, with a documented patching cadence — not "we update when we remember".</p>
+        <p>High and critical patches must be applied within 14 days. That means supported operating systems and applications only, with a documented patching cadence - not "we update when we remember".</p>
         <ul>
           <li>Patch policy documented and enforced</li>
           <li>End-of-life software identified and replaced</li>
@@ -413,7 +459,7 @@ input,button,select,textarea{font-size:16px}
     <div class="section-head">
       <span class="eyebrow">Why us</span>
       <h2 class="h2">Why choose Bluewater for <em>Cyber Essentials</em> certification</h2>
-      <p class="lead">Most CE providers hand you a long questionnaire and disappear. We do the opposite — we run the project, talk to the assessor for you, and stand behind a fixed price and a fixed window.</p>
+      <p class="lead">Most CE providers hand you a long questionnaire and disappear. We do the opposite - we run the project, talk to the assessor for you, and stand behind a fixed price and a fixed window.</p>
     </div>
 
     <div class="grid grid-4">
@@ -435,7 +481,7 @@ input,button,select,textarea{font-size:16px}
       <div class="diff-item">
         <div class="icon-dot" aria-hidden="true">✓</div>
         <h3 class="h3">Free re-submission if anything fails</h3>
-        <p>If the assessor flags anything, we fix it and resubmit at no extra cost. That is part of the price — not an upsell.</p>
+        <p>If the assessor flags anything, we fix it and resubmit at no extra cost. That is part of the price - not an upsell.</p>
       </div>
     </div>
   </div>
@@ -452,24 +498,24 @@ input,button,select,textarea{font-size:16px}
 
     <div class="timeline-grid">
       <div class="tl-step">
-        <div class="tl-days">Days 1–3</div>
+        <div class="tl-days">Days 1-3</div>
         <h3 class="tl-title">Scope &amp; gap analysis</h3>
-        <p>We lock down what is in scope — users, devices, cloud services, locations — and run a structured gap analysis against the five controls. You get a written remediation plan with owners and dates.</p>
+        <p>We lock down what is in scope - users, devices, cloud services, locations - and run a structured gap analysis against the five controls. You get a written remediation plan with owners and dates.</p>
       </div>
       <div class="tl-step">
-        <div class="tl-days">Days 4–14</div>
+        <div class="tl-days">Days 4-14</div>
         <h3 class="tl-title">Remediation</h3>
         <p>We work alongside your team (or do it directly) to close the gaps: firewall configuration, MFA enforcement, patching cadence, leaver processes, MDM where needed. Daily progress against the plan.</p>
       </div>
       <div class="tl-step">
-        <div class="tl-days">Days 15–25</div>
+        <div class="tl-days">Days 15-25</div>
         <h3 class="tl-title">Questionnaire &amp; dry-run</h3>
         <p>We complete the IASME self-assessment with you, evidence every answer, and run an internal dry-run review against the same criteria the assessor will use. Anything weak gets tightened.</p>
       </div>
       <div class="tl-step">
-        <div class="tl-days">Days 26–30</div>
+        <div class="tl-days">Days 26-30</div>
         <h3 class="tl-title">Submit &amp; certify</h3>
-        <p>Formal submission to IASME, assessor review, and your certificate issued. If anything is flagged, we remediate and resubmit free of charge — included in the fixed price.</p>
+        <p>Formal submission to IASME, assessor review, and your certificate issued. If anything is flagged, we remediate and resubmit free of charge - included in the fixed price.</p>
       </div>
     </div>
   </div>
@@ -543,7 +589,7 @@ input,button,select,textarea{font-size:16px}
     <div class="faq-list">
       <details class="faq-item">
         <summary>How long does Cyber Essentials certification take?</summary>
-        <div class="faq-body">For most UK SMBs, 30 days from kick-off to certificate. Days 1–3 are scoping and gap analysis, days 4–14 are remediation, days 15–25 are questionnaire and dry-run, days 26–30 are submission and assessor sign-off. Larger or more complex scopes may need longer — we tell you on day one if so.</div>
+        <div class="faq-body">For most UK SMBs, 30 days from kick-off to certificate. Days 1-3 are scoping and gap analysis, days 4-14 are remediation, days 15-25 are questionnaire and dry-run, days 26-30 are submission and assessor sign-off. Larger or more complex scopes may need longer - we tell you on day one if so.</div>
       </details>
       <details class="faq-item">
         <summary>What is the process for Cyber Essentials certification?</summary>
@@ -551,27 +597,27 @@ input,button,select,textarea{font-size:16px}
       </details>
       <details class="faq-item">
         <summary>What happens if we fail Cyber Essentials on first submission?</summary>
-        <div class="faq-body">We resubmit free of charge. If the IASME assessor flags anything, we remediate it and resubmit at no extra cost — that is built into the fixed price, not an optional extra. Our dry-run process is designed to make a first-time fail unlikely.</div>
+        <div class="faq-body">We resubmit free of charge. If the IASME assessor flags anything, we remediate it and resubmit at no extra cost - that is built into the fixed price, not an optional extra. Our dry-run process is designed to make a first-time fail unlikely.</div>
       </details>
       <details class="faq-item">
         <summary>Do we need Cyber Essentials Plus instead of Cyber Essentials?</summary>
-        <div class="faq-body">Cyber Essentials Plus is mandatory for some central government and MoD contracts and is increasingly requested in enterprise supply-chain due diligence. If you do not have an immediate Plus requirement, base Cyber Essentials is the right starting point — and it is a prerequisite for Plus in any case.</div>
+        <div class="faq-body">Cyber Essentials Plus is mandatory for some central government and MoD contracts and is increasingly requested in enterprise supply-chain due diligence. If you do not have an immediate Plus requirement, base Cyber Essentials is the right starting point - and it is a prerequisite for Plus in any case.</div>
       </details>
       <details class="faq-item">
         <summary>Can a small business with 5 or 10 staff pass Cyber Essentials?</summary>
-        <div class="faq-body">Yes. Cyber Essentials is designed to be achievable at any size, and small UK SMBs routinely pass when the five controls are configured correctly. A smaller scope often means a faster, cheaper certification — there is less to evidence.</div>
+        <div class="faq-body">Yes. Cyber Essentials is designed to be achievable at any size, and small UK SMBs routinely pass when the five controls are configured correctly. A smaller scope often means a faster, cheaper certification - there is less to evidence.</div>
       </details>
       <details class="faq-item">
         <summary>What technology do we need in place for Cyber Essentials?</summary>
-        <div class="faq-body">Supported operating systems and applications (nothing end-of-life), a properly configured firewall, anti-malware on every endpoint, MFA on cloud admin accounts, a documented patching cadence, and basic user-access controls. Most SMBs already have most of this — we close the remaining gaps.</div>
+        <div class="faq-body">Supported operating systems and applications (nothing end-of-life), a properly configured firewall, anti-malware on every endpoint, MFA on cloud admin accounts, a documented patching cadence, and basic user-access controls. Most SMBs already have most of this - we close the remaining gaps.</div>
       </details>
       <details class="faq-item">
         <summary>What is IASME and how does it relate to Cyber Essentials?</summary>
-        <div class="faq-body">IASME is the sole accreditation body for Cyber Essentials, appointed by the NCSC. Every Cyber Essentials certificate is issued through an IASME-approved certification body and assessor. Bluewater works directly with a certified IASME assessor — you are not handed off to a third party.</div>
+        <div class="faq-body">IASME is the sole accreditation body for Cyber Essentials, appointed by the NCSC. Every Cyber Essentials certificate is issued through an IASME-approved certification body and assessor. Bluewater works directly with a certified IASME assessor - you are not handed off to a third party.</div>
       </details>
       <details class="faq-item">
         <summary>How do you bill for Cyber Essentials certification?</summary>
-        <div class="faq-body">Fixed price, quoted within 48 hours of enquiry. The price includes scoping, gap analysis, remediation guidance, the IASME assessor fee, submission and free re-submission if needed. No hourly billing and no scope creep — if scope changes materially, we agree it in writing first.</div>
+        <div class="faq-body">Fixed price, quoted within 48 hours of enquiry. The price includes scoping, gap analysis, remediation guidance, the IASME assessor fee, submission and free re-submission if needed. No hourly billing and no scope creep - if scope changes materially, we agree it in writing first.</div>
       </details>
     </div>
   </div>
@@ -582,7 +628,7 @@ input,button,select,textarea{font-size:16px}
   <div class="container">
     <span class="eyebrow">Next step</span>
     <h2 class="h2">Get a quote in <em>48 hours</em>.</h2>
-    <p class="lead">Book a 15-minute call or run the free readiness check first — both go to the same place: a fixed-price Cyber Essentials quote within two working days.</p>
+    <p class="lead">Book a 15-minute call or run the free readiness check first - both go to the same place: a fixed-price Cyber Essentials quote within two working days.</p>
     <div class="cta-row">
       <button class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call</button>
       <a class="btn btn-ghost" href="/readiness.html">Free readiness check</a>
@@ -595,7 +641,7 @@ input,button,select,textarea{font-size:16px}
 <footer class="footer" role="contentinfo">
   <div class="container footer-inner">
     <div>
-      <a href="/" class="brand" aria-label="Bluewater Associates — home">Bluewater<span class="brand-dot">.</span></a>
+      <a href="/" class="brand" aria-label="Bluewater Associates - home">Bluewater<span class="brand-dot">.</span></a>
       <small>Bluewater Associates Limited · Company number 16663061<br />© 2026 Bluewater Associates Limited. All rights reserved.</small>
     </div>
     <div class="footer-links">

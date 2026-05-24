@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Cyber Essentials Readiness Check — Bluewater Associates</title>
+<title>Free Cyber Essentials Readiness Check - Bluewater Associates</title>
 <meta name="description" content="Free 3-minute Cyber Essentials readiness check. 13 plain-English questions, instant score, plus a tailored fixed-price plan to certify in 30 days.">
 <link rel="canonical" href="https://bluewaterassociates.co.uk/readiness.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
-<meta property="og:title" content="Free Cyber Essentials Readiness Check — Bluewater Associates">
+<meta property="og:title" content="Free Cyber Essentials Readiness Check - Bluewater Associates">
 <meta property="og:description" content="13 questions, 3 minutes, instant score. See where you stand against the five CE controls.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bluewaterassociates.co.uk/readiness.html">
@@ -271,7 +271,7 @@ html,body{overflow-x:hidden;max-width:100%}
   .q{font-size:20px}
   .q-help{font-size:14px;margin-bottom:20px}
 
-  /* Answer buttons — full width, large tap target */
+  /* Answer buttons - full width, large tap target */
   .answers{grid-template-columns:1fr;gap:10px;max-width:none}
   .ans{padding:18px 16px;min-height:54px;font-size:16px}
 
@@ -364,7 +364,7 @@ html,body{overflow-x:hidden;max-width:100%}
           </div>
 
           <div class="result-ctas">
-            <a class="btn btn-accent" href="https://cal.com/bluewater" target="_blank" rel="noopener">Get a tailored 30-day plan — book a 15-minute call</a>
+            <a class="btn btn-accent" href="https://cal.com/bluewater" target="_blank" rel="noopener">Get a tailored 30-day plan - book a 15-minute call</a>
             <button class="btn btn-ghost" id="showContact" type="button">Email me the detailed report</button>
           </div>
 
@@ -416,7 +416,7 @@ html,body{overflow-x:hidden;max-width:100%}
           </form>
 
           <div class="form-success" id="formSuccess" aria-live="polite">
-            <h3>Thanks — that's with us.</h3>
+            <h3>Thanks - that's with us.</h3>
             <p>We'll be in touch within one working day with your detailed report and a fixed-price route to certification.</p>
             <p style="margin-top:16px"><a class="btn btn-accent" href="https://cal.com/bluewater" target="_blank" rel="noopener">Or book a 15-minute call now</a></p>
           </div>
@@ -474,18 +474,18 @@ html,body{overflow-x:hidden;max-width:100%}
   // Questions
   var QUESTIONS=[
     {theme:'Firewalls',q:'Is there a boundary firewall between your office or cloud network and the internet, with default admin passwords changed?',help:'Could be a router/firewall on-site, or a cloud security group / VPC firewall.',gap:'Boundary firewall not properly configured or default credentials still in place.'},
-    {theme:'Firewalls',q:'Is the built-in software firewall switched on for every laptop, desktop and server staff use?',help:'Windows Defender Firewall, macOS firewall, or equivalent — on by default and not disabled.',gap:'Host firewalls not consistently enabled across the device estate.'},
-    {theme:'Secure configuration',q:'Have all default passwords on devices, routers and admin accounts been changed?',help:'Routers, printers, NAS, admin portals — anything that shipped with a default password.',gap:'Default vendor passwords still in use somewhere on the estate.'},
+    {theme:'Firewalls',q:'Is the built-in software firewall switched on for every laptop, desktop and server staff use?',help:'Windows Defender Firewall, macOS firewall, or equivalent - on by default and not disabled.',gap:'Host firewalls not consistently enabled across the device estate.'},
+    {theme:'Secure configuration',q:'Have all default passwords on devices, routers and admin accounts been changed?',help:'Routers, printers, NAS, admin portals - anything that shipped with a default password.',gap:'Default vendor passwords still in use somewhere on the estate.'},
     {theme:'Secure configuration',q:'Are unused user accounts, software and services removed or disabled on company devices?',help:'Old leavers, unused apps, demo accounts, services nobody uses.',gap:'Unused accounts and software still present, expanding the attack surface.'},
-    {theme:'Secure configuration',q:'Do screens automatically lock after a short period of inactivity on every device?',help:'Typically 10 minutes or less, requiring a password / PIN / biometric to unlock.',gap:'Auto-lock not enforced — devices left unlocked are an easy data leak.'},
-    {theme:'User access control',q:'Is multi-factor authentication (MFA) switched on for all admin accounts and cloud services like Microsoft 365 or Google Workspace?',help:'A code from an app, security key, or SMS in addition to the password.',gap:'MFA missing on admin or cloud accounts — the single biggest CE failure point.'},
-    {theme:'User access control',q:'Do staff only have access to the systems and data they actually need to do their job (no shared admin logins)?',help:'Least privilege — standard users for day-to-day work, admin only when required.',gap:'Over-privileged accounts and shared admin logins still in use.'},
-    {theme:'User access control',q:'Is there a documented process to remove access for leavers within one working day?',help:'Disable accounts, revoke MFA, recover devices — written down and followed.',gap:'No formal leaver process — ex-staff may retain access to email and systems.'},
+    {theme:'Secure configuration',q:'Do screens automatically lock after a short period of inactivity on every device?',help:'Typically 10 minutes or less, requiring a password / PIN / biometric to unlock.',gap:'Auto-lock not enforced - devices left unlocked are an easy data leak.'},
+    {theme:'User access control',q:'Is multi-factor authentication (MFA) switched on for all admin accounts and cloud services like Microsoft 365 or Google Workspace?',help:'A code from an app, security key, or SMS in addition to the password.',gap:'MFA missing on admin or cloud accounts - the single biggest CE failure point.'},
+    {theme:'User access control',q:'Do staff only have access to the systems and data they actually need to do their job (no shared admin logins)?',help:'Least privilege - standard users for day-to-day work, admin only when required.',gap:'Over-privileged accounts and shared admin logins still in use.'},
+    {theme:'User access control',q:'Is there a documented process to remove access for leavers within one working day?',help:'Disable accounts, revoke MFA, recover devices - written down and followed.',gap:'No formal leaver process - ex-staff may retain access to email and systems.'},
     {theme:'Malware protection',q:'Is anti-malware or anti-virus installed and kept up to date on every company laptop, desktop and server?',help:'Microsoft Defender counts. So does any reputable third-party AV that auto-updates.',gap:'Anti-malware missing, outdated, or inconsistent across devices.'},
-    {theme:'Malware protection',q:'Are staff prevented from installing unapproved software, or is risky software run only in a sandbox?',help:'Standard-user accounts, an app allowlist, or MDM controls on what can be installed.',gap:'Staff can install any software they like — common route for malware to land.'},
-    {theme:'Patch management',q:'Are operating system and application security updates applied within 14 days of release for high/critical fixes?',help:'Windows Update, macOS updates, browser updates, Office, line-of-business apps.',gap:'Patches not applied within the 14-day CE window — automatic CE fail.'},
-    {theme:'Patch management',q:'Has all unsupported software (out-of-date OS or apps no longer receiving security updates) been removed or isolated?',help:'Windows 10 after end-of-life, old Office versions, unsupported plugins or browsers.',gap:'Unsupported software still in use — cannot pass CE without removal or isolation.'},
-    {theme:'Patch management',q:'Do you keep an up-to-date list (inventory) of every device, app and cloud service the business uses?',help:'You cannot patch or protect what you do not know exists.',gap:'No asset inventory — patching and access control cannot be evidenced.'}
+    {theme:'Malware protection',q:'Are staff prevented from installing unapproved software, or is risky software run only in a sandbox?',help:'Standard-user accounts, an app allowlist, or MDM controls on what can be installed.',gap:'Staff can install any software they like - common route for malware to land.'},
+    {theme:'Patch management',q:'Are operating system and application security updates applied within 14 days of release for high/critical fixes?',help:'Windows Update, macOS updates, browser updates, Office, line-of-business apps.',gap:'Patches not applied within the 14-day CE window - automatic CE fail.'},
+    {theme:'Patch management',q:'Has all unsupported software (out-of-date OS or apps no longer receiving security updates) been removed or isolated?',help:'Windows 10 after end-of-life, old Office versions, unsupported plugins or browsers.',gap:'Unsupported software still in use - cannot pass CE without removal or isolation.'},
+    {theme:'Patch management',q:'Do you keep an up-to-date list (inventory) of every device, app and cloud service the business uses?',help:'You cannot patch or protect what you do not know exists.',gap:'No asset inventory - patching and access control cannot be evidenced.'}
   ];
 
   var answers=new Array(QUESTIONS.length).fill(null);
@@ -563,16 +563,16 @@ html,body{overflow-x:hidden;max-width:100%}
     return Math.round((pts/QUESTIONS.length)*100);
   }
   function bandFor(s){
-    if(s<50)return{label:'High risk — likely to fail CE today',intro:'Material gaps across multiple CE controls. The good news: most are quick wins once you know where to look.'};
-    if(s<75)return{label:'Some gaps — fixable in days',intro:'You are partway there. A focused sprint on a small number of controls will get you over the line.'};
-    if(s<90)return{label:'Close to ready — sprint to certification',intro:'A handful of items between you and a clean pass. Worth booking the assessment now and closing gaps in parallel.'};
-    return{label:'Strong — book the assessment',intro:'You appear ready for assessment. Let us verify the evidence and submit on your behalf.'};
+    if(s<50)return{label:'High risk - likely to fail CE today',intro:'Material gaps across multiple CE controls. The good news: most are quick wins once you know where to look.'};
+    if(s<75)return{label:'Some gaps - fixable in days',intro:'You are partway there. A focused sprint on a small number of controls will get you over the line.'};
+    if(s<90)return{label:'Close to ready - sprint to certification',intro:'A handful of items between you and a clean pass. Worth booking the assessment now and closing gaps in parallel.'};
+    return{label:'Strong - book the assessment',intro:'You appear ready for assessment. Let us verify the evidence and submit on your behalf.'};
   }
   function topGaps(){
     var gaps=[];
     answers.forEach(function(a,i){
       if(a==='no')gaps.push({sev:2,text:QUESTIONS[i].gap});
-      else if(a==='unsure')gaps.push({sev:1,text:'Uncertain on: '+QUESTIONS[i].theme.toLowerCase()+' — '+QUESTIONS[i].gap.toLowerCase()});
+      else if(a==='unsure')gaps.push({sev:1,text:'Uncertain on: '+QUESTIONS[i].theme.toLowerCase()+' - '+QUESTIONS[i].gap.toLowerCase()});
     });
     gaps.sort(function(a,b){return b.sev-a.sev;});
     if(gaps.length===0){gaps.push({text:'No material gaps surfaced. Worth a quick review of evidence before submission.'});}
@@ -612,7 +612,7 @@ html,body{overflow-x:hidden;max-width:100%}
     if(n)n.focus();
   });
 
-  // Form submit — POSTs JSON to the Bluewater API (Cloudflare Worker).
+  // Form submit - POSTs JSON to the Bluewater API (Cloudflare Worker).
   // Replace WORKER_URL after `wrangler deploy` (see worker/wrangler.toml).
   var WORKER_URL='https://bluewater-api.paulmc18.workers.dev';
   var form=document.getElementById('contactForm');
