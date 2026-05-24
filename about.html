@@ -288,13 +288,17 @@
   .portrait-img{
     aspect-ratio:4/5;
     width:100%;
-    max-width:400px;
+    max-width:240px;
     border-radius:var(--radius);
     object-fit:cover;
     object-position:center 22%;
-    box-shadow:0 30px 60px -30px rgba(15,27,45,.35);
+    box-shadow:0 20px 40px -20px rgba(15,27,45,.3);
     display:block;
     background:var(--ink-08);
+  }
+  @media(max-width:820px){
+    .portrait-img{max-width:200px;margin:0 auto}
+    .portrait-caption{text-align:center}
   }
 
   /* PRINCIPLES (dark block) */
