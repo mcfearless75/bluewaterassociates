@@ -43,6 +43,7 @@
       "@id": "https://bluewaterassociates.co.uk/about.html#paul",
       "name": "Paul McNamara",
       "jobTitle": "Founder",
+      "image": "https://bluewaterassociates.co.uk/bluewater_paul.jpg",
       "worksFor": {
         "@type": "Organization",
         "@id": "https://bluewaterassociates.co.uk/#org",
@@ -58,10 +59,26 @@
       "knowsAbout": [
         "Cyber Essentials",
         "Cyber Essentials Plus",
+        "IASME",
         "UK GDPR",
+        "Microsoft 365 administration",
+        "Entra ID",
+        "Conditional Access",
+        "Intune",
+        "SharePoint",
         "Web development",
+        "Wix Studio",
+        "Velo",
+        "Shopify",
+        "Python",
+        "Flask",
+        "Streamlit",
+        "Supabase",
         "SEO",
-        "Productised IT services for SMBs"
+        "Compliance technology",
+        "Productised IT services for SMBs",
+        "PRINCE2",
+        "Scrum"
       ]
     },
     {
@@ -268,6 +285,17 @@
     font-size:.8rem;color:var(--ink-50);
     margin-top:12px;letter-spacing:.04em;
   }
+  .portrait-img{
+    aspect-ratio:4/5;
+    width:100%;
+    max-width:400px;
+    border-radius:var(--radius);
+    object-fit:cover;
+    object-position:center 22%;
+    box-shadow:0 30px 60px -30px rgba(15,27,45,.35);
+    display:block;
+    background:var(--ink-08);
+  }
 
   /* PRINCIPLES (dark block) */
   .dark-section{
@@ -455,14 +483,14 @@
     <h2>Meet Paul <em>McNamara</em></h2>
     <div class="meet-grid">
       <div>
-        <!-- Replace with real headshot — 800x1000 JPG ideal -->
-        <div class="portrait-ph" aria-label="Paul McNamara portrait placeholder">PM</div>
+        <img class="portrait-img" src="/bluewater_paul.jpg" alt="Paul McNamara, Founder of Bluewater Associates" width="800" height="1000" loading="lazy" decoding="async">
         <p class="portrait-caption">Paul McNamara, Founder &middot; Wirral, Merseyside</p>
       </div>
       <div>
-        <p>Paul has spent more than fifteen years operating across the full spread of digital and IT work that small businesses actually need: web manager, digital operator, SEO strategist, portal builder, and the person handling the bits no one else wants to own — domains, mailboxes, GDPR paperwork, the Companies House filings, the bit where the booking form stopped sending emails on a bank holiday.</p>
-        <p>The stack runs from Wix Studio and Velo through Shopify, OpenCart, Python and Flask, Supabase, Microsoft 365 administration, and everything procurement-facing in between. That breadth matters because SMB problems rarely sit in one box. A Cyber Essentials gap is usually also an M365 hygiene problem, which is usually also a documented-policy problem, which is usually also a "nobody owns this" problem.</p>
-        <p>The Bluewater difference is the direct working relationship with a certified Cyber Essentials assessor. Most consultancies refer you to a third party and add a margin. Bluewater doesn't. The assessor is scheduled before delivery starts, which is why a 30-day turnaround is a date, not a hope.</p>
+        <p>Paul is a Wirral-based digital operator who has spent more than fifteen years running the actual work small UK businesses need &mdash; and running several of his own. Web manager, SEO strategist, portal builder, M365 administrator, GDPR caretaker, and the person handling the bits no one else wants to own: domains, mailboxes, Companies House filings, the booking form that stopped sending emails on a bank holiday.</p>
+        <p>The portfolio is deliberately broad. He operates and supports digital across SMBs in compliance technology (including <strong>Compliance Passport</strong>, a SaaS platform managing contractor compliance for UK construction), healthcare administration (<strong>TruthCare Group</strong>), industrial services, security firms, regional service businesses, e-commerce and EdTech (<strong>MyWay</strong>, a dyslexia-focused GCSE revision app). Different industries, same pattern: small teams that need to look credible, ship fast, and pass procurement.</p>
+        <p>The stack covers what SMBs actually run on. Wix Studio with Velo for brochure and booking sites, Shopify and OpenCart for retail, Python with Flask and Streamlit for internal tools and dashboards, Supabase for back-end and auth, Excel and xlwings where finance still lives, GitHub and Railway for ship-it-yesterday deployments, and Microsoft 365 for everything in between &mdash; tenant builds, Entra ID, conditional access, Intune, SharePoint. PRINCE2 and Scrum for controlled delivery; neither for show. The newest addition is the Claude API and Claude Code for AI-assisted operations, used in production across multiple ventures.</p>
+        <p>Cyber Essentials sits comfortably in this stack because the underlying work is already familiar &mdash; M365 hardening, identity protection, device baselines, written policies, evidence gathering, IASME submission. The Bluewater unlock is a direct working relationship with a certified Cyber Essentials assessor, scheduled before delivery starts. That's why a 30-day turnaround is a date, not a hope.</p>
         <p style="font-family:var(--serif);font-style:italic;color:var(--ink-70);font-size:1.1rem;">One operator. Direct line. Fixed price. That's the entire pitch.</p>
       </div>
     </div>
