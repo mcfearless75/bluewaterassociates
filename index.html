@@ -169,11 +169,40 @@
 
   /* Nav */
   .nav{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.85);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--ink-08)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;position:relative}
   .nav-links{display:none;align-items:center;gap:28px;font-size:.95rem;color:var(--ink-70)}
   .nav-links a{transition:color .2s ease}
   .nav-links a:hover{color:var(--ink)}
   @media (min-width:880px){.nav-links{display:flex}}
+
+  /* Hamburger */
+  .nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--ink-15);border-radius:10px;cursor:pointer;padding:0;transition:border-color .2s ease}
+  .nav-toggle:hover{border-color:var(--ink)}
+  .nav-toggle .bar{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .25s ease,background .15s ease}
+  .nav-toggle .bar::before,.nav-toggle .bar::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .25s ease}
+  .nav-toggle .bar::before{top:-6px}
+  .nav-toggle .bar::after{top:6px}
+  .nav[data-open] .nav-toggle .bar{background:transparent}
+  .nav[data-open] .nav-toggle .bar::before{transform:translateY(6px) rotate(45deg)}
+  .nav[data-open] .nav-toggle .bar::after{transform:translateY(-6px) rotate(-45deg)}
+
+  @media (max-width:879px){
+    .nav-toggle{display:inline-flex}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:0;
+      background:var(--bg);border-bottom:1px solid var(--ink-08);
+      box-shadow:0 18px 32px -22px rgba(15,27,45,.22);
+      padding:0;max-height:0;overflow:hidden;
+      transition:max-height .3s ease,padding .3s ease;
+      pointer-events:none;display:flex;
+    }
+    .nav[data-open] .nav-links{max-height:90vh;padding:8px 0 22px;pointer-events:auto}
+    .nav-links a{padding:16px 28px;font-size:1.05rem;color:var(--ink);text-align:center;border-top:1px solid var(--ink-08);justify-content:center}
+    .nav-links a:first-child{border-top:none}
+    .nav-links a:hover{background:rgba(15,27,45,.04);color:var(--accent)}
+    .nav-links .btn{margin:16px auto 0;justify-content:center;width:calc(100% - 56px);padding:16px 20px;font-size:1rem}
+  }
 
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:500;font-size:.95rem;line-height:1;padding:14px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;white-space:nowrap}
   .btn:active{transform:translateY(1px)}
@@ -342,8 +371,9 @@
 
   /* Footer */
   footer{padding:80px 0 40px;border-top:1px solid var(--ink-08);margin-top:0;background:var(--bg)}
-  .foot-grid{display:grid;grid-template-columns:1fr;gap:40px}
-  @media (min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+  .foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 24px}
+  .foot-brand{grid-column:1 / -1}
+  @media (min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}.foot-brand{grid-column:auto}}
   .foot-col h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);font-weight:500;margin:0 0 16px}
   .foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem;color:var(--ink-70)}
   .foot-col ul a:hover{color:var(--accent)}
@@ -355,19 +385,16 @@
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px;z-index:100}
   .skip:focus{left:16px;top:16px}
 
-  /* === MOBILE POLISH (added by responsive audit) === */
+  /* === MOBILE POLISH === */
   html,body{overflow-x:hidden;max-width:100%}
-  /* Prevent iOS zoom on focus — inputs must be >=16px (handled per-file). */
-  /* Nav: show a compact CTA on mobile, hide on desktop where full nav-links shows */
-  .nav-cta-mobile{display:inline-flex;padding:10px 16px;font-size:.88rem}
-  @media (min-width:880px){.nav-cta-mobile{display:none}}
   @media (max-width:520px){
     .nav-inner{gap:12px;padding:10px 0}
     .brand{font-size:1.1rem}
-    .nav-cta-mobile{padding:9px 14px;font-size:.82rem}
   }
-  @media (max-width:380px){
-    .nav-cta-mobile{padding:8px 12px;font-size:.78rem}
+  /* Central CTAs on mobile */
+  @media (max-width:760px){
+    .cta-row{justify-content:center}
+    .hero .cta-row{justify-content:center}
   }
 
   /* Hero polish */
@@ -458,7 +485,7 @@
 <header class="nav" role="banner">
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Bluewater Associates home">Bluewater<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary navigation">
+    <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
       <a href="#services">Services</a>
       <a href="/cyber-essentials.html">Cyber Essentials</a>
       <a href="/about.html">About</a>
@@ -466,7 +493,7 @@
       <a href="#faq">FAQ</a>
       <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call <span class="arrow" aria-hidden="true">&rarr;</span></button>
     </nav>
-    <button type="button" class="btn btn-accent nav-cta-mobile" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}' aria-label="Book a call">Book a call</button>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span class="bar"></span></button>
   </div>
 </header>
 
@@ -573,6 +600,26 @@
   </div>
 </section>
 
+<section id="services" aria-labelledby="services-heading">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Everything you need</span>
+      <h2 id="services-heading">One partner for IT, cyber and digital.</h2>
+      <p>From the day-to-day support keeping your team productive to the web platforms keeping you visible &mdash; Bluewater is the single number to call.</p>
+    </header>
+    <div class="services">
+      <article class="svc"><h3>Cyber Essentials Plus</h3><p>External technical audit and full certification. The standard most prime contractors and insurers now expect.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
+      <article class="svc"><h3>Managed IT</h3><p>Helpdesk, endpoint management, patching, backup and monitoring. Fixed per-user, no surprise tickets.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
+      <article class="svc"><h3>Microsoft 365 Setup</h3><p>Tenant build, identity, mailboxes, SharePoint, Intune baseline and conditional access. Done in days, not months.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
+      <article class="svc"><h3>Website Design</h3><p>Fast, accessible, on-brand sites that convert. Built on platforms you can actually maintain.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
+      <article class="svc"><h3>SEO</h3><p>Technical fixes, content strategy and local search. Monthly reporting you can read in five minutes.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
+      <article class="svc"><h3>Web Apps &amp; Portals</h3><p>Internal tools, client portals and custom software when the off-the-shelf stack runs out of road.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
+      <article class="svc"><h3>IT Audit</h3><p>Full stack review &mdash; identity, endpoints, network, backups, suppliers. Risk-ranked, costed remediation plan.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
+      <article class="svc"><h3>Managed Compliance</h3><p>Keep CE, CE Plus and supplier questionnaires current. We own the calendar, evidence and renewals.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
+    </div>
+  </div>
+</section>
+
 <section id="cyber-essentials" aria-labelledby="ce-heading">
   <div class="wrap">
     <div class="wedge">
@@ -598,26 +645,6 @@
           <a href="/readiness.html" class="btn btn-ghost" style="background:rgba(245,241,234,.08);color:var(--bg);border-color:rgba(245,241,234,.2)">Run the free readiness check</a>
         </aside>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" aria-labelledby="services-heading">
-  <div class="wrap">
-    <header class="section-head">
-      <span class="eyebrow">Everything else you need</span>
-      <h2 id="services-heading">One partner for IT, cyber and digital.</h2>
-      <p>From the day-to-day support keeping your team productive to the web platforms keeping you visible &mdash; Bluewater is the single number to call.</p>
-    </header>
-    <div class="services">
-      <article class="svc"><h3>Cyber Essentials Plus</h3><p>External technical audit and full certification. The standard most prime contractors and insurers now expect.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Managed IT</h3><p>Helpdesk, endpoint management, patching, backup and monitoring. Fixed per-user, no surprise tickets.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
-      <article class="svc"><h3>Microsoft 365 Setup</h3><p>Tenant build, identity, mailboxes, SharePoint, Intune baseline and conditional access. Done in days, not months.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Website Design</h3><p>Fast, accessible, on-brand sites that convert. Built on platforms you can actually maintain.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>SEO</h3><p>Technical fixes, content strategy and local search. Monthly reporting you can read in five minutes.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
-      <article class="svc"><h3>Web Apps &amp; Portals</h3><p>Internal tools, client portals and custom software when the off-the-shelf stack runs out of road.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
-      <article class="svc"><h3>IT Audit</h3><p>Full stack review &mdash; identity, endpoints, network, backups, suppliers. Risk-ranked, costed remediation plan.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Managed Compliance</h3><p>Keep CE, CE Plus and supplier questionnaires current. We own the calendar, evidence and renewals.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
     </div>
   </div>
 </section>
@@ -738,7 +765,6 @@
         <ul>
           <li><a href="mailto:hello@bluewaterassociates.co.uk">hello@bluewaterassociates.co.uk</a></li>
           <li><a href="tel:+441234567890">+44 1234 567890</a></li>
-          <li>[insert registered office address]</li>
           <li>Wirral &middot; North West &middot; UK</li>
         </ul>
       </div>
@@ -761,6 +787,17 @@ Cal.ns["15min"]("inline", {
   config: {"layout":"month_view"},
   calLink: "bluewater",
 });
+/* Hamburger menu toggle */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = document.getElementById('nav-toggle');
+  if(!nav||!btn) return;
+  function close(){ nav.removeAttribute('data-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open menu'); }
+  function open(){ nav.setAttribute('data-open',''); btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Close menu'); }
+  btn.addEventListener('click', function(){ nav.hasAttribute('data-open') ? close() : open(); });
+  nav.querySelectorAll('.nav-links a, .nav-links .btn').forEach(function(el){ el.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
 Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 
