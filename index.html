@@ -169,19 +169,68 @@
   .btn .arrow{transition:transform .25s ease}
   .btn:hover .arrow{transform:translateX(3px)}
 
-  /* Hero */
-  .hero{padding:clamp(56px,9vw,120px) 0 var(--space-section);position:relative;overflow:hidden}
+  /* Hero — digital command surface */
+  .hero{position:relative;overflow:hidden;isolation:isolate;padding:clamp(72px,11vw,140px) 0 clamp(64px,8vw,120px);background:radial-gradient(ellipse at 65% 35%,#1a2a44 0%,#0F1B2D 55%,#070d18 100%);color:var(--surface)}
+  .hero .wrap{position:relative;z-index:3}
   .eyebrow{font-family:var(--sans);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-70);display:inline-flex;align-items:center;gap:10px}
   .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+  .hero .eyebrow{color:rgba(245,241,234,.72)}
+  .hero .eyebrow::before{box-shadow:0 0 14px var(--accent)}
   .h-display{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem, 1.4rem + 5.2vw, 5.6rem);line-height:1.02;letter-spacing:-.025em;margin:24px 0 0;color:var(--ink)}
   .h-display em{font-style:italic;font-weight:400;color:var(--accent)}
   .h-display .underline{position:relative;display:inline-block}
   .h-display .underline::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--gold);opacity:.55;z-index:-1;border-radius:3px}
+  .hero .h-display{color:var(--surface)}
+  .hero .h-display em{color:var(--gold)}
+  .hero .h-display .underline::after{background:var(--accent);opacity:.9;height:.14em;box-shadow:0 0 18px rgba(199,86,52,.55)}
   .lead{font-size:clamp(1.05rem,.95rem + .5vw,1.25rem);max-width:62ch;color:var(--ink-70);margin:24px 0 36px}
+  .hero .lead{color:rgba(245,241,234,.78)}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-  .hero-meta{margin-top:48px;display:flex;flex-wrap:wrap;gap:24px 36px;font-size:.9rem;color:var(--ink-70)}
-  .hero-meta span{display:inline-flex;align-items:center;gap:8px}
+  .hero .btn-ghost{color:var(--surface);border-color:rgba(245,241,234,.25)}
+  .hero .btn-ghost:hover{border-color:var(--surface);background:rgba(245,241,234,.06)}
+  .hero .btn-accent{box-shadow:0 0 0 0 rgba(199,86,52,.55);transition:transform .2s ease,box-shadow .35s ease}
+  .hero .btn-accent:hover{box-shadow:0 12px 32px -8px rgba(199,86,52,.7),0 0 0 1px rgba(199,86,52,.3)}
+
+  /* Status chip — "system online" */
+  .status-chip{display:inline-flex;align-items:center;gap:9px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,169,97,.9);padding:7px 13px;border:1px solid rgba(201,169,97,.28);border-radius:999px;background:rgba(15,27,45,.45);backdrop-filter:blur(6px)}
+  .status-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:#7fd49a;box-shadow:0 0 10px #7fd49a;animation:pulse-dot 2s ease-in-out infinite}
+  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero-stack{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+
+  /* Hero meta as monospace chips */
+  .hero-meta{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.78rem;letter-spacing:.06em;color:var(--ink-70)}
+  .hero-meta span{display:inline-flex;align-items:center;gap:9px;padding:8px 14px}
   .hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;display:inline-block}
+  .hero .hero-meta span{color:rgba(245,241,234,.78);border:1px solid rgba(245,241,234,.12);border-radius:6px;background:rgba(15,27,45,.5);backdrop-filter:blur(4px)}
+  .hero .hero-meta span::before{border-radius:1px;transform:rotate(45deg)}
+
+  /* Layered hex background */
+  .hex-layer{position:absolute;inset:0;z-index:1;pointer-events:none;will-change:transform;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+  .hex-grid-svg{position:absolute;inset:-8% -8%;width:116%;height:116%;opacity:.34}
+  .hex-grid-svg path{stroke:rgba(201,169,97,.22);stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+  .hex-live{position:absolute;width:50px;height:57.7px;animation:hex-pulse 4.2s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(199,86,52,.45))}
+  .hex-live svg{width:100%;height:100%;display:block}
+  .hex-live path{fill:rgba(199,86,52,.04);stroke:rgba(199,86,52,.85);stroke-width:1.4}
+  .hex-live.gold{filter:drop-shadow(0 0 12px rgba(201,169,97,.4))}
+  .hex-live.gold path{stroke:rgba(201,169,97,.95);fill:rgba(201,169,97,.04)}
+  @keyframes hex-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+
+  /* Diagonal sheen sweep */
+  .hex-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(245,241,234,.04) 50%,transparent 65%);mix-blend-mode:overlay;animation:sheen 11s ease-in-out infinite}
+  @keyframes sheen{0%,100%{transform:translateX(-18%)}50%{transform:translateX(18%)}}
+
+  /* Code rain — drifting hex digits */
+  .code-rain{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .code-rain span{position:absolute;top:-30%;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.78rem;line-height:1.55;letter-spacing:.1em;color:rgba(201,169,97,.18);white-space:pre;animation:drift linear infinite}
+  @keyframes drift{from{transform:translateY(0)}to{transform:translateY(160vh)}}
+
+  /* Soft fade where hero meets next section */
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(to bottom,transparent,var(--surface));z-index:2;pointer-events:none}
+
+  @media (prefers-reduced-motion: reduce){
+    .hex-live,.hex-sheen,.code-rain span,.status-chip::before{animation:none}
+    .hex-layer{transition:none}
+  }
 
   /* Trust strip */
   .trust{border-top:1px solid var(--ink-08);border-bottom:1px solid var(--ink-08);padding:28px 0;background:var(--surface)}
@@ -308,8 +357,38 @@
 <main id="main">
 
 <section class="hero" id="top" aria-labelledby="hero-heading">
+  <!-- Layer 1: hex tessellation -->
+  <div class="hex-layer" data-parallax="6" aria-hidden="true">
+    <svg class="hex-grid-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="hexpat" width="56" height="64.8" patternUnits="userSpaceOnUse">
+          <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z M28,0 L28,-16 M56,16 L70,8 M56,48 L70,56 M28,64 L28,80 M0,48 L-14,56 M0,16 L-14,8"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexpat)"/>
+    </svg>
+  </div>
+
+  <!-- Layer 2: code rain -->
+  <div class="code-rain" id="codeRain" aria-hidden="true"></div>
+
+  <!-- Layer 3: live hex nodes (parallax intensity higher) -->
+  <div class="hex-layer" data-parallax="16" aria-hidden="true">
+    <div class="hex-live"      style="top:14%;left:7%;animation-delay:0s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live gold" style="top:62%;left:12%;animation-delay:.8s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live"      style="top:22%;right:10%;animation-delay:1.5s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live gold" style="top:76%;right:18%;animation-delay:2.2s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live"      style="top:48%;left:46%;animation-delay:2.7s;width:36px;height:41.5px"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+  </div>
+
+  <!-- Layer 4: diagonal sheen -->
+  <div class="hex-sheen" aria-hidden="true"></div>
+
   <div class="wrap">
-    <span class="eyebrow">UK IT, cyber security &amp; digital partner</span>
+    <div class="hero-stack">
+      <span class="status-chip" aria-label="Currently accepting work">System online &middot; Accepting work for July</span>
+      <span class="eyebrow">UK IT, cyber security &amp; digital partner</span>
+    </div>
     <h1 id="hero-heading" class="h-display">
       <span class="underline">Cyber Essentials</span> in 30&nbsp;days.<br/>
       Fixed price. <em>One partner.</em>
@@ -327,6 +406,43 @@
     </div>
   </div>
 </section>
+<script>
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var rain = document.getElementById('codeRain');
+  if (rain) {
+    var cols = window.innerWidth < 760 ? 4 : 8;
+    var chars = '0123456789ABCDEF';
+    for (var i=0; i<cols; i++) {
+      var s = document.createElement('span');
+      var t = '';
+      for (var j=0; j<24; j++) t += chars[Math.floor(Math.random()*16)] + chars[Math.floor(Math.random()*16)] + '\n';
+      s.textContent = t;
+      s.style.left = (4 + i * (92/cols) + Math.random()*3) + '%';
+      s.style.animationDuration = (20 + Math.random()*16) + 's';
+      s.style.animationDelay = (-Math.random()*22) + 's';
+      rain.appendChild(s);
+    }
+  }
+  var layers = document.querySelectorAll('.hero .hex-layer[data-parallax]');
+  if (!layers.length) return;
+  var ticking = false, lastX = 0, lastY = 0;
+  document.addEventListener('mousemove', function(e){
+    lastX = (e.clientX/window.innerWidth - .5) * 2;
+    lastY = (e.clientY/window.innerHeight - .5) * 2;
+    if (!ticking){
+      requestAnimationFrame(function(){
+        layers.forEach(function(l){
+          var d = parseFloat(l.dataset.parallax) || 0;
+          l.style.transform = 'translate3d(' + (lastX*d).toFixed(2) + 'px,' + (lastY*d).toFixed(2) + 'px,0)';
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive:true});
+})();
+</script>
 
 <section class="trust" aria-label="Why Bluewater">
   <div class="wrap">
