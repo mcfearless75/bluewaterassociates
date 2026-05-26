@@ -500,10 +500,35 @@
   /* Touch targets - ensure 44px min hit area */
   .btn,summary,.nav-links a{min-height:44px}
   .nav-links a{display:inline-flex;align-items:center}
+
+  /* === STICKY CTA BAR === */
+  #sticky-cta{position:fixed;top:0;left:0;right:0;z-index:49;background:rgba(245,241,234,.96);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--ink-08);padding:9px 0;display:flex;align-items:center;justify-content:center;gap:20px;transform:translateY(-110%);transition:transform .38s cubic-bezier(.22,1,.36,1);pointer-events:none}
+  #sticky-cta.cta-visible{transform:translateY(0);pointer-events:auto}
+  #sticky-cta p{margin:0;font-size:.9rem;color:var(--ink-70);white-space:nowrap}
+  #sticky-cta strong{color:var(--ink);font-weight:600}
+  #sticky-cta .btn{padding:9px 18px;font-size:.88rem}
+  @media(max-width:600px){#sticky-cta p{display:none}}
+
+  /* === SCROLL REVEALS: service cards + steps === */
+  .svc,.step{opacity:0;transform:translateY(26px)}
+  .svc.reveal-in,.step.reveal-in{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+  @media(prefers-reduced-motion:reduce){.svc,.step{opacity:1 !important;transform:none !important}}
+
+  /* === STATS ROW (about section) === */
+  .stats-row{display:flex;flex-wrap:wrap;gap:20px 48px;margin:0 0 48px;padding-bottom:40px;border-bottom:1px solid var(--ink-08)}
+  .stat-item{display:flex;flex-direction:column;gap:6px}
+  .stat-num{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,1.6rem + 1.5vw,3.2rem);letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .stat-suffix{font-size:.55em;color:var(--accent);vertical-align:super;font-weight:500;margin-left:2px}
+  .stat-label{font-size:.75rem;color:var(--ink-50);letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-top:4px}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
+<div id="sticky-cta" aria-label="Quick booking" role="complementary">
+  <p><strong>Fixed price. Quoted in 48 hours.</strong> Cyber Essentials in 30 days.</p>
+  <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call <span class="arrow" aria-hidden="true">&rarr;</span></button>
+</div>
 
 <header class="nav" role="banner">
   <div class="wrap nav-inner">
@@ -690,6 +715,20 @@
 
 <section id="about" class="about" aria-labelledby="about-heading">
   <div class="wrap">
+    <div class="stats-row" aria-label="Bluewater at a glance">
+      <div class="stat-item">
+        <span class="stat-num"><span class="stat-count" data-target="30">30</span><span class="stat-suffix">+</span></span>
+        <span class="stat-label">Years in IT</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="stat-count" data-target="20">20</span><span class="stat-suffix">+</span></span>
+        <span class="stat-label">Years in delivery</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="stat-count" data-target="48">48</span><span class="stat-suffix">hr</span></span>
+        <span class="stat-label">Quote turnaround</span>
+      </div>
+    </div>
     <div class="about-grid">
       <div>
         <span class="eyebrow">About Bluewater</span>
@@ -871,6 +910,54 @@ Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 </style>
 <script>
 (function(){var b=document.getElementById('back-to-top');if(!b)return;b.hidden=false;function tick(){window.scrollY>400?b.classList.add('visible'):b.classList.remove('visible')}window.addEventListener('scroll',tick,{passive:true});tick();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})})();
+(function(){
+  /* --- Scroll reveals: service cards + steps --- */
+  var reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  [[].slice.call(document.querySelectorAll('.services .svc')),[].slice.call(document.querySelectorAll('.steps .step'))].forEach(function(items){
+    if(!items.length)return;
+    if(reduced){items.forEach(function(el){el.classList.add('reveal-in');});return;}
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var idx=items.indexOf(e.target);
+        setTimeout(function(){e.target.classList.add('reveal-in');},idx*75);
+        obs.unobserve(e.target);
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+    items.forEach(function(el){obs.observe(el);});
+  });
+  /* --- Sticky CTA bar --- */
+  var bar=document.getElementById('sticky-cta');
+  var heroRow=document.querySelector('.hero .cta-row');
+  if(bar&&heroRow){
+    new IntersectionObserver(function(entries){
+      entries[0].isIntersecting?bar.classList.remove('cta-visible'):bar.classList.add('cta-visible');
+    },{threshold:0}).observe(heroRow);
+  }
+  /* --- Animated counters --- */
+  var counters=[].slice.call(document.querySelectorAll('.stat-count'));
+  if(counters.length){
+    counters.forEach(function(el){el.textContent='0';});
+    if(reduced){counters.forEach(function(el){el.textContent=el.dataset.target;});}
+    else{
+      var cobs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(!e.isIntersecting)return;
+          cobs.unobserve(e.target);
+          var el=e.target,target=parseInt(el.dataset.target,10),dur=1100,start=null;
+          requestAnimationFrame(function tick(ts){
+            if(!start)start=ts;
+            var p=Math.min((ts-start)/dur,1),ease=p<.5?2*p*p:(4-2*p)*p-1;
+            el.textContent=Math.round(ease*target);
+            if(p<1)requestAnimationFrame(tick);
+          });
+        });
+      },{threshold:0.6});
+      counters.forEach(function(el){cobs.observe(el);});
+    }
+  }
+})();
+
 (function(){
   var cards=document.querySelectorAll('.referrals-grid .referral-card');
   if(!cards.length)return;
