@@ -363,7 +363,8 @@
   .about-card dd a:hover{color:var(--accent)}
 
   /* FAQ */
-  .faq{display:grid;gap:8px;max-width:880px}
+  .faq{display:grid;gap:10px;grid-template-columns:1fr;align-items:start}
+  @media(min-width:880px){.faq{grid-template-columns:1fr 1fr;gap:10px 16px;max-width:none}}
   details{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);padding:0;transition:border-color .2s ease}
   details[open]{border-color:var(--ink-15);box-shadow:var(--shadow)}
   summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:var(--serif);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
