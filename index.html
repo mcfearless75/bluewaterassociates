@@ -153,7 +153,7 @@
     --shadow:0 1px 0 rgba(15,27,45,.04), 0 12px 32px -16px rgba(15,27,45,.18);
     --shadow-lift:0 2px 0 rgba(15,27,45,.04), 0 30px 60px -30px rgba(15,27,45,.28);
     --maxw:1180px;
-    --space-section:clamp(4rem, 3rem + 5vw, 8rem);
+    --space-section:clamp(2.75rem, 2rem + 2.5vw, 5rem);
   }
   html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   img,svg{display:block;max-width:100%}
@@ -288,6 +288,23 @@
 
   /* Section header */
   section{padding:var(--space-section) 0}
+
+  /* Referrals */
+  #referrals{background:var(--bg)}
+  .referrals-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px}
+  @media(min-width:880px){.referrals-grid{grid-template-columns:1fr 1fr;gap:24px}}
+  .referral-card{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);padding:32px 30px 26px;display:flex;flex-direction:column;gap:18px;position:relative;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+  .referral-card:hover{border-color:rgba(199,86,52,.35);transform:translateY(-2px);box-shadow:0 18px 36px -22px rgba(15,27,45,.18)}
+  .referral-tag{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:5px 11px;border:1px solid rgba(199,86,52,.25);border-radius:999px;align-self:flex-start;background:rgba(199,86,52,.06)}
+  .referral-quote{font-family:var(--serif);font-weight:500;font-size:clamp(1.2rem,1rem+.7vw,1.45rem);line-height:1.32;letter-spacing:-.01em;color:var(--ink);margin:0;padding:0;quotes:none}
+  .referral-quote::before{content:"";display:block;width:36px;height:3px;background:var(--accent);margin-bottom:16px;border-radius:2px}
+  .referral-body{color:var(--ink-70);font-size:.94rem;line-height:1.6}
+  .referral-body p{margin:0 0 12px}
+  .referral-body p:last-child{margin-bottom:0}
+  .referral-author{display:flex;flex-direction:column;gap:2px;padding-top:18px;border-top:1px solid var(--ink-08);margin-top:auto}
+  .referral-author strong{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);letter-spacing:-.005em}
+  .referral-author span{font-size:.85rem;color:var(--ink-50)}
+  @media(max-width:560px){.referral-card{padding:24px 22px 22px;gap:14px}}
   .section-head{display:grid;gap:18px;margin-bottom:56px;max-width:780px}
   .section-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:0}
   .section-head p{color:var(--ink-70);font-size:1.05rem;margin:0;max-width:60ch}
@@ -712,6 +729,43 @@
       <details><summary>Does Cyber Essentials cover Microsoft 365 and cloud services? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. Anything in scope of your day-to-day work is covered - M365, Google Workspace, AWS, Azure, line-of-business SaaS. We configure conditional access, MFA, identity protection and device baselines as part of the engagement.</div></details>
       <details><summary>How long is a Cyber Essentials certificate valid? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">12 months. Annual recertification is required to stay listed on the IASME register and to keep insurance/procurement claims valid. Our Managed Compliance retainer keeps the calendar, evidence and renewal automatic.</div></details>
       <details><summary>Do we need to be a UK company to certify? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Cyber Essentials is administered by IASME under contract with the UK NCSC. Non-UK organisations can certify if they have a UK operation or want to bid for UK public-sector or supply-chain work. If you&rsquo;re unsure, ask - we&rsquo;ll tell you straight.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="referrals" aria-labelledby="referrals-heading">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Client referrals</span>
+      <h2 id="referrals-heading">Recent engagements, in their words.</h2>
+      <p>Two fixed-price engagements delivered to the day. Same pattern: scope inside 48 hours, single point of contact, no surprises.</p>
+    </header>
+    <div class="referrals-grid">
+      <article class="referral-card">
+        <span class="referral-tag">Construction &amp; Site Services</span>
+        <blockquote class="referral-quote">Bluewater took Cyber Essentials off our hands and gave us back a working IT setup at the same time. Fixed price, no surprises, certificate in the window they said.</blockquote>
+        <div class="referral-body">
+          <p>We needed Cyber Essentials to keep ourselves on the right side of main contractor pre-qualifications, and we needed our day-to-day IT properly set up rather than held together with goodwill. Bluewater scoped both inside 48 hours, gave us a single fixed price, and ran the whole engagement from one point of contact. No being passed around, no scope creep, no chasing.</p>
+          <p>The certificate landed inside the 30 day window. Just as useful, our user accounts, devices, mailboxes and access controls were tidied up at the same time, so we came out of it with a setup that actually holds up under scrutiny rather than just a badge on the wall. Anyone in construction or site services who's tired of agency politics around IT and compliance should be talking to them.</p>
+        </div>
+        <footer class="referral-author">
+          <strong>Keenan</strong>
+          <span>Director, PRL Site Solutions</span>
+        </footer>
+      </article>
+
+      <article class="referral-card">
+        <span class="referral-tag">Healthcare</span>
+        <blockquote class="referral-quote">We needed Cyber Essentials and a proper Microsoft 365 setup we could actually trust with sensitive data. Bluewater delivered both, on a fixed price, without the usual back and forth.</blockquote>
+        <div class="referral-body">
+          <p>Care sector data carries a high bar. We came to Bluewater with two problems running in parallel: getting Cyber Essentials certified, and standing up Microsoft 365 properly with Entra ID, SharePoint structured around our teams, and permissions that reflected who should see what. They scoped it as one engagement, quoted it as one fixed price, and delivered both inside the timeline.</p>
+          <p>What stood out was the lack of drama. Configuration was handled, policies were written for our business rather than dropped in from a template library, and the SharePoint structure is something staff can actually use day to day. The certificate is on the wall, the tenant is locked down, and we have a single number to call when anything changes. Genuinely the easiest IT and compliance project we've run.</p>
+        </div>
+        <footer class="referral-author">
+          <strong>Kumi</strong>
+          <span>Director, TruthCare Group</span>
+        </footer>
+      </article>
     </div>
   </div>
 </section>
