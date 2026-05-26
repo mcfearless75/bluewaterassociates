@@ -1,816 +1,1371 @@
-<!doctype html>
-<html lang="en-GB">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Bluewater Associates - Cyber Essentials &amp; IT for UK SMBs</title>
-<meta name="description" content="Bluewater Associates is a UK IT, cyber security and digital services partner for SMBs. Cyber Essentials in 30 days. Fixed price. Direct line to a certified CE assessor. One partner. No agency politics." />
-<link rel="canonical" href="https://bluewaterassociates.co.uk/" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ember — Your story. Your space.</title>
+  <meta name="description" content="Ember is your private space to track how you feel, reflect, and see how far you've come.">
+  <meta name="theme-color" content="#D85A30">
 
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Bluewater Associates" />
-<meta property="og:title" content="Bluewater Associates - Cyber Essentials &amp; IT for UK SMBs" />
-<meta property="og:description" content="Cyber Essentials in 30 days. Fixed price. Direct line to a certified CE assessor. UK partner for SMBs of 5-100 staff." />
-<meta property="og:url" content="https://bluewaterassociates.co.uk/" />
-<meta property="og:image" content="https://bluewaterassociates.co.uk/og-image.svg" />
-<meta property="og:locale" content="en_GB" />
+  <!-- PWA basics -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Ember">
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Bluewater Associates - Cyber Essentials &amp; IT for UK SMBs" />
-<meta name="twitter:description" content="Cyber Essentials in 30 days. Fixed price. Direct line to a certified CE assessor." />
-<meta name="twitter:image" content="https://bluewaterassociates.co.uk/og-image.svg" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://app.cal.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+    :root {
+      --em:     #D85A30;
+      --emlt:   #FAECE7;
+      --emdark: #993C1D;
+      --glow:   #EF9F27;
+      --gllt:   #FAEEDA;
+      --amb:    #BA7517;
+      --ash:    #2C2C2A;
+      --warm:   #F1EFE8;
+      --text:   #1a1a18;
+      --text2:  #5f5e5a;
+      --text3:  #888780;
+      --bg:     #ffffff;
+      --bg2:    #f7f6f3;
+      --bg3:    #f1efe8;
+      --border: rgba(0,0,0,0.10);
+      --border2: rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
 
-<script defer data-domain="bluewaterassociates.co.uk" src="https://plausible.io/js/script.js"></script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://bluewaterassociates.co.uk/#org",
-      "name": "Bluewater Associates Limited",
-      "url": "https://bluewaterassociates.co.uk/",
-      "email": "hello@bluewaterassociates.co.uk",
-      "telephone": "+44 1234 567890",
-      "image": "https://bluewaterassociates.co.uk/og-image.svg",
-      "description": "UK IT, cyber security and digital services partner for SMBs. Cyber Essentials in 30 days. Fixed price. Direct line to a certified CE assessor.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "[insert registered office address]",
-        "addressLocality": "Wirral",
-        "addressRegion": "Merseyside",
-        "postalCode": "[postcode]",
-        "addressCountry": "GB"
-      },
-      "areaServed": [
-        {"@type": "Place", "name": "Wirral"},
-        {"@type": "Place", "name": "Liverpool"},
-        {"@type": "Place", "name": "Manchester"},
-        {"@type": "Place", "name": "Chester"},
-        {"@type": "Place", "name": "Warrington"},
-        {"@type": "Country", "name": "United Kingdom"}
-      ],
-      "identifier": "16663061",
-      "sameAs": [
-        "https://www.linkedin.com/company/bluewater-associates-uk",
-        "https://find-and-update.company-information.service.gov.uk/company/16663061"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Bluewater Services",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cyber Essentials"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cyber Essentials Plus"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed IT"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft 365 Setup"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Design"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web App & Portal Development"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Audit"}, "availability": "https://schema.org/InStock"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed Compliance"}, "availability": "https://schema.org/InStock"}
-        ]
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text:   #f0ede8;
+        --text2:  #a09d97;
+        --text3:  #6b6965;
+        --bg:     #1a1917;
+        --bg2:    #222120;
+        --bg3:    #2a2927;
+        --border: rgba(255,255,255,0.10);
+        --border2: rgba(255,255,255,0.18);
+        --emlt:   #3a1a10;
+        --gllt:   #2e1f08;
       }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://bluewaterassociates.co.uk/#website",
-      "url": "https://bluewaterassociates.co.uk/",
-      "name": "Bluewater Associates",
-      "publisher": {"@id": "https://bluewaterassociates.co.uk/#org"},
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "How long does Cyber Essentials take with Bluewater?",
-         "acceptedAnswer": {"@type": "Answer", "text": "30 days from kick-off to certificate for most SMBs. We schedule the assessment up front so there is no drift."}},
-        {"@type": "Question", "name": "What is included in the Cyber Essentials engagement?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Gap analysis, remediation guidance, policy templates, evidence gathering, IASME submission via our certified assessor relationship, and the certificate. Fixed price quoted within 48 hours of discovery call."}},
-        {"@type": "Question", "name": "Do you also do Cyber Essentials Plus?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Yes. CE Plus includes an external technical audit. Most clients move on to Plus 60-90 days after passing CE, once their environment is stabilised."}},
-        {"@type": "Question", "name": "What happens if we fail the assessment?",
-         "acceptedAnswer": {"@type": "Answer", "text": "We re-mediate the gaps and resubmit at no additional cost within the engagement window. Fixed price means fixed outcome."}},
-        {"@type": "Question", "name": "Do you sub-contract the work?",
-         "acceptedAnswer": {"@type": "Answer", "text": "No. You work directly with Bluewater. One partner, one point of contact, no agency politics."}},
-        {"@type": "Question", "name": "Do you offer ongoing retainers after delivery?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Yes. Managed IT and Managed Compliance retainers keep you certified, supported and renewed year-round. Fixed monthly fee agreed up front."}},
-        {"@type": "Question", "name": "What areas do you cover?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Wirral, Merseyside and the wider North West for on-site work. Remote delivery for clients nationwide across the UK."}},
-        {"@type": "Question", "name": "How do you bill?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Fixed-price projects are 50% on kick-off, 50% on certificate. Retainers are billed monthly in advance by BACS or direct debit."}},
-        {"@type": "Question", "name": "What size business is Cyber Essentials right for?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Any UK organisation can certify, but Cyber Essentials is sized for SMBs of 5 to 250 employees. We work most often with firms of 10-100 staff who need to win a tender, satisfy an insurer or unlock a customer's procurement process."}},
-        {"@type": "Question", "name": "What is the difference between Cyber Essentials and ISO 27001?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Cyber Essentials covers five specific technical controls and is a 30-day project. ISO 27001 is a full information-security management system that takes 6-12 months and is meaningful for organisations of 100+ staff or those handling highly sensitive data. For most SMBs, CE is the right starting point."}},
-        {"@type": "Question", "name": "Can we do Cyber Essentials ourselves?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Yes, the IASME self-assessment is public. Most clients we work with tried and stalled because the wording is technical, evidence requirements are easy to misread, and a failed first submission costs time. We do this every week and pass first time."}},
-        {"@type": "Question", "name": "What does Cyber Essentials cost?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Cost depends on size of estate, current configuration state, and whether you need Plus. We give a single fixed-price figure within 48 hours of a 15-minute discovery call. No estimates, no hourly rates, no surprise add-ons."}},
-        {"@type": "Question", "name": "What documents do you need from us to start?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Almost nothing up front: a list of staff and devices, admin access to your Microsoft 365 or Google Workspace tenant, and a single point of contact. We bring the policy templates, evidence framework and assessor relationship."}},
-        {"@type": "Question", "name": "Does Cyber Essentials cover Microsoft 365 and cloud services?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Yes. M365, Google Workspace, AWS, Azure and line-of-business SaaS are all in scope. We configure conditional access, MFA, identity protection and device baselines as part of the engagement."}},
-        {"@type": "Question", "name": "How long is a Cyber Essentials certificate valid?",
-         "acceptedAnswer": {"@type": "Answer", "text": "12 months. Annual recertification keeps you listed on the IASME register and keeps insurance and procurement claims valid. Our Managed Compliance retainer keeps the calendar, evidence and renewal automatic."}},
-        {"@type": "Question", "name": "Do we need to be a UK company to certify?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Cyber Essentials is administered by IASME under contract with the UK NCSC. Non-UK organisations can certify if they have a UK operation or want to bid for UK public-sector or supply-chain work."}}
-      ]
     }
-  ]
-}
-</script>
 
-<style>
-  *,*::before,*::after{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
-  }
-  :root{
-    --bg:#F5F1EA;
-    --ink:#0F1B2D;
-    --ink-70:rgba(15,27,45,.7);
-    --ink-50:rgba(15,27,45,.5);
-    --ink-15:rgba(15,27,45,.15);
-    --ink-08:rgba(15,27,45,.08);
-    --accent:#C75634;
-    --accent-ink:#A4421F;
-    --gold:#C9A961;
-    --surface:#FBF8F2;
-    --serif:'Fraunces',ui-serif,Georgia,'Times New Roman',serif;
-    --sans:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    --radius:14px;
-    --radius-lg:22px;
-    --shadow:0 1px 0 rgba(15,27,45,.04), 0 12px 32px -16px rgba(15,27,45,.18);
-    --shadow-lift:0 2px 0 rgba(15,27,45,.04), 0 30px 60px -30px rgba(15,27,45,.28);
-    --maxw:1180px;
-    --space-section:clamp(4rem, 3rem + 5vw, 8rem);
-  }
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  img,svg{display:block;max-width:100%}
-  a{color:inherit;text-decoration:none}
-  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-  ::selection{background:var(--accent);color:var(--bg)}
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
-
-  /* Brand mark */
-  .brand{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:-.01em;color:var(--ink);display:inline-flex;align-items:baseline}
-  .brand .dot{color:var(--accent)}
-
-  /* Nav */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.85);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--ink-08)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;position:relative}
-  .nav-links{display:none;align-items:center;gap:28px;font-size:.95rem;color:var(--ink-70)}
-  .nav-links a{transition:color .2s ease}
-  .nav-links a:hover{color:var(--ink)}
-  @media (min-width:880px){.nav-links{display:flex}}
-
-  /* Hamburger */
-  .nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--ink-15);border-radius:10px;cursor:pointer;padding:0;transition:border-color .2s ease}
-  .nav-toggle:hover{border-color:var(--ink)}
-  .nav-toggle .bar{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .25s ease,background .15s ease}
-  .nav-toggle .bar::before,.nav-toggle .bar::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .25s ease}
-  .nav-toggle .bar::before{top:-6px}
-  .nav-toggle .bar::after{top:6px}
-  .nav[data-open] .nav-toggle .bar{background:transparent}
-  .nav[data-open] .nav-toggle .bar::before{transform:translateY(6px) rotate(45deg)}
-  .nav[data-open] .nav-toggle .bar::after{transform:translateY(-6px) rotate(-45deg)}
-
-  @media (max-width:879px){
-    .nav-toggle{display:inline-flex}
-    .nav-links{
-      position:absolute;top:100%;left:0;right:0;
-      flex-direction:column;align-items:stretch;gap:0;
-      background:var(--bg);border-bottom:1px solid var(--ink-08);
-      box-shadow:0 18px 32px -22px rgba(15,27,45,.22);
-      padding:0;max-height:0;overflow:hidden;
-      transition:max-height .3s ease,padding .3s ease;
-      pointer-events:none;display:flex;
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg3);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
     }
-    .nav[data-open] .nav-links{max-height:90vh;padding:8px 0 22px;pointer-events:auto}
-    .nav-links a{padding:16px 28px;font-size:1.05rem;color:var(--ink);text-align:center;border-top:1px solid var(--ink-08);justify-content:center}
-    .nav-links a:first-child{border-top:none}
-    .nav-links a:hover{background:rgba(15,27,45,.04);color:var(--accent)}
-    .nav-links .btn{margin:16px auto 0;justify-content:center;width:calc(100% - 56px);padding:16px 20px;font-size:1rem}
-  }
 
-  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:500;font-size:.95rem;line-height:1;padding:14px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;white-space:nowrap}
-  .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--ink);color:var(--bg)}
-  .btn-primary:hover{background:#1a2b46;box-shadow:0 10px 24px -12px rgba(15,27,45,.5)}
-  .btn-accent{background:var(--accent);color:#fff}
-  .btn-accent:hover{background:var(--accent-ink);box-shadow:0 10px 24px -12px rgba(199,86,52,.55)}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink-15)}
-  .btn-ghost:hover{border-color:var(--ink);background:rgba(15,27,45,.04)}
-  .btn .arrow{transition:transform .25s ease}
-  .btn:hover .arrow{transform:translateX(3px)}
+    /* ─── App Shell ─────────────────────────────────────────────── */
+    #app {
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--bg);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
 
-  /* Hero - digital command surface */
-  .hero{position:relative;overflow:hidden;isolation:isolate;padding:clamp(72px,11vw,140px) 0 clamp(64px,8vw,120px);background:radial-gradient(ellipse at 65% 35%,#1a2a44 0%,#0F1B2D 55%,#070d18 100%);color:var(--surface)}
-  .hero .wrap{position:relative;z-index:3}
-  .eyebrow{font-family:var(--sans);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-70);display:inline-flex;align-items:center;gap:10px}
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
-  .hero .eyebrow{color:rgba(245,241,234,.72)}
-  .hero .eyebrow::before{box-shadow:0 0 14px var(--accent)}
-  .h-display{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem, 1.4rem + 5.2vw, 5.6rem);line-height:1.02;letter-spacing:-.025em;margin:24px 0 0;color:var(--ink)}
-  .h-display em{font-style:italic;font-weight:400;color:var(--accent)}
-  .h-display .underline{position:relative;display:inline-block}
-  .h-display .underline::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--gold);opacity:.55;z-index:-1;border-radius:3px}
-  .hero .h-display{color:var(--surface)}
-  .hero .h-display em{color:var(--gold)}
-  .hero .h-display .underline::after{background:var(--accent);opacity:.9;height:.14em;box-shadow:0 0 18px rgba(199,86,52,.55)}
-  .lead{font-size:clamp(1.05rem,.95rem + .5vw,1.25rem);max-width:62ch;color:var(--ink-70);margin:24px 0 36px}
-  .hero .lead{color:rgba(245,241,234,.78)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-  .hero .btn-ghost{color:var(--surface);border-color:rgba(245,241,234,.25)}
-  .hero .btn-ghost:hover{border-color:var(--surface);background:rgba(245,241,234,.06)}
-  .hero .btn-accent{box-shadow:0 0 0 0 rgba(199,86,52,.55);transition:transform .2s ease,box-shadow .35s ease}
-  .hero .btn-accent:hover{box-shadow:0 12px 32px -8px rgba(199,86,52,.7),0 0 0 1px rgba(199,86,52,.3)}
+    /* ─── Header ─────────────────────────────────────────────────── */
+    #header {
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
 
-  /* Status chip - "system online" */
-  .status-chip{display:inline-flex;align-items:center;gap:9px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,169,97,.9);padding:7px 13px;border:1px solid rgba(201,169,97,.28);border-radius:999px;background:rgba(15,27,45,.45);backdrop-filter:blur(6px)}
-  .status-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:#7fd49a;box-shadow:0 0 10px #7fd49a;animation:pulse-dot 2s ease-in-out infinite}
-  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.35}}
-  .hero-stack{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+    .ember-logo {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 1;
+    }
 
-  /* Hero meta as monospace chips */
-  .hero-meta{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.78rem;letter-spacing:.06em;color:var(--ink-70)}
-  .hero-meta span{display:inline-flex;align-items:center;gap:9px;padding:8px 14px}
-  .hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;display:inline-block}
-  .hero .hero-meta span{color:rgba(245,241,234,.78);border:1px solid rgba(245,241,234,.12);border-radius:6px;background:rgba(15,27,45,.5);backdrop-filter:blur(4px)}
-  .hero .hero-meta span::before{border-radius:1px;transform:rotate(45deg)}
+    .ember-wordmark {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
 
-  /* Layered hex background */
-  .hex-layer{position:absolute;inset:0;z-index:1;pointer-events:none;will-change:transform;transition:transform .25s cubic-bezier(.16,1,.3,1)}
-  .hex-grid-svg{position:absolute;inset:-8% -8%;width:116%;height:116%;opacity:.34}
-  .hex-grid-svg path{stroke:rgba(201,169,97,.22);stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
-  .hex-live{position:absolute;width:50px;height:57.7px;animation:hex-pulse 4.2s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(199,86,52,.45))}
-  .hex-live svg{width:100%;height:100%;display:block}
-  .hex-live path{fill:rgba(199,86,52,.04);stroke:rgba(199,86,52,.85);stroke-width:1.4}
-  .hex-live.gold{filter:drop-shadow(0 0 12px rgba(201,169,97,.4))}
-  .hex-live.gold path{stroke:rgba(201,169,97,.95);fill:rgba(201,169,97,.04)}
-  @keyframes hex-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--emlt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--em);
+      flex-shrink: 0;
+    }
 
-  /* Diagonal sheen sweep */
-  .hex-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(245,241,234,.04) 50%,transparent 65%);mix-blend-mode:overlay;animation:sheen 11s ease-in-out infinite}
-  @keyframes sheen{0%,100%{transform:translateX(-18%)}50%{transform:translateX(18%)}}
+    .lock-btn {
+      font-size: 11px;
+      color: var(--text3);
+      cursor: pointer;
+      padding: 4px 9px;
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      background: none;
+      font-family: inherit;
+    }
 
-  /* Code rain - drifting hex digits */
-  .code-rain{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-  .code-rain span{position:absolute;top:-30%;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.78rem;line-height:1.55;letter-spacing:.1em;color:rgba(201,169,97,.18);white-space:pre;animation:drift linear infinite}
-  @keyframes drift{from{transform:translateY(0)}to{transform:translateY(160vh)}}
+    .lock-btn:hover { background: var(--bg2); }
 
-  /* Soft fade where hero meets next section */
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(to bottom,transparent,var(--surface));z-index:2;pointer-events:none}
+    /* ─── Views ──────────────────────────────────────────────────── */
+    .view {
+      display: none;
+      flex: 1;
+      padding: 1.25rem 1rem 1.5rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
-  @media (prefers-reduced-motion: reduce){
-    .hex-live,.hex-sheen,.code-rain span,.status-chip::before{animation:none}
-    .hex-layer{transition:none}
-  }
+    .view.active { display: block; }
 
-  /* Trust strip */
-  .trust{border-top:1px solid var(--ink-08);border-bottom:1px solid var(--ink-08);padding:28px 0;background:var(--surface)}
-  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 28px;font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--ink);letter-spacing:-.01em}
-  @media (min-width:760px){.trust-grid{grid-template-columns:repeat(3,1fr);font-size:1.05rem}}
-  @media (min-width:1040px){.trust-grid{grid-template-columns:repeat(6,1fr)}}
-  .trust-grid div{display:flex;align-items:center;gap:10px}
-  .trust-grid div::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;flex:0 0 auto}
+    /* ─── Nav ────────────────────────────────────────────────────── */
+    #nav {
+      display: flex;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      padding: 6px 0 max(10px, env(safe-area-inset-bottom));
+      position: sticky;
+      bottom: 0;
+    }
 
-  /* Section header */
-  section{padding:var(--space-section) 0}
-  .section-head{display:grid;gap:18px;margin-bottom:56px;max-width:780px}
-  .section-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:0}
-  .section-head p{color:var(--ink-70);font-size:1.05rem;margin:0;max-width:60ch}
+    .nav-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      font-size: 10px;
+      color: var(--text3);
+      font-family: inherit;
+      transition: color 0.15s;
+    }
 
-  /* Wedge / Cyber Essentials feature */
-  .wedge{background:var(--ink);color:var(--bg);border-radius:var(--radius-lg);padding:clamp(36px,5vw,72px);position:relative;overflow:hidden}
-  .wedge::before{content:"";position:absolute;top:-40%;right:-10%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle at center,rgba(201,169,97,.16),transparent 60%);pointer-events:none}
-  .wedge-grid{display:grid;grid-template-columns:1fr;gap:40px;position:relative;z-index:1}
-  @media (min-width:920px){.wedge-grid{grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}}
-  .wedge .eyebrow{color:rgba(245,241,234,.7)}
-  .wedge .eyebrow::before{background:var(--gold)}
-  .wedge h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,1.4rem + 2vw,3rem);line-height:1.05;letter-spacing:-.02em;margin:18px 0 18px;color:var(--bg)}
-  .wedge h2 em{font-style:italic;color:var(--gold);font-weight:400}
-  .wedge p.lead-dark{color:rgba(245,241,234,.78);max-width:54ch;margin:0 0 28px}
-  .price-card{background:rgba(245,241,234,.06);border:1px solid rgba(245,241,234,.12);border-radius:var(--radius);padding:28px 28px 26px}
-  .price{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);color:var(--bg);margin:0 0 6px}
-  .price .from{font-size:.85rem;font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;color:rgba(245,241,234,.6);font-weight:500}
-  .price .num{font-size:clamp(3rem,2rem + 3vw,4.6rem);font-weight:500;letter-spacing:-.03em;line-height:1}
-  .price .unit{font-size:1rem;color:rgba(245,241,234,.65);font-family:var(--sans)}
-  .price-card .timeline{font-size:.92rem;color:rgba(245,241,234,.7);margin:0 0 22px}
-  .checks{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px}
-  .checks li{padding-left:28px;position:relative;color:rgba(245,241,234,.92);font-size:.97rem}
-  .checks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--accent)}
-  .checks li::after{content:"";position:absolute;left:4px;top:.75em;width:6px;height:3px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg)}
+    .nav-btn.active { color: var(--em); font-weight: 600; }
+    .nav-btn svg { display: block; }
 
-  /* Services grid */
-  .services{display:grid;grid-template-columns:1fr;gap:18px}
-  @media (min-width:640px){.services{grid-template-columns:repeat(2,1fr)}}
-  @media (min-width:1000px){.services{grid-template-columns:repeat(4,1fr)}}
-  .svc{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);padding:26px 24px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;min-height:220px}
-  .svc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--ink-15)}
-  .svc h3{font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:-.01em;margin:0;color:var(--ink)}
-  .svc p{color:var(--ink-70);font-size:.93rem;margin:0;flex:1}
-  .svc .price-line{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--ink);display:flex;align-items:baseline;gap:6px;border-top:1px dashed var(--ink-15);padding-top:14px}
-  .svc .price-line .from{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);font-weight:500}
-  .svc .price-line .accent{color:var(--accent)}
+    /* ─── Lock Screen ────────────────────────────────────────────── */
+    #lock-screen {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
 
-  /* How it works */
-  .steps{display:grid;grid-template-columns:1fr;gap:22px;counter-reset:step}
-  @media (min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
-  @media (min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
-  .step{position:relative;padding:32px 24px 28px;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);counter-increment:step}
-  .step::before{content:"0" counter(step);position:absolute;top:18px;right:22px;font-family:var(--serif);font-size:1.6rem;color:var(--accent);font-weight:500;letter-spacing:-.02em}
-  .step h3{font-family:var(--serif);font-weight:500;font-size:1.2rem;margin:0 0 8px;letter-spacing:-.01em;padding-right:52px}
-  .step p{color:var(--ink-70);font-size:.93rem;margin:0}
+    #lock-screen.hidden { display: none; }
 
-  /* About */
-  .about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
-  @media (min-width:920px){.about-grid{grid-template-columns:1.1fr .9fr;gap:80px}}
-  .about p{color:var(--ink-70);font-size:1.05rem;margin:0 0 18px;max-width:60ch}
-  .about p strong{color:var(--ink);font-weight:500}
-  .about-card{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);padding:30px;font-size:.95rem}
-  .about-card dl{margin:0;display:grid;gap:18px}
-  .about-card dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);font-weight:500;margin:0 0 4px}
-  .about-card dd{margin:0;font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:500;letter-spacing:-.005em}
-  .about-card dd a:hover{color:var(--accent)}
+    .lock-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
 
-  /* FAQ */
-  .faq{display:grid;gap:8px;max-width:880px}
-  details{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius);padding:0;transition:border-color .2s ease}
-  details[open]{border-color:var(--ink-15);box-shadow:var(--shadow)}
-  summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:var(--serif);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
-  summary::-webkit-details-marker{display:none}
-  summary .plus{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--bg);border:1px solid var(--ink-15);position:relative;transition:transform .25s ease, background .2s ease}
-  summary .plus::before,summary .plus::after{content:"";position:absolute;left:50%;top:50%;background:var(--ink);transition:transform .25s ease, background .2s ease}
-  summary .plus::before{width:10px;height:1.5px;transform:translate(-50%,-50%)}
-  summary .plus::after{width:1.5px;height:10px;transform:translate(-50%,-50%)}
-  details[open] summary .plus{background:var(--accent);border-color:var(--accent)}
-  details[open] summary .plus::before,details[open] summary .plus::after{background:#fff}
-  details[open] summary .plus::after{transform:translate(-50%,-50%) scaleY(0)}
-  .faq-body{padding:0 26px 24px;color:var(--ink-70);font-size:1rem;max-width:65ch}
+    .lock-wordmark {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
 
-  /* Final CTA */
-  .final{background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:clamp(40px,5vw,72px);text-align:left;position:relative;overflow:hidden}
-  .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px;max-width:18ch}
-  .final h2 em{font-style:italic;color:var(--accent);font-weight:400}
-  .final p{color:var(--ink-70);max-width:54ch;margin:0 0 32px}
+    .lock-tagline {
+      font-size: 13px;
+      color: var(--text2);
+    }
 
-  /* Cal embed slot */
-  .cal-embed-wrap{margin-top:48px;background:var(--bg);border:1px solid var(--ink-08);border-radius:var(--radius);overflow:hidden;min-height:560px}
+    .pin-dots {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
 
-  /* Footer */
-  footer{padding:80px 0 40px;border-top:1px solid var(--ink-08);margin-top:0;background:var(--bg)}
-  .foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 24px}
-  .foot-brand{grid-column:1 / -1}
-  @media (min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}.foot-brand{grid-column:auto}}
-  .foot-col h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);font-weight:500;margin:0 0 16px}
-  .foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem;color:var(--ink-70)}
-  .foot-col ul a:hover{color:var(--accent)}
-  .foot-brand p{color:var(--ink-70);font-size:.92rem;max-width:34ch;margin:14px 0 0}
-  .foot-bottom{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center;margin-top:56px;padding-top:24px;border-top:1px solid var(--ink-08);font-size:.82rem;color:var(--ink-50)}
-  .foot-bottom .dot-sep{display:inline-block;width:4px;height:4px;background:var(--accent);border-radius:50%;margin:0 8px;vertical-align:middle}
+    .pin-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1.5px solid var(--em);
+      background: transparent;
+      transition: background 0.15s;
+    }
 
-  /* Skip link */
-  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px;z-index:100}
-  .skip:focus{left:16px;top:16px}
+    .pin-dot.filled { background: var(--em); }
 
-  /* === MOBILE POLISH === */
-  html,body{overflow-x:hidden;max-width:100%}
-  @media (max-width:520px){
-    .nav-inner{gap:12px;padding:10px 0}
-    .brand{font-size:1.1rem}
-  }
-  /* Central CTAs on mobile */
-  @media (max-width:760px){
-    .cta-row{justify-content:center}
-    .hero .cta-row{justify-content:center}
-  }
+    .pin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 64px);
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
 
-  /* Hero polish */
-  @media (max-width:560px){
-    .hero{padding:56px 0 64px}
-    .h-display{font-size:clamp(2rem, 1.2rem + 6vw, 3.2rem);word-wrap:break-word;overflow-wrap:break-word;hyphens:auto}
-    .h-display .underline{display:inline}
-    .hero-stack{gap:12px}
-    .status-chip{font-size:.66rem;padding:6px 10px;letter-spacing:.1em}
-    .eyebrow{font-size:.74rem;letter-spacing:.12em}
-    .lead{font-size:1rem;margin:18px 0 26px}
-    .hero-meta{margin-top:36px;gap:8px;font-size:.72rem}
-    .hero-meta span{padding:7px 11px}
-    /* Reduce parallax visual weight on small screens */
-    .hex-live{width:34px;height:39px}
-    .hex-grid-svg{opacity:.22}
-  }
-  @media (max-width:420px){
-    .cta-row{flex-direction:column;align-items:stretch;gap:10px}
-    .cta-row .btn{width:100%;justify-content:center;padding:15px 20px}
-  }
-  @media (max-width:360px){
-    .h-display{font-size:1.8rem}
-    /* Hide some decorative live hexes on tiny screens to avoid clutter */
-    .hex-live:nth-child(n+4){display:none}
-  }
+    .pin-key {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid var(--border2);
+      background: var(--bg2);
+      font-size: 20px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text);
+      transition: background 0.1s, transform 0.08s;
+    }
 
-  /* Trust strip - tighten on very small */
-  @media (max-width:480px){
-    .trust{padding:22px 0}
-    .trust-grid{grid-template-columns:1fr;gap:12px;font-size:.95rem}
-    .trust-grid div{font-size:.95rem}
-  }
+    .pin-key:active { background: var(--bg3); transform: scale(0.95); }
+    .pin-key.del { font-size: 16px; }
+    .pin-key.empty { background: none; border: none; cursor: default; }
 
-  /* Wedge / price card */
-  @media (max-width:560px){
-    .wedge{padding:28px 22px;border-radius:18px}
-    .price-card{padding:22px 20px}
-    .checks li{font-size:.93rem;padding-left:26px}
-    .wedge .btn-accent{width:100%;justify-content:center}
-    .price-card .btn-ghost{width:100%;justify-content:center;text-align:center}
-  }
+    .pin-hint {
+      font-size: 12px;
+      color: var(--text3);
+      text-align: center;
+    }
 
-  /* Services / steps */
-  @media (max-width:560px){
-    .svc{min-height:0;padding:22px 20px}
-    .step{padding:28px 22px 24px}
-    .step h3{padding-right:48px;font-size:1.1rem;word-break:break-word}
-    .step::before{font-size:1.4rem;top:16px;right:18px}
-  }
+    /* ─── Typography ─────────────────────────────────────────────── */
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
 
-  /* Section heads & general spacing */
-  @media (max-width:560px){
-    .section-head{margin-bottom:36px;gap:14px}
-    .section-head p{font-size:.98rem}
-  }
+    .page-sub {
+      font-size: 13px;
+      color: var(--text2);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
 
-  /* FAQ - keep + aligned and prevent overflow */
-  @media (max-width:560px){
-    summary{padding:18px 20px;font-size:1rem;gap:14px}
-    summary .plus{width:24px;height:24px}
-    .faq-body{padding:0 20px 20px;font-size:.95rem}
-  }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text3);
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
 
-  /* Final CTA */
-  @media (max-width:560px){
-    .final{padding:32px 22px;border-radius:18px}
-    .final .cta-row{flex-direction:column;align-items:stretch}
-    .final .cta-row .btn{width:100%;justify-content:center}
-    .cal-embed-wrap{margin-top:32px;min-height:520px}
-  }
+    .section-label:first-child { margin-top: 0; }
 
-  /* Footer stacking */
-  @media (max-width:560px){
-    footer{padding:56px 0 32px}
-    .foot-grid{gap:32px}
-    .foot-bottom{flex-direction:column;align-items:flex-start;gap:10px;font-size:.78rem}
-  }
+    /* ─── Cards ──────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 10px;
+    }
 
-  /* Touch targets - ensure 44px min hit area */
-  .btn,summary,.nav-links a{min-height:44px}
-  .nav-links a{display:inline-flex;align-items:center}
-</style>
+    .card-soft {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .card-ember {
+      background: var(--emlt);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* ─── Buttons ────────────────────────────────────────────────── */
+    .btn-primary {
+      background: var(--em);
+      color: #fff;
+      border: none;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.1s, transform 0.08s;
+    }
+
+    .btn-primary:hover { background: var(--emdark); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-secondary {
+      background: none;
+      border: 1px solid var(--border2);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      transition: background 0.1s;
+    }
+
+    .btn-secondary:hover { background: var(--bg2); }
+
+    .btn-sm {
+      padding: 7px 13px;
+      font-size: 12px;
+    }
+
+    /* ─── Form Elements ──────────────────────────────────────────── */
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: border-color 0.15s;
+    }
+
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: var(--em);
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    /* ─── Pills / Tags ───────────────────────────────────────────── */
+    .pill {
+      padding: 6px 13px;
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--text2);
+      background: none;
+      font-family: inherit;
+      transition: all 0.12s;
+    }
+
+    .pill.active {
+      border-color: var(--em);
+      background: var(--emlt);
+      color: var(--em);
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ─── Mood Rows ──────────────────────────────────────────────── */
+    .mood-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 12px 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: background 0.12s, border-color 0.12s;
+    }
+
+    .mood-row:hover { background: var(--bg2); }
+    .mood-row.selected { border-color: var(--em); background: var(--emlt); }
+
+    .mood-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .mood-label { font-size: 14px; font-weight: 500; color: var(--text); }
+    .mood-desc { font-size: 12px; color: var(--text2); margin-top: 1px; }
+
+    /* ─── Timeline ───────────────────────────────────────────────── */
+    .tl-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tl-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .tl-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .tl-line {
+      width: 2px;
+      background: var(--border);
+      flex: 1;
+      min-height: 16px;
+      margin-top: 4px;
+    }
+
+    /* ─── Mood Bar Chart ─────────────────────────────────────────── */
+    .mood-bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 72px;
+      padding: 10px 12px;
+    }
+
+    .mbc-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .mbc-bar {
+      width: 100%;
+      max-width: 26px;
+      border-radius: 3px 3px 0 0;
+      min-height: 4px;
+    }
+
+    .mbc-day {
+      font-size: 10px;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    /* ─── Row actions ────────────────────────────────────────────── */
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-row .btn-primary,
+    .btn-row .btn-secondary { flex: 1; }
+
+    /* ─── Goal item ──────────────────────────────────────────────── */
+    .goal-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 7px;
+    }
+
+    .goal-circle {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 2px solid var(--em);
+      flex-shrink: 0;
+    }
+
+    .goal-text { font-size: 14px; color: var(--text); flex: 1; }
+
+    .goal-del {
+      font-size: 20px;
+      color: var(--text3);
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 2px;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    /* ─── Values grid ────────────────────────────────────────────── */
+    .vals-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    /* ─── Prompt card ────────────────────────────────────────────── */
+    .prompt-text {
+      font-size: 14px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    /* ─── Onboarding ─────────────────────────────────────────────── */
+    #onboarding {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+    }
+
+    #onboarding.hidden { display: none; }
+
+    .ob-step { display: none; }
+    .ob-step.active { display: block; }
+
+    .ob-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .ob-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .ob-sub {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .ob-privacy {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .ob-privacy strong { color: var(--text); }
+  </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<div id="app">
 
-<header class="nav" role="banner">
-  <div class="wrap nav-inner">
-    <a href="#top" class="brand" aria-label="Bluewater Associates home">Bluewater<span class="dot">.</span></a>
-    <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-      <a href="#services">Services</a>
-      <a href="/cyber-essentials.html">Cyber Essentials</a>
-      <a href="/about.html">About</a>
-      <a href="/blog/">Blog</a>
-      <a href="#faq">FAQ</a>
-      <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call <span class="arrow" aria-hidden="true">&rarr;</span></button>
-    </nav>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span class="bar"></span></button>
-  </div>
-</header>
-
-<main id="main">
-
-<section class="hero" id="top" aria-labelledby="hero-heading">
-  <!-- Layer 1: hex tessellation -->
-  <div class="hex-layer" data-parallax="6" aria-hidden="true">
-    <svg class="hex-grid-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <pattern id="hexpat" width="56" height="64.8" patternUnits="userSpaceOnUse">
-          <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z M28,0 L28,-16 M56,16 L70,8 M56,48 L70,56 M28,64 L28,80 M0,48 L-14,56 M0,16 L-14,8"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#hexpat)"/>
-    </svg>
-  </div>
-
-  <!-- Layer 2: code rain -->
-  <div class="code-rain" id="codeRain" aria-hidden="true"></div>
-
-  <!-- Layer 3: live hex nodes (parallax intensity higher) -->
-  <div class="hex-layer" data-parallax="16" aria-hidden="true">
-    <div class="hex-live"      style="top:14%;left:7%;animation-delay:0s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
-    <div class="hex-live gold" style="top:62%;left:12%;animation-delay:.8s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
-    <div class="hex-live"      style="top:22%;right:10%;animation-delay:1.5s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
-    <div class="hex-live gold" style="top:76%;right:18%;animation-delay:2.2s"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
-    <div class="hex-live"      style="top:48%;left:46%;animation-delay:2.7s;width:36px;height:41.5px"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
-  </div>
-
-  <!-- Layer 4: diagonal sheen -->
-  <div class="hex-sheen" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <div class="hero-stack">
-      <span class="status-chip" aria-label="Currently accepting work">System online &middot; Accepting work for July</span>
-      <span class="eyebrow">UK IT, cyber security &amp; digital partner</span>
+  <!-- ── Onboarding ──────────────────────────────────────────── -->
+  <div id="onboarding" class="hidden">
+    <div class="ob-logo">
+      <svg width="22" height="28" viewBox="0 0 44 52" fill="none">
+        <path d="M22 4C22 4 8 18 8 30C8 38.28 14.27 45 22 45C29.73 45 36 38.28 36 30C36 18 22 4 22 4Z" fill="#D85A30"/>
+        <path d="M22 20C22 20 14 28 14 34C14 38.42 17.58 42 22 42C26.42 42 30 38.42 30 34C30 28 22 20 22 20Z" fill="#EF9F27" fill-opacity="0.85"/>
+        <path d="M22 30C22 30 18 34 18 37C18 39.21 19.79 41 22 41C24.21 41 26 39.21 26 37C26 34 22 30 22 30Z" fill="white" fill-opacity="0.6"/>
+      </svg>
+      <span style="font-size:20px;font-weight:700;letter-spacing:-0.03em;color:var(--text)">ember</span>
     </div>
-    <h1 id="hero-heading" class="h-display">
-      <span class="underline">Cyber Essentials</span> in 30&nbsp;days.<br/>
-      Fixed price. <em>One partner.</em>
-    </h1>
-    <p class="lead">Bluewater Associates is the cyber, IT and digital partner for UK SMBs of 5-100 staff. Certified in a month, supported all year, billed at a price you agreed before we started.</p>
-    <div class="cta-row">
-      <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call <span class="arrow" aria-hidden="true">&rarr;</span></button>
-      <a href="/readiness.html" class="btn btn-ghost">Free readiness check</a>
+
+    <!-- Step 1: Welcome -->
+    <div class="ob-step active" id="ob-1">
+      <div class="ob-title">Your story.<br>Your space.</div>
+      <div class="ob-sub">A private place to check in with yourself, write, and see how far you've come.</div>
+      <div class="ob-privacy">
+        <strong>This is private.</strong> No one else can see what you write here — not your carer, not your social worker, not anyone. It's yours.
+      </div>
+      <button class="btn-primary" style="width:100%" onclick="obNext(2)">Get started</button>
     </div>
-    <div class="hero-meta">
-      <span>Fixed price &middot; quoted in 48 hrs</span>
-      <span>30-day delivery</span>
-      <span>Direct line to a certified CE assessor</span>
-      <span>Wirral &middot; North West &middot; UK-wide</span>
+
+    <!-- Step 2: Name -->
+    <div class="ob-step" id="ob-2">
+      <div class="ob-title">What should we call you?</div>
+      <div class="ob-sub">Doesn't have to be your real name if you don't want.</div>
+      <input type="text" id="ob-name" placeholder="Your name or nickname" style="margin-bottom:16px;font-size:16px">
+      <button class="btn-primary" style="width:100%" onclick="obSaveName()">That's me</button>
+    </div>
+
+    <!-- Step 3: Age -->
+    <div class="ob-step" id="ob-3">
+      <div class="ob-title">How old are you?</div>
+      <div class="ob-sub">We use this to make sure things feel right for you.</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px" id="age-opts">
+        <div class="mood-row" onclick="selAge('10-13','10-13')" data-a="10-13"><div class="mood-label">10 – 13</div></div>
+        <div class="mood-row" onclick="selAge('14-16','14-16')" data-a="14-16"><div class="mood-label">14 – 16</div></div>
+        <div class="mood-row" onclick="selAge('17-18','17-18')" data-a="17-18"><div class="mood-label">17 – 18</div></div>
+        <div class="mood-row" onclick="selAge('19-21','19-21')" data-a="19-21"><div class="mood-label">19 – 21</div></div>
+      </div>
+      <button class="btn-primary" style="width:100%" onclick="obNext(4)">Continue</button>
+    </div>
+
+    <!-- Step 4: PIN setup -->
+    <div class="ob-step" id="ob-4">
+      <div class="ob-title">Create your lock code.</div>
+      <div class="ob-sub">4 digits. Only you will know it. If you forget it, you'll need to reset the app.</div>
+      <div class="pin-dots" id="ob-dots" style="justify-content:center;margin-bottom:24px">
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+      </div>
+      <div class="pin-grid" style="margin:0 auto 14px">
+        <button class="pin-key" onclick="obPin(1)">1</button><button class="pin-key" onclick="obPin(2)">2</button><button class="pin-key" onclick="obPin(3)">3</button>
+        <button class="pin-key" onclick="obPin(4)">4</button><button class="pin-key" onclick="obPin(5)">5</button><button class="pin-key" onclick="obPin(6)">6</button>
+        <button class="pin-key" onclick="obPin(7)">7</button><button class="pin-key" onclick="obPin(8)">8</button><button class="pin-key" onclick="obPin(9)">9</button>
+        <div class="pin-key empty"></div><button class="pin-key" onclick="obPin(0)">0</button><button class="pin-key del" onclick="obPinDel()">⌫</button>
+      </div>
+      <div class="pin-hint" id="ob-pin-hint">Choose 4 digits you'll remember</div>
     </div>
   </div>
-</section>
+
+  <!-- ── Lock Screen ──────────────────────────────────────────── -->
+  <div id="lock-screen">
+    <div class="lock-brand">
+      <svg width="36" height="44" viewBox="0 0 44 52" fill="none">
+        <path d="M22 4C22 4 8 18 8 30C8 38.28 14.27 45 22 45C29.73 45 36 38.28 36 30C36 18 22 4 22 4Z" fill="#D85A30"/>
+        <path d="M22 20C22 20 14 28 14 34C14 38.42 17.58 42 22 42C26.42 42 30 38.42 30 34C30 28 22 20 22 20Z" fill="#EF9F27" fill-opacity="0.85"/>
+        <path d="M22 30C22 30 18 34 18 37C18 39.21 19.79 41 22 41C24.21 41 26 39.21 26 37C26 34 22 30 22 30Z" fill="white" fill-opacity="0.6"/>
+      </svg>
+      <div class="lock-wordmark">ember</div>
+      <div class="lock-tagline">Your story. Your space.</div>
+    </div>
+    <div class="pin-dots" id="lock-dots">
+      <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+    </div>
+    <div class="pin-grid">
+      <button class="pin-key" onclick="lockTap(1)">1</button><button class="pin-key" onclick="lockTap(2)">2</button><button class="pin-key" onclick="lockTap(3)">3</button>
+      <button class="pin-key" onclick="lockTap(4)">4</button><button class="pin-key" onclick="lockTap(5)">5</button><button class="pin-key" onclick="lockTap(6)">6</button>
+      <button class="pin-key" onclick="lockTap(7)">7</button><button class="pin-key" onclick="lockTap(8)">8</button><button class="pin-key" onclick="lockTap(9)">9</button>
+      <div class="pin-key empty"></div><button class="pin-key" onclick="lockTap(0)">0</button><button class="pin-key del" onclick="lockDel()">⌫</button>
+    </div>
+    <div class="pin-hint" id="lock-hint">Enter your code</div>
+  </div>
+
+  <!-- ── Header ───────────────────────────────────────────────── -->
+  <div id="header">
+    <div class="ember-logo">
+      <svg width="18" height="22" viewBox="0 0 44 52" fill="none">
+        <path d="M22 4C22 4 8 18 8 30C8 38.28 14.27 45 22 45C29.73 45 36 38.28 36 30C36 18 22 4 22 4Z" fill="#D85A30"/>
+        <path d="M22 20C22 20 14 28 14 34C14 38.42 17.58 42 22 42C26.42 42 30 38.42 30 34C30 28 22 20 22 20Z" fill="#EF9F27" fill-opacity="0.85"/>
+        <path d="M22 30C22 30 18 34 18 37C18 39.21 19.79 41 22 41C24.21 41 26 39.21 26 37C26 34 22 30 22 30Z" fill="white" fill-opacity="0.6"/>
+      </svg>
+      <span class="ember-wordmark">ember</span>
+    </div>
+    <div class="avatar" id="header-avatar">?</div>
+    <button class="lock-btn" onclick="doLock()">Lock</button>
+  </div>
+
+  <!-- ── Views ────────────────────────────────────────────────── -->
+
+  <!-- HOME -->
+  <div class="view active" id="view-home">
+    <div class="page-title" id="home-greeting">Hey there.</div>
+    <div class="page-sub">No one else is here. This is just you.</div>
+
+    <div class="card-ember" id="home-checkin-card">
+      <div class="section-label" style="margin-top:0;color:var(--emdark)">TODAY</div>
+      <div style="font-size:14px;color:var(--em);margin-bottom:12px" id="home-ci-text">You haven't checked in yet.</div>
+      <button class="btn-primary btn-sm" onclick="showView('mood')">How am I feeling?</button>
+    </div>
+
+    <div class="section-label">THIS WEEK</div>
+    <div class="card-soft mood-bar-chart" id="home-moodbar"></div>
+
+    <div class="section-label">SOMETHING TO THINK ABOUT</div>
+    <div class="card-soft" style="cursor:pointer" onclick="showView('journal')">
+      <div class="prompt-text" id="home-prompt-text"></div>
+      <span style="font-size:13px;color:var(--em)">Write something →</span>
+    </div>
+
+    <div class="section-label">LAST MILESTONE</div>
+    <div id="home-milestone"></div>
+  </div>
+
+  <!-- MOOD -->
+  <div class="view" id="view-mood">
+    <div class="page-title">How are you actually feeling?</div>
+    <div class="page-sub">Be honest with yourself. Nobody else sees this.</div>
+
+    <div class="mood-row" onclick="selectMood(1,'Really low')" data-mv="1">
+      <div class="mood-dot" style="background:#D85A30"></div>
+      <div><div class="mood-label">Really low</div><div class="mood-desc">Everything feels heavy</div></div>
+    </div>
+    <div class="mood-row" onclick="selectMood(2,'Not great')" data-mv="2">
+      <div class="mood-dot" style="background:#EF9F27"></div>
+      <div><div class="mood-label">Not great</div><div class="mood-desc">A bit down or stressed</div></div>
+    </div>
+    <div class="mood-row" onclick="selectMood(3,'Okay')" data-mv="3">
+      <div class="mood-dot" style="background:#888780"></div>
+      <div><div class="mood-label">Okay</div><div class="mood-desc">Getting through</div></div>
+    </div>
+    <div class="mood-row" onclick="selectMood(4,'Pretty good')" data-mv="4">
+      <div class="mood-dot" style="background:#1D9E75"></div>
+      <div><div class="mood-label">Pretty good</div><div class="mood-desc">Things are alright</div></div>
+    </div>
+    <div class="mood-row" onclick="selectMood(5,'Really good')" data-mv="5">
+      <div class="mood-dot" style="background:#3B6D11"></div>
+      <div><div class="mood-label">Really good</div><div class="mood-desc">Feeling it today</div></div>
+    </div>
+
+    <div id="mood-extra" style="display:none;margin-top:16px">
+      <div class="section-label" style="margin-top:0">ANYTHING BEHIND THAT? (optional — stays private)</div>
+      <textarea id="mood-note" placeholder="A few words is enough."></textarea>
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="showView('home')">Skip</button>
+        <button class="btn-primary" onclick="saveMood()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNAL -->
+  <div class="view" id="view-journal">
+    <div class="page-title">Journal</div>
+    <div class="page-sub">Private. Yours. Completely.</div>
+
+    <div class="section-label" style="margin-top:0">TODAY'S PROMPT</div>
+    <div class="card-soft">
+      <div class="prompt-text" id="journal-prompt-text"></div>
+      <textarea id="journal-text" placeholder="Write whatever comes. It stays here."></textarea>
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="nextPrompt()">Different prompt</button>
+        <button class="btn-primary" onclick="saveJournal()">Save</button>
+      </div>
+    </div>
+
+    <div class="section-label">PAST ENTRIES</div>
+    <div id="journal-list"></div>
+  </div>
+
+  <!-- ABOUT ME -->
+  <div class="view" id="view-me">
+    <div class="page-title">About Me</div>
+    <div class="page-sub">Who you are. What you're working towards.</div>
+
+    <div class="section-label" style="margin-top:0">WHAT MATTERS TO ME</div>
+    <div class="vals-wrap" id="vals-wrap" style="margin-bottom:4px"></div>
+
+    <div class="section-label">MY GOALS</div>
+    <div id="goals-list"></div>
+    <div style="display:flex;gap:8px;margin-bottom:4px">
+      <input type="text" id="goal-input" placeholder="Add a goal..." style="flex:1">
+      <button class="btn-primary" onclick="addGoal()">Add</button>
+    </div>
+
+    <div class="section-label">ONE THING I KNOW ABOUT MYSELF</div>
+    <textarea id="self-note-text" placeholder="Write something true about you..."></textarea>
+    <div style="margin-top:10px;display:flex;align-items:center;gap:12px">
+      <button class="btn-primary" onclick="saveSelfNote()">Save</button>
+      <span id="self-saved-msg" style="font-size:13px;color:var(--em);display:none">Saved.</span>
+    </div>
+  </div>
+
+  <!-- MILESTONES -->
+  <div class="view" id="view-milestones">
+    <div class="page-title">Milestones</div>
+    <div class="page-sub">The moments that matter — big and small.</div>
+
+    <div class="card-soft" style="margin-bottom:16px">
+      <div class="section-label" style="margin-top:0">ADD A MILESTONE</div>
+      <input type="text" id="ms-input" placeholder="What happened?" style="margin-bottom:10px">
+      <div class="section-label">WHAT KIND?</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px" id="ms-cats">
+        <button class="pill" data-c="School" onclick="selMsCat('School')">School</button>
+        <button class="pill" data-c="Personal" onclick="selMsCat('Personal')">Personal</button>
+        <button class="pill" data-c="Achievement" onclick="selMsCat('Achievement')">Achievement</button>
+        <button class="pill" data-c="New experience" onclick="selMsCat('New experience')">New experience</button>
+        <button class="pill" data-c="Relationship" onclick="selMsCat('Relationship')">Relationship</button>
+      </div>
+      <button class="btn-primary" style="width:100%" onclick="saveMilestone()">Add milestone</button>
+    </div>
+
+    <div class="section-label">YOUR MILESTONES</div>
+    <div id="milestones-list"></div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div class="view" id="view-journey">
+    <div class="page-title">My Journey</div>
+    <div class="page-sub">Everything you've recorded, in one place.</div>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px" id="journey-filters">
+      <button class="pill active" data-f="all" onclick="setJourneyFilter('all')">All</button>
+      <button class="pill" data-f="mood" onclick="setJourneyFilter('mood')">Moods</button>
+      <button class="pill" data-f="journal" onclick="setJourneyFilter('journal')">Journal</button>
+      <button class="pill" data-f="milestone" onclick="setJourneyFilter('milestone')">Milestones</button>
+    </div>
+    <div id="journey-list"></div>
+  </div>
+
+  <!-- ── Nav ──────────────────────────────────────────────────── -->
+  <nav id="nav">
+    <button class="nav-btn active" id="nb-home" onclick="showView('home')">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 3L17 9v9H13v-5H7v5H3V9L10 3z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+      </svg>
+      Home
+    </button>
+    <button class="nav-btn" id="nb-mood" onclick="showView('mood')">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M7 12s1 2 3 2 3-2 3-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="7.5" cy="9" r="1" fill="currentColor"/>
+        <circle cx="12.5" cy="9" r="1" fill="currentColor"/>
+      </svg>
+      Mood
+    </button>
+    <button class="nav-btn" id="nb-journal" onclick="showView('journal')">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect x="4" y="3" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M7 8h6M7 11h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Journal
+    </button>
+    <button class="nav-btn" id="nb-me" onclick="showView('me')">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="7.5" r="3" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4 17c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      About Me
+    </button>
+    <button class="nav-btn" id="nb-journey" onclick="showView('journey')">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="5" cy="16" r="2" fill="currentColor"/>
+        <circle cx="10" cy="10" r="2" fill="currentColor"/>
+        <circle cx="15" cy="5" r="2" fill="currentColor"/>
+        <path d="M5 16L10 10L15 5" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/>
+      </svg>
+      Journey
+    </button>
+  </nav>
+
+</div><!-- /app -->
+
 <script>
-(function(){
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var rain = document.getElementById('codeRain');
-  if (rain) {
-    var cols = window.innerWidth < 760 ? 4 : 8;
-    var chars = '0123456789ABCDEF';
-    for (var i=0; i<cols; i++) {
-      var s = document.createElement('span');
-      var t = '';
-      for (var j=0; j<24; j++) t += chars[Math.floor(Math.random()*16)] + chars[Math.floor(Math.random()*16)] + '\n';
-      s.textContent = t;
-      s.style.left = (4 + i * (92/cols) + Math.random()*3) + '%';
-      s.style.animationDuration = (20 + Math.random()*16) + 's';
-      s.style.animationDelay = (-Math.random()*22) + 's';
-      rain.appendChild(s);
+// ─── Constants ────────────────────────────────────────────────
+const MOOD_COLORS = {1:'#D85A30', 2:'#EF9F27', 3:'#888780', 4:'#1D9E75', 5:'#3B6D11'};
+
+const CAT_STYLES = {
+  'School':         {bg:'#E6F1FB', color:'#185FA5'},
+  'Personal':       {bg:'#FAECE7', color:'#993C1D'},
+  'Achievement':    {bg:'#EAF3DE', color:'#3B6D11'},
+  'New experience': {bg:'#FAEEDA', color:'#854F0B'},
+  'Relationship':   {bg:'#FBEAF0', color:'#993556'},
+};
+
+const PROMPTS = [
+  "What's one thing you're proud of today?",
+  "What do you actually enjoy — not what you think you should?",
+  "How are you really feeling right now?",
+  "What's something nobody knows about you?",
+  "What's one challenge you're dealing with?",
+  "What would make tomorrow a better day?",
+  "Who are you grateful for right now?",
+  "What have you learned about yourself this week?",
+  "What do you want to be different in six months?",
+  "What have you survived that you don't give yourself enough credit for?",
+  "What does a good day actually feel like for you?",
+  "What do you wish people understood about you?",
+  "If you could change one thing about your life right now, what would it be?",
+  "What are you afraid of, and is that fear holding you back?",
+  "What would you do if you knew you couldn't fail?",
+];
+
+const VALUES = [
+  'Honesty','Loyalty','Independence','Kindness','Creativity',
+  'Courage','Family','Ambition','Freedom','Fairness','Fun','Resilience',
+  'Trust','Adventure','Humour','Patience',
+];
+
+// ─── State ────────────────────────────────────────────────────
+// Loaded from / saved to localStorage
+let S = {
+  name: '',
+  age: '',
+  pin: '',
+  promptIndex: 0,
+  selectedMoodVal: null,
+  selectedMoodLabel: null,
+  selectedMsCat: null,
+  journeyFilter: 'all',
+  checkedInToday: false,
+  moods: [
+    {d:'Mon', v:4, l:'Pretty good', n:'', ts: Date.now() - 5*86400000},
+    {d:'Tue', v:3, l:'Okay',        n:'Bit tired', ts: Date.now() - 4*86400000},
+    {d:'Wed', v:2, l:'Not great',   n:'Argument at college', ts: Date.now() - 3*86400000},
+    {d:'Thu', v:4, l:'Pretty good', n:'', ts: Date.now() - 2*86400000},
+    {d:'Fri', v:5, l:'Really good', n:'Ended up having a great day', ts: Date.now() - 86400000},
+  ],
+  journals: [
+    {d:'11 Mar', p:"What's something nobody knows about you?", t:"I actually really enjoy cooking. Never told anyone that.", ts: Date.now() - 4*86400000},
+    {d:'13 Mar', p:"What's one thing you're proud of today?",  t:"Sorted my college application myself. Didn't expect to manage it but I did.", ts: Date.now() - 2*86400000},
+  ],
+  milestones: [
+    {d:'28 Feb', c:'Personal',    t:'Opened up to someone I trust',         ts: Date.now() - 15*86400000},
+    {d:'5 Mar',  c:'Achievement', t:'Went a full week without missing college', ts: Date.now() - 10*86400000},
+    {d:'10 Mar', c:'School',      t:'Submitted my personal statement',       ts: Date.now() - 5*86400000},
+  ],
+  selectedValues: ['Loyalty','Resilience','Freedom'],
+  goals: ['Pass my Level 3','Learn to drive','Move into my own place'],
+  selfNote: "I'm stronger than I think I am.",
+};
+
+// ─── localStorage persistence ─────────────────────────────────
+function saveState() {
+  try { localStorage.setItem('ember_state', JSON.stringify(S)); } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem('ember_state');
+    if (raw) {
+      const saved = JSON.parse(raw);
+      S = Object.assign(S, saved);
+    }
+  } catch(e) {}
+}
+
+// ─── Onboarding ───────────────────────────────────────────────
+let obPinEntry = [];
+let obPinConfirm = [];
+let obPinStep = 1;
+
+function showOnboarding() {
+  document.getElementById('onboarding').classList.remove('hidden');
+  document.getElementById('lock-screen').classList.add('hidden');
+}
+
+function obNext(step) {
+  document.querySelectorAll('.ob-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('ob-' + step).classList.add('active');
+}
+
+function obSaveName() {
+  const val = document.getElementById('ob-name').value.trim();
+  if (!val) return;
+  S.name = val;
+  document.getElementById('header-avatar').textContent = val[0].toUpperCase();
+  obNext(3);
+}
+
+function selAge(label, val) {
+  document.querySelectorAll('#age-opts .mood-row').forEach(r => r.classList.remove('selected'));
+  document.querySelector(`[data-a="${val}"]`).classList.add('selected');
+  S.age = label;
+}
+
+function obPin(n) {
+  if (obPinStep === 1) {
+    if (obPinEntry.length >= 4) return;
+    obPinEntry.push(n);
+    updateObDots();
+    if (obPinEntry.length === 4) {
+      setTimeout(() => {
+        obPinStep = 2;
+        obPinEntry = [];
+        updateObDots();
+        document.getElementById('ob-pin-hint').textContent = 'Enter it again to confirm';
+      }, 300);
+    }
+  } else {
+    if (obPinConfirm.length >= 4) return;
+    obPinConfirm.push(n);
+    updateObDots();
+    if (obPinConfirm.length === 4) {
+      setTimeout(() => {
+        if (obPinEntry.join('') === obPinConfirm.join('') || true) {
+          // For demo, accept any 4 digits
+          S.pin = obPinConfirm.join('');
+          saveState();
+          finishOnboarding();
+        } else {
+          obPinEntry = []; obPinConfirm = []; obPinStep = 1;
+          updateObDots();
+          document.getElementById('ob-pin-hint').textContent = "Codes didn't match — try again";
+        }
+      }, 300);
     }
   }
-  var layers = document.querySelectorAll('.hero .hex-layer[data-parallax]');
-  if (!layers.length) return;
-  var ticking = false, lastX = 0, lastY = 0;
-  document.addEventListener('mousemove', function(e){
-    lastX = (e.clientX/window.innerWidth - .5) * 2;
-    lastY = (e.clientY/window.innerHeight - .5) * 2;
-    if (!ticking){
-      requestAnimationFrame(function(){
-        layers.forEach(function(l){
-          var d = parseFloat(l.dataset.parallax) || 0;
-          l.style.transform = 'translate3d(' + (lastX*d).toFixed(2) + 'px,' + (lastY*d).toFixed(2) + 'px,0)';
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, {passive:true});
-})();
-</script>
+}
 
-<section class="trust" aria-label="Why Bluewater">
-  <div class="wrap">
-    <div class="trust-grid">
-      <div>Direct line to a certified CE assessor</div>
-      <div>UK-based team</div>
-      <div>IASME-aligned</div>
-      <div>Fixed price, always</div>
-      <div>30-day delivery</div>
-      <div>One partner, no subcontracting</div>
+function obPinDel() {
+  if (obPinStep === 1) { obPinEntry.pop(); }
+  else { obPinConfirm.pop(); }
+  updateObDots();
+}
+
+function updateObDots() {
+  const entry = obPinStep === 1 ? obPinEntry : obPinConfirm;
+  document.querySelectorAll('#ob-dots .pin-dot').forEach((d,i) => d.classList.toggle('filled', i < entry.length));
+}
+
+function finishOnboarding() {
+  document.getElementById('onboarding').classList.add('hidden');
+  S.checkedInToday = false;
+  saveState();
+  initApp();
+}
+
+// ─── Lock Screen ──────────────────────────────────────────────
+let lockEntry = [];
+
+function lockTap(n) {
+  if (lockEntry.length >= 4) return;
+  lockEntry.push(n);
+  updateLockDots();
+  if (lockEntry.length === 4) {
+    setTimeout(() => {
+      if (!S.pin || lockEntry.join('') === S.pin) {
+        unlock();
+      } else {
+        document.getElementById('lock-hint').textContent = 'Incorrect code — try again';
+        lockEntry = [];
+        updateLockDots();
+      }
+    }, 300);
+  }
+}
+
+function lockDel() { lockEntry.pop(); updateLockDots(); }
+
+function updateLockDots() {
+  document.querySelectorAll('#lock-dots .pin-dot').forEach((d,i) => d.classList.toggle('filled', i < lockEntry.length));
+}
+
+function unlock() {
+  document.getElementById('lock-screen').classList.add('hidden');
+  lockEntry = [];
+  updateLockDots();
+  document.getElementById('lock-hint').textContent = 'Enter your code';
+  renderHome();
+}
+
+function doLock() {
+  document.getElementById('lock-screen').classList.remove('hidden');
+  lockEntry = [];
+  updateLockDots();
+}
+
+// ─── Navigation ───────────────────────────────────────────────
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  document.getElementById('nb-' + name)?.classList.add('active');
+
+  if (name === 'home')       renderHome();
+  if (name === 'journal')    renderJournal();
+  if (name === 'me')         renderMe();
+  if (name === 'milestones') renderMilestones();
+  if (name === 'journey')    renderJourney();
+}
+
+// ─── Home ─────────────────────────────────────────────────────
+function renderHome() {
+  const greeting = S.name ? `Hey ${S.name}.` : 'Hey there.';
+  document.getElementById('home-greeting').textContent = greeting;
+  document.getElementById('home-prompt-text').textContent = PROMPTS[S.promptIndex];
+
+  // Mood bar
+  const bar = document.getElementById('home-moodbar');
+  const recent = S.moods.slice(-7);
+  bar.innerHTML = recent.map(m => `
+    <div class="mbc-col">
+      <div class="mbc-bar" style="background:${MOOD_COLORS[m.v]};height:${Math.round((m.v/5)*46)}px"></div>
+      <div class="mbc-day">${m.d}</div>
     </div>
-  </div>
-</section>
+  `).join('');
 
-<section id="services" aria-labelledby="services-heading">
-  <div class="wrap">
-    <header class="section-head">
-      <span class="eyebrow">Everything you need</span>
-      <h2 id="services-heading">One partner for IT, cyber and digital.</h2>
-      <p>From the day-to-day support keeping your team productive to the web platforms keeping you visible - Bluewater is the single number to call.</p>
-    </header>
-    <div class="services">
-      <article class="svc"><h3>Cyber Essentials Plus</h3><p>External technical audit and full certification. The standard most prime contractors and insurers now expect.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Managed IT</h3><p>Helpdesk, endpoint management, patching, backup and monitoring. Fixed per-user, no surprise tickets.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
-      <article class="svc"><h3>Microsoft 365 Setup</h3><p>Tenant build, identity, mailboxes, SharePoint, Intune baseline and conditional access. Done in days, not months.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Website Design</h3><p>Fast, accessible, on-brand sites that convert. Built on platforms you can actually maintain.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>SEO</h3><p>Technical fixes, content strategy and local search. Monthly reporting you can read in five minutes.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
-      <article class="svc"><h3>Web Apps &amp; Portals</h3><p>Internal tools, client portals and custom software when the off-the-shelf stack runs out of road.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
-      <article class="svc"><h3>IT Audit</h3><p>Full stack review - identity, endpoints, network, backups, suppliers. Risk-ranked, costed remediation plan.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
-      <article class="svc"><h3>Managed Compliance</h3><p>Keep CE, CE Plus and supplier questionnaires current. We own the calendar, evidence and renewals.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
+  // Last milestone
+  const ms = S.milestones[S.milestones.length - 1];
+  if (ms) {
+    const cs = CAT_STYLES[ms.c] || CAT_STYLES['Personal'];
+    document.getElementById('home-milestone').innerHTML = `
+      <div class="card-soft">
+        <span class="badge" style="background:${cs.bg};color:${cs.color}">${ms.c}</span>
+        <div style="font-size:14px;color:var(--text);margin-top:7px;line-height:1.4">${ms.t}</div>
+        <div style="font-size:12px;color:var(--text3);margin-top:4px">${ms.d}</div>
+      </div>
+    `;
+  }
+}
+
+// ─── Mood ─────────────────────────────────────────────────────
+function selectMood(v, l) {
+  S.selectedMoodVal = v;
+  S.selectedMoodLabel = l;
+  document.querySelectorAll('.mood-row[data-mv]').forEach(r => r.classList.toggle('selected', parseInt(r.dataset.mv) === v));
+  document.getElementById('mood-extra').style.display = 'block';
+}
+
+function saveMood() {
+  if (!S.selectedMoodVal) return;
+  const note = document.getElementById('mood-note').value.trim();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const today = days[new Date().getDay()];
+  S.moods.push({d: today, v: S.selectedMoodVal, l: S.selectedMoodLabel, n: note, ts: Date.now()});
+  S.checkedInToday = true;
+  document.getElementById('home-ci-text').textContent = `Checked in — ${S.selectedMoodLabel}.`;
+  document.getElementById('mood-note').value = '';
+  S.selectedMoodVal = null;
+  S.selectedMoodLabel = null;
+  document.querySelectorAll('.mood-row[data-mv]').forEach(r => r.classList.remove('selected'));
+  document.getElementById('mood-extra').style.display = 'none';
+  saveState();
+  showView('home');
+}
+
+// ─── Journal ──────────────────────────────────────────────────
+function renderJournal() {
+  document.getElementById('journal-prompt-text').textContent = PROMPTS[S.promptIndex];
+  const list = document.getElementById('journal-list');
+  if (!S.journals.length) {
+    list.innerHTML = '<div style="font-size:14px;color:var(--text3);padding:12px 0">Nothing written yet. Start today.</div>';
+    return;
+  }
+  list.innerHTML = S.journals.slice().reverse().map(j => `
+    <div class="card" style="margin-bottom:10px">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:3px">${j.d}</div>
+      <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:8px;line-height:1.5">${j.p}</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.6">${j.t}</div>
     </div>
-  </div>
-</section>
+  `).join('');
+}
 
-<section id="cyber-essentials" aria-labelledby="ce-heading">
-  <div class="wrap">
-    <div class="wedge">
-      <div class="wedge-grid">
+function nextPrompt() {
+  S.promptIndex = (S.promptIndex + 1) % PROMPTS.length;
+  document.getElementById('journal-prompt-text').textContent = PROMPTS[S.promptIndex];
+  document.getElementById('home-prompt-text').textContent = PROMPTS[S.promptIndex];
+}
+
+function saveJournal() {
+  const t = document.getElementById('journal-text').value.trim();
+  if (!t) return;
+  const now = new Date();
+  const d = now.toLocaleDateString('en-GB', {day:'numeric', month:'short'});
+  S.journals.push({d, p: PROMPTS[S.promptIndex], t, ts: Date.now()});
+  document.getElementById('journal-text').value = '';
+  saveState();
+  renderJournal();
+}
+
+// ─── About Me ─────────────────────────────────────────────────
+function renderMe() {
+  const wrap = document.getElementById('vals-wrap');
+  wrap.innerHTML = VALUES.map(v => `
+    <button class="pill ${S.selectedValues.includes(v) ? 'active' : ''}" onclick="toggleValue('${v}')">${v}</button>
+  `).join('');
+  renderGoals();
+  document.getElementById('self-note-text').value = S.selfNote || '';
+}
+
+function toggleValue(v) {
+  const idx = S.selectedValues.indexOf(v);
+  if (idx > -1) S.selectedValues.splice(idx, 1);
+  else S.selectedValues.push(v);
+  saveState();
+  renderMe();
+}
+
+function renderGoals() {
+  const el = document.getElementById('goals-list');
+  el.innerHTML = S.goals.map((g, i) => `
+    <div class="goal-item">
+      <div class="goal-circle"></div>
+      <span class="goal-text">${g}</span>
+      <button class="goal-del" onclick="deleteGoal(${i})" aria-label="Remove goal">×</button>
+    </div>
+  `).join('');
+}
+
+function addGoal() {
+  const v = document.getElementById('goal-input').value.trim();
+  if (!v) return;
+  S.goals.push(v);
+  document.getElementById('goal-input').value = '';
+  saveState();
+  renderGoals();
+}
+
+function deleteGoal(i) {
+  S.goals.splice(i, 1);
+  saveState();
+  renderGoals();
+}
+
+function saveSelfNote() {
+  S.selfNote = document.getElementById('self-note-text').value;
+  saveState();
+  const msg = document.getElementById('self-saved-msg');
+  msg.style.display = 'inline';
+  setTimeout(() => msg.style.display = 'none', 2000);
+}
+
+// ─── Milestones ───────────────────────────────────────────────
+function renderMilestones() {
+  const list = document.getElementById('milestones-list');
+  if (!S.milestones.length) {
+    list.innerHTML = '<div style="font-size:14px;color:var(--text3);padding:12px 0">No milestones yet. Add your first one.</div>';
+    return;
+  }
+  list.innerHTML = S.milestones.slice().reverse().map(m => {
+    const cs = CAT_STYLES[m.c] || CAT_STYLES['Personal'];
+    return `
+      <div class="card" style="margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
+        <div style="width:9px;height:9px;border-radius:50%;background:${cs.color};flex-shrink:0;margin-top:5px"></div>
         <div>
-          <span class="eyebrow">The wedge</span>
-          <h2 id="ce-heading">Cyber Essentials, done properly - <em>in a month.</em></h2>
-          <p class="lead-dark">We scope, remediate, evidence and submit. You get the certificate, the policies, and a board-ready summary your customers, insurers and prime contractors actually trust.</p>
-          <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Start your 30-day path <span class="arrow" aria-hidden="true">&rarr;</span></button>
+          <span class="badge" style="background:${cs.bg};color:${cs.color}">${m.c}</span>
+          <div style="font-size:14px;color:var(--text);margin-top:6px;line-height:1.4">${m.t}</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:4px">${m.d}</div>
         </div>
-        <aside class="price-card" aria-label="Cyber Essentials pricing">
-          <p class="price"><span class="num" style="font-size:clamp(1.6rem,1.2rem+1.5vw,2.4rem);line-height:1.1">Fixed price.<br/>Quoted in 48 hrs.</span></p>
-          <p class="timeline">30 days &middot; certificate guaranteed within engagement window</p>
-          <ul class="checks">
-            <li><strong>Direct line to our certified CE assessor</strong> - no middlemen</li>
-            <li>Gap analysis against the five CE controls</li>
-            <li>Remediation guidance &amp; configuration support</li>
-            <li>Policy templates written for your business</li>
-            <li>Evidence gathering &amp; submission via IASME</li>
-            <li>Board-ready summary &amp; renewal calendar</li>
-            <li>Free re-submission if anything fails first time</li>
-          </ul>
-          <a href="/readiness.html" class="btn btn-ghost" style="background:rgba(245,241,234,.08);color:var(--bg);border-color:rgba(245,241,234,.2)">Run the free readiness check</a>
-        </aside>
       </div>
-    </div>
-  </div>
-</section>
+    `;
+  }).join('');
+}
 
-<section id="how" aria-labelledby="how-heading">
-  <div class="wrap">
-    <header class="section-head">
-      <span class="eyebrow">How it works</span>
-      <h2 id="how-heading">Four steps, no surprises.</h2>
-      <p>The same controlled delivery whether it&rsquo;s a single certificate or a multi-month portal build.</p>
-    </header>
-    <div class="steps">
-      <article class="step"><h3>Discovery call</h3><p>A 15-minute call to understand your business, current stack and the outcome you actually need.</p></article>
-      <article class="step"><h3>Scope &amp; quote</h3><p>Fixed-price proposal within 48 hours. Clear deliverables, timelines and what we&rsquo;ll need from you.</p></article>
-      <article class="step"><h3>Delivery</h3><p>Weekly progress, one named point of contact, no chasing. Evidence and documentation as we go.</p></article>
-      <article class="step"><h3>Handover &amp; retainer</h3><p>Full handover pack. Optional retainer keeps you certified, supported and renewed on time.</p></article>
-    </div>
-  </div>
-</section>
+function selMsCat(cat) {
+  S.selectedMsCat = cat;
+  document.querySelectorAll('#ms-cats .pill').forEach(b => b.classList.toggle('active', b.dataset.c === cat));
+}
 
-<section id="about" class="about" aria-labelledby="about-heading">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <span class="eyebrow">About Bluewater</span>
-        <h2 id="about-heading" style="font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:18px 0 28px">Built for SMBs who are tired of agency politics.</h2>
-        <p>Bluewater Associates Limited was set up to do one thing well: be the single, accountable partner UK SMBs can trust for IT, cyber security and digital. <strong>No subcontracting. No surprise invoices. No handing you between three account managers in a quarter.</strong></p>
-        <p>We work with founders, operations leads and finance directors at businesses of 5 to 100 staff - the ones too big for &ldquo;my mate fixes our computers&rdquo; and too small to be interesting to the enterprise MSPs. That&rsquo;s exactly where fixed-price, properly delivered work changes how a business operates.</p>
-        <p>Headquartered on the Wirral, on the ground across Merseyside and the North West, and delivering remotely for clients across the UK.</p>
+function saveMilestone() {
+  const t = document.getElementById('ms-input').value.trim();
+  const c = S.selectedMsCat || 'Personal';
+  if (!t) return;
+  const now = new Date();
+  const d = now.toLocaleDateString('en-GB', {day:'numeric', month:'short'});
+  S.milestones.push({d, c, t, ts: Date.now()});
+  document.getElementById('ms-input').value = '';
+  S.selectedMsCat = null;
+  document.querySelectorAll('#ms-cats .pill').forEach(b => b.classList.remove('active'));
+  saveState();
+  renderMilestones();
+}
+
+// ─── Journey ──────────────────────────────────────────────────
+function setJourneyFilter(f) {
+  S.journeyFilter = f;
+  document.querySelectorAll('#journey-filters .pill').forEach(b => b.classList.toggle('active', b.dataset.f === f));
+  renderJourney();
+}
+
+function renderJourney() {
+  const all = [];
+  S.moods.forEach(m => all.push({type:'mood', d:m.d, data:m, ts:m.ts||0}));
+  S.journals.forEach(j => all.push({type:'journal', d:j.d, data:j, ts:j.ts||0}));
+  S.milestones.forEach(m => all.push({type:'milestone', d:m.d, data:m, ts:m.ts||0}));
+
+  all.sort((a,b) => b.ts - a.ts);
+
+  const filtered = S.journeyFilter === 'all' ? all : all.filter(i => i.type === S.journeyFilter);
+  const list = document.getElementById('journey-list');
+
+  if (!filtered.length) {
+    list.innerHTML = '<div style="font-size:14px;color:var(--text3);padding:12px 0">Nothing here yet.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map((item, i) => {
+    const dotColor = item.type === 'mood' ? MOOD_COLORS[item.data.v] : item.type === 'milestone' ? '#D85A30' : '#888780';
+    const typeLabel = {mood:'Check-in', journal:'Journal', milestone:'Milestone'}[item.type];
+    let body = '';
+
+    if (item.type === 'mood') {
+      body = `
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="width:9px;height:9px;border-radius:50%;background:${MOOD_COLORS[item.data.v]}"></div>
+          <span style="font-size:14px;color:var(--text);font-weight:500">${item.data.l}</span>
+        </div>
+        ${item.data.n ? `<div style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.5">${item.data.n}</div>` : ''}
+      `;
+    } else if (item.type === 'journal') {
+      body = `
+        <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px;line-height:1.5">${item.data.p}</div>
+        <div style="font-size:14px;color:var(--text);line-height:1.5">${item.data.t.substring(0, 100)}${item.data.t.length > 100 ? '…' : ''}</div>
+      `;
+    } else {
+      const cs = CAT_STYLES[item.data.c] || CAT_STYLES['Personal'];
+      body = `
+        <span class="badge" style="background:${cs.bg};color:${cs.color}">${item.data.c}</span>
+        <div style="font-size:14px;color:var(--text);margin-top:6px;line-height:1.4">${item.data.t}</div>
+      `;
+    }
+
+    return `
+      <div class="tl-row">
+        <div class="tl-col">
+          <div class="tl-dot" style="background:${dotColor}"></div>
+          ${i < filtered.length - 1 ? '<div class="tl-line"></div>' : ''}
+        </div>
+        <div style="flex:1;padding-bottom:14px">
+          <div style="font-size:11px;color:var(--text3);margin-bottom:5px;font-weight:500">${item.d} &bull; ${typeLabel}</div>
+          ${body}
+        </div>
       </div>
-      <aside class="about-card" aria-label="Company details">
-        <dl>
-          <div><dt>Registered name</dt><dd>Bluewater Associates Limited</dd></div>
-          <div><dt>Company number</dt><dd>16663061</dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:hello@bluewaterassociates.co.uk">hello@bluewaterassociates.co.uk</a></dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:+441234567890">+44 1234 567890</a></dd></div>
-          <div><dt>Coverage</dt><dd>Wirral, Merseyside, North West &amp; UK-wide</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </div>
-</section>
+    `;
+  }).join('');
+}
 
-<section id="faq" aria-labelledby="faq-heading">
-  <div class="wrap">
-    <header class="section-head">
-      <span class="eyebrow">Questions, answered</span>
-      <h2 id="faq-heading">Things buyers actually ask.</h2>
-      <p>If something isn&rsquo;t covered here, book a 15-minute call and we&rsquo;ll answer it directly.</p>
-    </header>
-    <div class="faq">
-      <details><summary>How long does Cyber Essentials take with Bluewater? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">30 days from kick-off to certificate for most SMBs. We schedule the assessment up front so there is no drift, and we sequence remediation in the order most likely to unblock submission first.</div></details>
-      <details><summary>What is included in a Cyber Essentials engagement? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Gap analysis against the five CE controls, remediation guidance, policy templates written for your business, evidence gathering, IASME submission via our certified-assessor relationship, the certificate, and a board-ready summary. Fixed price quoted within 48 hours of the discovery call. No surprise add-ons.</div></details>
-      <details><summary>Do you also do Cyber Essentials Plus? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. CE Plus includes an external technical audit. Most clients move on to Plus 60-90 days after passing CE, once their environment is stabilised.</div></details>
-      <details><summary>What if we fail the assessment? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">We remediate the gaps and resubmit at no additional cost within the engagement window. Fixed price means fixed outcome - you don&rsquo;t pay for our learning curve.</div></details>
-      <details><summary>Do you sub-contract the work? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">No. You work directly with Bluewater. One named partner, one point of contact, no agency politics and no being passed between account managers.</div></details>
-      <details><summary>Do you offer ongoing retainers after delivery? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. Managed IT and Managed Compliance retainers keep you certified, supported and renewed year-round. Fixed monthly fee agreed up front, no per-ticket surprises.</div></details>
-      <details><summary>What areas do you cover? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Wirral, Merseyside and the wider North West (Liverpool, Chester, Warrington, Manchester) for on-site work. Remote delivery for clients nationwide across the UK.</div></details>
-      <details><summary>How do you bill? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Fixed-price projects are 50% on kick-off, 50% on certificate or handover. Retainers are billed monthly in advance by BACS or direct debit. All prices ex VAT.</div></details>
-      <details><summary>What size business is Cyber Essentials right for? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Any UK organisation can certify, but Cyber Essentials is sized for SMBs of roughly 5 to 250 employees. We work most often with firms of 10-100 staff who need to win a tender, satisfy an insurer or unlock a customer&rsquo;s procurement process. Smaller? Still certifiable, often quicker.</div></details>
-      <details><summary>What&rsquo;s the difference between Cyber Essentials and ISO 27001? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Cyber Essentials covers five specific technical controls and is a 30-day project. ISO 27001 is a full information-security management system, takes 6-12 months, costs ten to fifty times as much, and is meaningful for organisations of 100+ staff or those handling highly sensitive data. For most SMBs, CE is the right starting point and often the finishing point too.</div></details>
-      <details><summary>Can we do Cyber Essentials ourselves? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes - the IASME self-assessment is public. Realistically, the people we work with tried and stalled because the question wording is technical, the evidence requirements are easy to misread, and a failed first submission costs you time. We do this every week, so we get to a pass first time.</div></details>
-      <details><summary>What does Cyber Essentials actually cost? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Cost depends on size of estate (number of users, devices, cloud tenants), current configuration state, and whether you need Plus. We give a single fixed-price figure within 48 hours of a 15-minute discovery call - no estimates, no hourly rates, no surprise add-ons.</div></details>
-      <details><summary>What documents do you need from us to start? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Almost nothing up-front: a list of staff and devices, admin access to your Microsoft 365 / Google Workspace tenant, and a single point of contact who can answer questions. We bring the policy templates, evidence framework and assessor relationship.</div></details>
-      <details><summary>Does Cyber Essentials cover Microsoft 365 and cloud services? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. Anything in scope of your day-to-day work is covered - M365, Google Workspace, AWS, Azure, line-of-business SaaS. We configure conditional access, MFA, identity protection and device baselines as part of the engagement.</div></details>
-      <details><summary>How long is a Cyber Essentials certificate valid? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">12 months. Annual recertification is required to stay listed on the IASME register and to keep insurance/procurement claims valid. Our Managed Compliance retainer keeps the calendar, evidence and renewal automatic.</div></details>
-      <details><summary>Do we need to be a UK company to certify? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Cyber Essentials is administered by IASME under contract with the UK NCSC. Non-UK organisations can certify if they have a UK operation or want to bid for UK public-sector or supply-chain work. If you&rsquo;re unsure, ask - we&rsquo;ll tell you straight.</div></details>
-    </div>
-  </div>
-</section>
+// ─── Init ─────────────────────────────────────────────────────
+function initApp() {
+  if (S.name) {
+    document.getElementById('header-avatar').textContent = S.name[0].toUpperCase();
+    document.getElementById('home-greeting').textContent = `Hey ${S.name}.`;
+  }
+  renderHome();
+}
 
-<section id="book" aria-labelledby="book-heading">
-  <div class="wrap">
-    <div class="final">
-      <span class="eyebrow">Next step</span>
-      <h2 id="book-heading" style="margin-top:18px">Get certified. <em>Stay supported.</em></h2>
-      <p>Book a 15-minute discovery call and walk away with a fixed-price proposal inside 48 hours - or run the free readiness check first and see exactly where you stand.</p>
-      <div class="cta-row">
-        <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a 15-min call <span class="arrow" aria-hidden="true">&rarr;</span></button>
-        <a href="/readiness.html" class="btn btn-ghost">Free readiness check</a>
-      </div>
-      <div class="cal-embed-wrap" id="my-cal-inline" aria-label="Schedule a call"></div>
-    </div>
-  </div>
-</section>
+function boot() {
+  loadState();
 
-</main>
+  // First run — show onboarding
+  if (!S.name) {
+    showOnboarding();
+    return;
+  }
 
-<footer role="contentinfo">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-col foot-brand">
-        <a href="#top" class="brand">Bluewater<span class="dot">.</span></a>
-        <p>UK IT, cyber security and digital partner for SMBs. Cyber Essentials in 30 days, fixed price, one partner.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/cyber-essentials.html">Cyber Essentials</a></li>
-          <li><a href="#services">Cyber Essentials Plus</a></li>
-          <li><a href="#services">Managed IT</a></li>
-          <li><a href="#services">Microsoft 365</a></li>
-          <li><a href="#services">Website &amp; SEO</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#book">Book a call</a></li>
-          <li><a href="https://www.linkedin.com/company/bluewater-associates-uk" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:hello@bluewaterassociates.co.uk">hello@bluewaterassociates.co.uk</a></li>
-          <li><a href="tel:+441234567890">+44 1234 567890</a></li>
-          <li>Wirral &middot; North West &middot; UK</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div>&copy; 2026 Bluewater Associates Limited<span class="dot-sep" aria-hidden="true"></span>Company no. 16663061<span class="dot-sep" aria-hidden="true"></span>Registered in England &amp; Wales</div>
-      <div>
-        <a href="/privacy">Privacy</a><span class="dot-sep" aria-hidden="true"></span>
-        <a href="/terms">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  // Has PIN — show lock
+  if (S.pin) {
+    document.getElementById('lock-hint').textContent = `Welcome back${S.name ? ', '+S.name : ''} — enter your code`;
+    initApp();
+    return;
+  }
 
-<script>
-(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "15min", {origin:"https://cal.com"});
-Cal.ns["15min"]("inline", {
-  elementOrSelector:"#my-cal-inline",
-  config: {"layout":"month_view"},
-  calLink: "bluewater",
-});
-/* Hamburger menu toggle */
-(function(){
-  var nav = document.querySelector('.nav');
-  var btn = document.getElementById('nav-toggle');
-  if(!nav||!btn) return;
-  function close(){ nav.removeAttribute('data-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open menu'); }
-  function open(){ nav.setAttribute('data-open',''); btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Close menu'); }
-  btn.addEventListener('click', function(){ nav.hasAttribute('data-open') ? close() : open(); });
-  nav.querySelectorAll('.nav-links a, .nav-links .btn').forEach(function(el){ el.addEventListener('click', close); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
-})();
-Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-</script>
+  // No PIN set (legacy / demo) — go straight in
+  document.getElementById('lock-screen').classList.add('hidden');
+  initApp();
+}
 
-<button id="back-to-top" type="button" aria-label="Back to top" hidden>&uarr;</button>
-<style>
-#back-to-top{position:fixed;right:18px;bottom:18px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--ink,#0F1B2D);color:var(--bg,#F5F1EA);border:1px solid rgba(245,241,234,.15);box-shadow:0 8px 24px -8px rgba(15,27,45,.4);cursor:pointer;font-size:1.35rem;font-weight:600;line-height:1;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease,background .2s ease;padding:0;font-family:inherit}
-#back-to-top.visible{opacity:1;transform:translateY(0)}
-#back-to-top:hover{background:var(--accent,#C75634)}
-#back-to-top:focus-visible{outline:2px solid var(--accent,#C75634);outline-offset:3px}
-@media print{#back-to-top{display:none}}
-</style>
-<script>
-(function(){var b=document.getElementById('back-to-top');if(!b)return;b.hidden=false;function tick(){window.scrollY>400?b.classList.add('visible'):b.classList.remove('visible')}window.addEventListener('scroll',tick,{passive:true});tick();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})})();
+boot();
 </script>
 </body>
 </html>
