@@ -1042,5 +1042,38 @@ Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
   cards.forEach(function(c){obs.observe(c);});
 })();
 </script>
+
+<!--
+  TAWK.TO LIVE CHAT
+  1. Sign up free at https://www.tawk.to
+  2. Create a property for bluewaterassociates.co.uk
+  3. Copy your embed snippet — replace PROPERTY_ID and WIDGET_ID below
+  4. In Tawk.to dashboard → Appearance → set widget colour to #0F1B2D (navy)
+-->
+<script>
+var Tawk_API=Tawk_API||{};
+var Tawk_LoadStart=new Date();
+Tawk_API.onLoad=function(){
+  /* Pre-fill context so you know the visitor came from the website */
+  Tawk_API.setAttributes({
+    'source': 'bluewaterassociates.co.uk'
+  },function(error){});
+  /* Customise the widget greeting */
+  Tawk_API.customStyle={
+    visibility: {
+      desktop: { position: 'br', xOffset: 20, yOffset: 20 },
+      mobile:  { position: 'br', xOffset: 10, yOffset: 10 }
+    }
+  };
+};
+(function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/PROPERTY_ID/WIDGET_ID'; /* ← replace these two IDs */
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 </body>
 </html>
