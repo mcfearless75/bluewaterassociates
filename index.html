@@ -290,6 +290,18 @@
   .trust-grid div{display:flex;align-items:center;gap:10px}
   .trust-grid div::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;flex:0 0 auto}
 
+  /* Credentials strip */
+  .creds{padding:32px 0;background:var(--ink);border-top:3px solid var(--accent)}
+  .creds-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px}
+  .cred-badge{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 18px}
+  .cred-badge img{height:36px;width:auto;display:block}
+  .cred-badge-text{display:flex;flex-direction:column;gap:2px}
+  .cred-badge-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .cred-badge-name{font-size:.92rem;font-weight:600;color:#fff}
+  .cred-badge-ref{font-size:.72rem;color:rgba(255,255,255,.5);font-family:monospace}
+  .cred-divider{width:1px;height:48px;background:rgba(255,255,255,.12);display:none}
+  @media (min-width:600px){.cred-divider{display:block}}
+
   /* Section header */
   section{padding:var(--space-section) 0}
 
@@ -657,6 +669,54 @@
   </div>
 </section>
 
+<section class="creds" aria-label="Credentials and registrations">
+  <div class="wrap">
+    <div class="creds-inner">
+      <!-- ICO Registered -->
+      <div class="cred-badge">
+        <img src="/ico-header-logo.svg" alt="ICO — Information Commissioner's Office" width="76" height="45" loading="lazy" />
+        <div class="cred-badge-text">
+          <span class="cred-badge-label">Data Protection</span>
+          <span class="cred-badge-name">ICO Registered</span>
+          <span class="cred-badge-ref">Reg. ZA000000</span><!-- ← replace ZA000000 with your ICO reg number -->
+        </div>
+      </div>
+      <div class="cred-divider" aria-hidden="true"></div>
+      <!-- Cyber Essentials -->
+      <div class="cred-badge">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="#C75634"/>
+          <path d="M20 8l10 5v9c0 5.5-4.2 10.6-10 12C10.2 32.6 6 27.5 6 22V13l10-5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M14 20l4 4 8-8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="cred-badge-text">
+          <span class="cred-badge-label">NCSC / IASME</span>
+          <span class="cred-badge-name">Cyber Essentials</span>
+          <span class="cred-badge-ref">Certified</span>
+        </div>
+      </div>
+      <div class="cred-divider" aria-hidden="true"></div>
+      <!-- Companies House -->
+      <div class="cred-badge">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="#1a3a5c"/>
+          <rect x="8" y="28" width="24" height="3" rx="1" fill="#fff"/>
+          <rect x="11" y="13" width="3" height="15" rx="1" fill="#fff"/>
+          <rect x="18.5" y="13" width="3" height="15" rx="1" fill="#fff"/>
+          <rect x="26" y="13" width="3" height="15" rx="1" fill="#fff"/>
+          <path d="M8 13h24" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 8l12 5H8l12-5z" fill="#fff"/>
+        </svg>
+        <div class="cred-badge-text">
+          <span class="cred-badge-label">Companies House</span>
+          <span class="cred-badge-name">Registered Ltd</span>
+          <span class="cred-badge-ref">No. 16663061</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="services" aria-labelledby="services-heading">
   <div class="wrap">
     <header class="section-head">
@@ -879,7 +939,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <div>&copy; 2026 Bluewater Associates Limited<span class="dot-sep" aria-hidden="true"></span>Company no. 16663061<span class="dot-sep" aria-hidden="true"></span>Registered in England &amp; Wales</div>
+      <div>&copy; 2026 Bluewater Associates Limited<span class="dot-sep" aria-hidden="true"></span>Company no. 16663061<span class="dot-sep" aria-hidden="true"></span>Registered in England &amp; Wales<span class="dot-sep" aria-hidden="true"></span>ICO Reg. ZA000000</div>
       <div>
         <a href="/privacy">Privacy</a><span class="dot-sep" aria-hidden="true"></span>
         <a href="/terms">Terms</a>
