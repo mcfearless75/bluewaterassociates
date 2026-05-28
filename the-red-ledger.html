@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Red Ledger — Forensic, Cyber &amp; AI Training for UK Professionals</title>
+<meta name="description" content="The professional community for UK accountants, IT managers and compliance officers. Forensic fraud investigation, cyber cert prep and practical AI. Founding member pricing now open." />
+<link rel="canonical" href="https://bluewaterassociates.co.uk/the-red-ledger" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Red Ledger — Forensic, Cyber &amp; AI Training for UK Professionals" />
+<meta property="og:description" content="Real-world forensic fraud, cyber and AI skills for UK professionals. Not a course. A practitioner community. Founding member pricing now open." />
+<meta property="og:url" content="https://bluewaterassociates.co.uk/the-red-ledger" />
+<meta property="og:locale" content="en_GB" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,700;9..144,0,800;9..144,1,400;9..144,1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<script defer data-domain="bluewaterassociates.co.uk" src="https://plausible.io/js/script.js"></script>
+
+<style>
+/* ── Design tokens ──────────────────────────── */
+:root {
+  --bg:      #0C0E14;
+  --surf-1:  #141820;
+  --surf-2:  #1A2030;
+  --surf-3:  #212840;
+  --red:     #C41E3A;
+  --red-lt:  #E8304A;
+  --red-dim: rgba(196,30,58,.15);
+  --gold:    #C9A84C;
+  --gold-dim:rgba(201,168,76,.15);
+  --text:    #EDE8DF;
+  --muted:   #8A909D;
+  --faint:   #525968;
+  --border:  #252B3A;
+  --line:    #2A3045;
+  --max:     1100px;
+  --ff-d:    'Fraunces', Georgia, serif;
+  --ff-b:    'DM Sans', system-ui, sans-serif;
+  --r:       8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; color-scheme: dark; }
+
+body {
+  font-family: var(--ff-b);
+  font-size: clamp(1rem,.95rem + .25vw,1.125rem);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility ─────────────────────────────────── */
+.container { max-width: var(--max); margin-inline: auto; padding-inline: clamp(1.25rem,5vw,3rem); }
+.rule { height: 1px; background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent); border: none; margin: 0; }
+.gold  { color: var(--gold); }
+.red   { color: var(--red-lt); }
+.muted { color: var(--muted); }
+
+/* ── Topbar ──────────────────────────────────── */
+.topbar {
+  background: var(--surf-1);
+  border-bottom: 1px solid var(--border);
+  color: var(--faint);
+  font-size: .78rem;
+  padding: .55rem 0;
+  text-align: center;
+  letter-spacing: .04em;
+}
+.topbar a { color: var(--muted); text-decoration: none; }
+.topbar a:hover { color: var(--text); }
+
+/* ── Nav ─────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(12,14,20,.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: .9rem 0;
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav__brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav__mark {
+  width: 38px; height: 38px;
+  background: var(--red);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav__mark svg { width: 20px; height: 20px; }
+.nav__name { font-family: var(--ff-d); font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+.nav__sub  { font-size: .72rem; color: var(--faint); font-family: var(--ff-b); letter-spacing: .04em; text-transform: uppercase; }
+.nav__cta {
+  background: var(--red); color: #fff;
+  font-family: var(--ff-b); font-weight: 600; font-size: .875rem;
+  border: none; border-radius: var(--r);
+  padding: .6rem 1.25rem; cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background .18s;
+}
+.nav__cta:hover { background: var(--red-lt); }
+
+/* ── Hero ────────────────────────────────────── */
+.hero {
+  background: var(--bg);
+  padding: clamp(3.5rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
+  position: relative; overflow: hidden;
+}
+/* Atmospheric glow */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(196,30,58,.12) 0%, transparent 65%);
+  top: -200px; right: -100px;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,.06) 0%, transparent 60%);
+  bottom: -150px; left: 5%;
+  pointer-events: none;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(2rem,5vw,4rem);
+  align-items: center;
+  position: relative;
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--red-dim);
+  border: 1px solid rgba(196,30,58,.35);
+  border-radius: 100px;
+  padding: .3rem .9rem;
+  font-size: .76rem; font-weight: 600;
+  color: #E8304A; letter-spacing: .07em; text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.hero__eyebrow-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
+.hero__h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(2.6rem,5vw,4.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+.hero__h1 em { font-style: italic; color: var(--red-lt); }
+.hero__h1 .gold-word { color: var(--gold); }
+.hero__lead {
+  font-size: clamp(.95rem,1.4vw,1.1rem);
+  color: var(--muted);
+  max-width: 48ch;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero__proof {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+  font-size: .8rem; color: var(--faint);
+}
+.hero__proof strong { color: var(--text); }
+.hero__proof-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+/* ── Form card ───────────────────────────────── */
+.form-card {
+  background: var(--surf-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(1.5rem,4vw,2.25rem);
+  box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(196,30,58,.08);
+  position: relative;
+}
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+.form-card__title { font-family: var(--ff-d); font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: .35rem; line-height: 1.25; }
+.form-card__sub   { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; }
+.form-card__sub strong { color: var(--gold); }
+
+.form-group { margin-bottom: .9rem; }
+.form-group label { display: block; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: .3rem; letter-spacing: .03em; text-transform: uppercase; }
+.form-group input,
+.form-group select {
+  width: 100%; padding: .7rem .9rem;
+  background: var(--surf-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--ff-b); font-size: .9375rem;
+  color: var(--text);
+  transition: border-color .15s;
+  appearance: none;
+}
+.form-group input::placeholder { color: var(--faint); }
+.form-group input:focus,
+.form-group select:focus { outline: none; border-color: var(--red); }
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A909D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .9rem center;
+  padding-right: 2.25rem;
+}
+.form-group select option { background: var(--surf-2); color: var(--text); }
+
+.form-submit {
+  width: 100%; background: var(--red); color: #fff;
+  border: none; border-radius: 6px;
+  padding: .85rem 1rem; margin-top: .4rem;
+  font-family: var(--ff-b); font-size: .9375rem; font-weight: 600;
+  cursor: pointer; letter-spacing: .01em;
+  transition: background .18s, transform .1s;
+}
+.form-submit:hover { background: var(--red-lt); transform: translateY(-1px); }
+.form-submit:active { transform: translateY(0); }
+.form-card__legal { font-size: .72rem; color: var(--faint); text-align: center; margin-top: .85rem; line-height: 1.5; }
+
+/* ── Thank you ───────────────────────────────── */
+.thankyou { display: none; text-align: center; padding: 1rem 0; }
+.thankyou__icon {
+  width: 52px; height: 52px;
+  background: var(--red-dim);
+  border: 1px solid rgba(196,30,58,.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.thankyou__icon svg { width: 22px; height: 22px; }
+.thankyou__h { font-family: var(--ff-d); font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+.thankyou__p { font-size: .875rem; color: var(--muted); }
+
+/* ── Stats bar ───────────────────────────────── */
+.statsbar {
+  background: var(--surf-1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.statsbar__inner {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: .5rem 2.5rem;
+  text-align: center;
+}
+.stat__val { font-family: var(--ff-d); font-size: 1.5rem; font-weight: 700; color: var(--text); line-height: 1; }
+.stat__label { font-size: .75rem; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+.stat-sep { width: 1px; height: 36px; background: var(--border); }
+
+/* ── Section shell ───────────────────────────── */
+section { padding: clamp(3rem,7vw,5.5rem) 0; }
+.section-label {
+  font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: .6rem;
+  margin-bottom: .75rem;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1px;
+  background: var(--gold);
+}
+.section-h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(1.75rem,3vw,2.5rem);
+  font-weight: 700; line-height: 1.18;
+  margin-bottom: .9rem; letter-spacing: -.015em;
+  color: var(--text);
+}
+.section-lead { font-size: 1rem; color: var(--muted); max-width: 58ch; line-height: 1.7; }
+
+/* ── Pillars ─────────────────────────────────── */
+.pillars__grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.25rem; margin-top: 2.75rem;
+}
+.pillar {
+  background: var(--surf-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: border-color .2s;
+}
+.pillar:hover { border-color: var(--red); }
+.pillar::before {
+  content: attr(data-n);
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-family: var(--ff-d); font-size: 3rem; font-weight: 800;
+  color: var(--border); line-height: 1;
+}
+.pillar__icon {
+  width: 40px; height: 40px;
+  background: var(--red-dim);
+  border: 1px solid rgba(196,30,58,.25);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.pillar__icon svg { width: 18px; height: 18px; color: var(--red-lt); }
+.pillar__title {
+  font-family: var(--ff-d); font-size: 1.15rem; font-weight: 700;
+  color: var(--text); margin-bottom: .6rem; line-height: 1.25;
+  padding-right: 2.5rem;
+}
+.pillar__desc { font-size: .875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tag {
+  background: var(--surf-2); border: 1px solid var(--line);
+  border-radius: 4px; padding: .18rem .55rem;
+  font-size: .72rem; font-weight: 600; color: var(--faint); letter-spacing: .03em;
+}
+
+/* ── For who ─────────────────────────────────── */
+.forwho { background: var(--surf-1); }
+.forwho__grid {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 1rem; margin-top: 2.5rem;
+}
+.forwho__item {
+  display: flex; align-items: flex-start; gap: .75rem;
+  padding: 1.15rem;
+  border: 1px solid var(--border); border-radius: var(--r);
+  background: var(--surf-2);
+  transition: border-color .2s;
+}
+.forwho__item:hover { border-color: var(--line); }
+.forwho__check {
+  width: 20px; height: 20px; flex-shrink: 0; margin-top: .15rem;
+  background: var(--red-dim); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.forwho__check svg { width: 10px; height: 10px; }
+.forwho__label { font-size: .875rem; font-weight: 600; color: var(--text); }
+.forwho__role  { font-size: .78rem; color: var(--faint); margin-top: .1rem; line-height: 1.4; }
+
+/* ── Pricing ─────────────────────────────────── */
+.pricing__grid {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1.25rem; margin-top: 2.75rem; align-items: start;
+}
+.price-card {
+  background: var(--surf-1); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.75rem 1.5rem;
+}
+.price-card--featured {
+  background: var(--surf-2);
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px rgba(196,30,58,.2), 0 20px 60px rgba(196,30,58,.1);
+  position: relative;
+}
+.price-card--featured::before {
+  content: 'FOUNDING MEMBER';
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--bg);
+  font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+  padding: .25rem .8rem; border-radius: 0 0 6px 6px;
+}
+.price-card__tier {
+  font-size: .72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--faint); margin-bottom: .75rem;
+}
+.price-card--featured .price-card__tier { color: var(--gold); }
+.price-card__price {
+  font-family: var(--ff-d); font-size: 2.25rem; font-weight: 800;
+  line-height: 1; color: var(--text); margin-bottom: .2rem;
+}
+.price-card__cadence { font-size: .8rem; color: var(--faint); margin-bottom: 1.25rem; }
+.price-card--featured .price-card__cadence { color: var(--muted); }
+.price-card__list { list-style: none; }
+.price-card__list li {
+  font-size: .875rem; color: var(--muted);
+  padding: .3rem 0; display: flex; align-items: center; gap: .5rem;
+}
+.price-card--featured .price-card__list li { color: var(--text); }
+.price-card__list li::before { content: '—'; color: var(--red); font-size: .8rem; flex-shrink: 0; }
+.pricing__note { text-align: center; font-size: .8125rem; color: var(--faint); margin-top: 1.75rem; }
+.pricing__note a { color: var(--faint); text-decoration: underline; }
+
+/* ── Founders ────────────────────────────────── */
+.founders__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 2.75rem;
+}
+.founder {
+  display: flex; gap: 1.25rem;
+  padding: 1.75rem;
+  background: var(--surf-1); border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.founder__av {
+  width: 50px; height: 50px; flex-shrink: 0;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-d); font-size: 1rem; font-weight: 700; color: #fff;
+}
+.founder__name  { font-weight: 700; font-size: .9375rem; color: var(--text); margin-bottom: .1rem; }
+.founder__role  { font-size: .78rem; color: var(--red-lt); font-weight: 600; margin-bottom: .6rem; }
+.founder__bio   { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+.creds { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .75rem; }
+.cred {
+  background: var(--red-dim); border: 1px solid rgba(196,30,58,.25);
+  color: #E8304A; font-size: .7rem; font-weight: 700;
+  padding: .18rem .5rem; border-radius: 4px; letter-spacing: .03em;
+}
+
+/* ── Bottom CTA ──────────────────────────────── */
+.bottom-cta {
+  background: var(--surf-1);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.bottom-form {
+  display: flex; gap: .75rem; max-width: 480px; margin: 0 auto;
+}
+.bottom-form input {
+  flex: 1; padding: .85rem 1rem;
+  background: var(--surf-2); border: 1px solid var(--border);
+  border-radius: 6px; font-family: var(--ff-b); font-size: 1rem;
+  color: var(--text);
+}
+.bottom-form input::placeholder { color: var(--faint); }
+.bottom-form input:focus { outline: none; border-color: var(--red); }
+.bottom-form button {
+  background: var(--red); color: #fff;
+  border: none; border-radius: 6px;
+  padding: .85rem 1.4rem;
+  font-family: var(--ff-b); font-size: .9375rem; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: background .18s;
+}
+.bottom-form button:hover { background: var(--red-lt); }
+.bottom-cta__sub { font-size: .75rem; color: var(--faint); margin-top: 1rem; }
+
+/* ── Footer ──────────────────────────────────── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--faint);
+  font-size: .78rem; padding: 2rem 0;
+  text-align: center; line-height: 1.9;
+}
+footer a { color: var(--faint); text-decoration: none; }
+footer a:hover { color: var(--muted); }
+footer strong { color: var(--muted); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 900px) {
+  .hero__inner       { grid-template-columns: 1fr; }
+  .pillars__grid     { grid-template-columns: 1fr; }
+  .founders__grid    { grid-template-columns: 1fr; }
+  .stat-sep          { display: none; }
+}
+@media (max-width: 600px) {
+  .bottom-form       { flex-direction: column; }
+  .nav__cta          { display: none; }
+  .hero__proof       { gap: .4rem; }
+  .statsbar__inner   { gap: 1rem 1.5rem; }
+}
+
+/* ── Reduced motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  A training initiative by <a href="/">Bluewater Associates Limited</a> — Cyber Security &amp; IT Consultancy, Wirral
+</div>
+
+<!-- Nav -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="#waitlist" class="nav__brand" aria-label="The Red Ledger — home">
+      <div class="nav__mark" aria-hidden="true">
+        <!-- Ledger/book mark -->
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="2" width="10" height="16" rx="1" fill="white" fill-opacity=".9"/>
+          <rect x="13" y="3" width="4" height="14" rx="1" fill="white" fill-opacity=".4"/>
+          <line x1="5" y1="7" x2="11" y2="7" stroke="#C41E3A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="5" y1="10" x2="11" y2="10" stroke="#C41E3A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="5" y1="13" x2="9" y2="13" stroke="#C41E3A" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="nav__name">The Red Ledger</div>
+        <div class="nav__sub">Professional Training Community</div>
+      </div>
+    </a>
+    <a href="#waitlist" class="nav__cta">Join the waitlist</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="container hero__inner">
+    <div>
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        Founding member list now open
+      </div>
+      <h1 class="hero__h1" id="hero-h1">
+        See what the<br>
+        numbers are <em>hiding.</em>
+      </h1>
+      <p class="hero__lead">
+        The professional community for UK accountants, IT managers and compliance officers who need forensic fraud, cyber and AI skills that actually transfer to the job.
+      </p>
+      <div class="hero__proof" aria-label="Pricing summary">
+        <strong>Founding member</strong>
+        <span class="hero__proof-dot" aria-hidden="true"></span>
+        <span class="gold">£29/mo</span> while the list is open
+        <span class="hero__proof-dot" aria-hidden="true"></span>
+        <span>£79/mo after</span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div id="waitlist">
+      <div class="form-card" role="region" aria-label="Waitlist sign-up form">
+        <div class="form-card__title">Reserve your founding member place</div>
+        <div class="form-card__sub">Lock in <strong>£29/mo</strong> before the door opens to the public.</div>
+
+        <form id="trl-form" action="https://formspree.io/f/mwvzyvpe" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="The Red Ledger — Waitlist Sign-up" />
+          <input type="hidden" name="_next" value="https://bluewaterassociates.co.uk/the-red-ledger#thankyou" />
+
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="first_name" placeholder="e.g. Sarah" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="you@yourfirm.co.uk" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="role">Your role</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select your role…</option>
+              <option>Accountant / Finance professional</option>
+              <option>IT manager / Sysadmin</option>
+              <option>Compliance / Risk officer</option>
+              <option>Solicitor / Legal professional</option>
+              <option>Business owner / Director</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pillar">Most interested in</label>
+            <select id="pillar" name="interest" required>
+              <option value="" disabled selected>Select a pillar…</option>
+              <option>Forensic accounting &amp; fraud investigation</option>
+              <option>Cyber cert prep (GFACT, GSEC, Security+)</option>
+              <option>Practical AI &amp; automation for professionals</option>
+              <option>All three equally</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Reserve my place →</button>
+          <p class="form-card__legal">No spam. One 5-day challenge, then a weekly digest. Unsubscribe anytime.</p>
+        </form>
+
+        <div class="thankyou" id="thankyou" role="status" aria-live="polite">
+          <div class="thankyou__icon" aria-hidden="true">
+            <svg viewBox="0 0 22 17" fill="none"><path d="M1 8l6 7L21 1" stroke="#C41E3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="thankyou__h">You're on the list.</div>
+          <p class="thankyou__p">Day 1 of the five-day challenge lands tomorrow at 8am. Check your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats bar -->
+<div class="statsbar" role="region" aria-label="Key facts">
+  <div class="container statsbar__inner">
+    <div>
+      <div class="stat__val gold">£29</div>
+      <div class="stat__label">Founding member / month</div>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div>
+      <div class="stat__val">3</div>
+      <div class="stat__label">Professional pillars</div>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div>
+      <div class="stat__val">0</div>
+      <div class="stat__label">Skool competitors on forensic accounting</div>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div>
+      <div class="stat__val gold">GIAC</div>
+      <div class="stat__label">Certified instructors</div>
+    </div>
+  </div>
+</div>
+
+<!-- Pillars -->
+<section aria-labelledby="pillars-h2">
+  <div class="container">
+    <p class="section-label" aria-hidden="true">Three pillars</p>
+    <h2 class="section-h2" id="pillars-h2">What The Red Ledger covers</h2>
+    <p class="section-lead">Three tracks, one community. Pick the pillar that matches your gap — or work through all three.</p>
+
+    <div class="pillars__grid">
+
+      <div class="pillar" data-n="01" role="article">
+        <div class="pillar__icon" aria-hidden="true">
+          <!-- Search/magnify icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3 class="pillar__title">Forensic Accounting &amp; Fraud Investigation</h3>
+        <p class="pillar__desc">The only UK community covering fraud investigation for finance professionals. Taught by a GFACT-certified forensic accountant. Red flags, investigation workflow, evidence standards — applied to real cases.</p>
+        <div class="tags">
+          <span class="tag">GFACT</span>
+          <span class="tag">Fraud patterns</span>
+          <span class="tag">UK law</span>
+          <span class="tag">CPD eligible</span>
+        </div>
+      </div>
+
+      <div class="pillar" data-n="02" role="article">
+        <div class="pillar__icon" aria-hidden="true">
+          <!-- Shield icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="pillar__title">Cyber Cert Prep</h3>
+        <p class="pillar__desc">Structured preparation for GFACT, GSEC and CompTIA Security+. Guided by a GIAC-certified practitioner. Real exam strategy, not a YouTube playlist. Applied labs, study plans, practice questions.</p>
+        <div class="tags">
+          <span class="tag">GFACT</span>
+          <span class="tag">GSEC</span>
+          <span class="tag">Security+</span>
+          <span class="tag">Exam strategy</span>
+        </div>
+      </div>
+
+      <div class="pillar" data-n="03" role="article">
+        <div class="pillar__icon" aria-hidden="true">
+          <!-- Circuit/AI icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
+        </div>
+        <h3 class="pillar__title">Practical AI &amp; Automation for Professionals</h3>
+        <p class="pillar__desc">No code required. Learn which tools are legitimate, how to use AI safely within GDPR, and how to build automations that save you hours each week. Live demos, not theory.</p>
+        <div class="tags">
+          <span class="tag">Prompt engineering</span>
+          <span class="tag">GDPR-safe AI</span>
+          <span class="tag">Automation</span>
+          <span class="tag">GitHub basics</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- Who it's for -->
+<section class="forwho" aria-labelledby="forwho-h2">
+  <div class="container">
+    <p class="section-label" aria-hidden="true">Who this is for</p>
+    <h2 class="section-h2" id="forwho-h2">You're in the right place if…</h2>
+
+    <div class="forwho__grid">
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You work in finance or accounting</div>
+          <div class="forwho__role">and need to understand fraud before a client calls in a panic</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You manage IT for a small firm</div>
+          <div class="forwho__role">and Cyber Essentials feels like a badge, not something you fully understand</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You want GFACT, GSEC or Security+</div>
+          <div class="forwho__role">but a £2,000 SANS course isn't on the cards this year</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You're using AI at work</div>
+          <div class="forwho__role">but nobody told you what you can and can't put into it under UK GDPR</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You're a compliance or risk officer</div>
+          <div class="forwho__role">who needs to advise on cyber and fraud without being the technical expert</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You're a director or business owner</div>
+          <div class="forwho__role">who keeps hearing about cyber insurance, AI risk and fraud — and wants straight answers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- Pricing -->
+<section aria-labelledby="pricing-h2">
+  <div class="container">
+    <p class="section-label" aria-hidden="true">Membership</p>
+    <h2 class="section-h2" id="pricing-h2">Straightforward pricing</h2>
+    <p class="section-lead">Founding member pricing locks in permanently for as long as you stay active. It won't be available once the door opens publicly.</p>
+
+    <div class="pricing__grid">
+      <div class="price-card">
+        <div class="price-card__tier">Free</div>
+        <div class="price-card__price">£0</div>
+        <div class="price-card__cadence">forever</div>
+        <ul class="price-card__list" aria-label="Free tier features">
+          <li>Introductory modules</li>
+          <li>Community feed access</li>
+          <li>Monthly Q&amp;A digest</li>
+        </ul>
+      </div>
+
+      <div class="price-card price-card--featured">
+        <div class="price-card__tier">Member</div>
+        <div class="price-card__price">£29<span style="font-size:1rem;font-weight:400">/mo</span></div>
+        <div class="price-card__cadence">founding price · then £79/mo</div>
+        <ul class="price-card__list" aria-label="Member tier features">
+          <li>All three course pillars</li>
+          <li>Full community access</li>
+          <li>Monthly office hours</li>
+          <li>Study group access</li>
+          <li>Resource library</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card__tier">Pro</div>
+        <div class="price-card__price">£149<span style="font-size:1rem;font-weight:400">/mo</span></div>
+        <div class="price-card__cadence">everything in Member, plus</div>
+        <ul class="price-card__list" aria-label="Pro tier features">
+          <li>Live cohort sessions</li>
+          <li>Case review access</li>
+          <li>Priority Q&amp;A</li>
+          <li>Early module releases</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card__tier">Firm / Team</div>
+        <div class="price-card__price">£399<span style="font-size:1rem;font-weight:400">/mo</span></div>
+        <div class="price-card__cadence">up to 5 Pro seats</div>
+        <ul class="price-card__list" aria-label="Firm tier features">
+          <li>5 Pro seats included</li>
+          <li>CPD certificates</li>
+          <li>Team admin dashboard</li>
+          <li>Direct invoice available</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pricing__note">Cohort places (£1,995) and 1:1 sessions (£150–250) booked separately. <a href="mailto:hello@bluewaterassociates.co.uk">Email us to discuss.</a></p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- Founders -->
+<section aria-labelledby="founders-h2">
+  <div class="container">
+    <p class="section-label" aria-hidden="true">The team</p>
+    <h2 class="section-h2" id="founders-h2">Practitioners, not educators</h2>
+    <p class="section-lead">Every module is built by someone who uses these skills every week. No theory for the sake of it.</p>
+
+    <div class="founders__grid">
+      <div class="founder">
+        <div class="founder__av" style="background:#1A2A4A" aria-hidden="true">PM</div>
+        <div>
+          <div class="founder__name">Paul McWilliam</div>
+          <div class="founder__role">Director, Bluewater Associates Limited</div>
+          <p class="founder__bio">Leads IT infrastructure, Cyber Essentials delivery and digital projects for UK SMEs. Works directly with every client — no hand-offs, no junior staff. The Red Ledger is the training arm of the same practice.</p>
+          <div class="creds">
+            <span class="cred">Cyber Essentials Assessor</span>
+            <span class="cred">IT Consultancy</span>
+          </div>
+        </div>
+      </div>
+      <div class="founder">
+        <div class="founder__av" style="background:#5A1020" aria-hidden="true">LG</div>
+        <div>
+          <div class="founder__name">Lynsey Graham</div>
+          <div class="founder__role">Security Consultant &amp; Forensic Accountant</div>
+          <p class="founder__bio">GIAC GSEC and GFACT certified. Leads cyber incident response and financial fraud investigations. Brings a forensic accountant's rigour to every cyber engagement — a combination that's rare and genuinely useful in practice.</p>
+          <div class="creds">
+            <span class="cred">GIAC GSEC</span>
+            <span class="cred">GIAC GFACT</span>
+            <span class="cred">Forensic Accounting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta" aria-labelledby="cta-h2">
+  <div class="container">
+    <p class="section-label" aria-hidden="true" style="justify-content:center">Join the list</p>
+    <h2 class="section-h2" id="cta-h2">Reserve your founding member place</h2>
+    <p class="section-lead" style="margin:0 auto 2.25rem">Founding member pricing closes when the door opens publicly. Get in before it moves to £79/mo.</p>
+
+    <form class="bottom-form" action="https://formspree.io/f/mwvzyvpe" method="POST" aria-label="Quick waitlist sign-up">
+      <input type="hidden" name="_subject" value="The Red Ledger — Waitlist (bottom)" />
+      <input type="email" name="email" placeholder="your@email.co.uk" required autocomplete="email" aria-label="Email address" />
+      <button type="submit">Get early access →</button>
+    </form>
+    <p class="bottom-cta__sub">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p><strong>The Red Ledger</strong> is a training initiative by <strong>Bluewater Associates Limited</strong></p>
+    <p>Company No. 16663061 &nbsp;·&nbsp; ICO Reg. ZC156613 &nbsp;·&nbsp; Registered in England &amp; Wales</p>
+    <p>80 Birkenhead Road, Meols, Wirral, CH47 0LB &nbsp;·&nbsp; <a href="mailto:hello@bluewaterassociates.co.uk">hello@bluewaterassociates.co.uk</a></p>
+    <p style="margin-top:.75rem">
+      <a href="/">← Back to Bluewater Associates</a> &nbsp;·&nbsp;
+      <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="/terms">Terms</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll to form
+  document.querySelectorAll('a[href="#waitlist"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+
+  // Thank-you state on return from Formspree
+  if (window.location.hash === '#thankyou') {
+    const form = document.getElementById('trl-form');
+    const ty   = document.getElementById('thankyou');
+    if (form && ty) { form.style.display = 'none'; ty.style.display = 'block'; }
+  }
+</script>
+
+</body>
+</html>
