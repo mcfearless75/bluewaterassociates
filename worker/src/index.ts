@@ -2,12 +2,16 @@
  * Bluewater API — Cloudflare Worker
  *
  * Routes:
- *   POST /twilio/voice          → answers inbound call (TwiML: forward, then voicemail)
+ *   POST /twilio/voice          → IVR menu (CE / existing clients / IT support / voicemail)
+ *   POST /twilio/ivr            → handles digit selection, dials with whisper
+ *   POST /twilio/whisper        → plays intent to Paul before connecting
  *   POST /twilio/recording      → voicemail recording completed → ticket + email
  *   POST /twilio/transcription  → transcription complete → attach transcript to ticket
  *   POST /twilio/status         → call status callback → ticket on missed/no-answer
- *   POST /forms/readiness       → readiness checker form → ticket + email
- *   POST /forms/contact         → generic contact form → ticket + email
+ *   POST /twilio/sms            → inbound SMS: BOOK → cal.com link; anything else → ticket
+ *   POST /twilio/whatsapp       → inbound WhatsApp: BOOK → cal.com link; anything else → ticket
+ *   POST /forms/readiness       → readiness checker form → ticket + email + SMS confirmation
+ *   POST /forms/contact         → generic contact form → ticket + email + SMS confirmation
  *   GET  /healthz               → liveness probe
  *
  * All Twilio routes verify the X-Twilio-Signature HMAC.
@@ -15,6 +19,7 @@
 
 export interface Env {
   TWILIO_AUTH_TOKEN: string;
+  TWILIO_ACCOUNT_SID: string;
   SUPABASE_URL: string;
   SUPABASE_SERVICE_KEY: string;
   RESEND_API_KEY: string;
@@ -23,6 +28,7 @@ export interface Env {
   ALLOWED_ORIGIN: string;
   TWILIO_PHONE_E164: string;
   FORWARD_TO_E164: string;
+  WHATSAPP_PHONE_E164?: string; // optional — set once WhatsApp number is registered with Meta
 }
 
 type TicketSource = 'voicemail' | 'missed_call' | 'call' | 'readiness' | 'contact';
@@ -219,40 +225,64 @@ function escapeHtml(s: string): string {
   );
 }
 
+async function sendSms(env: Env, to: string, body: string): Promise<void> {
+  if (!env.TWILIO_ACCOUNT_SID || !env.TWILIO_PHONE_E164 || !to) return;
+  const r = await fetch(
+    `https://api.twilio.com/2010-04-01/Accounts/${env.TWILIO_ACCOUNT_SID}/Messages.json`,
+    {
+      method: 'POST',
+      headers: {
+        authorization: `Basic ${btoa(`${env.TWILIO_ACCOUNT_SID}:${env.TWILIO_AUTH_TOKEN}`)}`,
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({ To: to, From: env.TWILIO_PHONE_E164, Body: body }).toString(),
+    },
+  );
+  if (!r.ok) console.error('sms send error', r.status, await r.text());
+}
+
+async function sendWhatsApp(env: Env, to: string, body: string): Promise<void> {
+  if (!env.TWILIO_ACCOUNT_SID || !env.WHATSAPP_PHONE_E164 || !to) return;
+  // Twilio requires the whatsapp: prefix on both From and To
+  const from = env.WHATSAPP_PHONE_E164.startsWith('whatsapp:')
+    ? env.WHATSAPP_PHONE_E164
+    : `whatsapp:${env.WHATSAPP_PHONE_E164}`;
+  const toAddr = to.startsWith('whatsapp:') ? to : `whatsapp:${to}`;
+  const r = await fetch(
+    `https://api.twilio.com/2010-04-01/Accounts/${env.TWILIO_ACCOUNT_SID}/Messages.json`,
+    {
+      method: 'POST',
+      headers: {
+        authorization: `Basic ${btoa(`${env.TWILIO_ACCOUNT_SID}:${env.TWILIO_AUTH_TOKEN}`)}`,
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({ To: toAddr, From: from, Body: body }).toString(),
+    },
+  );
+  if (!r.ok) console.error('whatsapp send error', r.status, await r.text());
+}
+
 // ─── handlers ─────────────────────────────────────────────────────────────────
 
-async function handleVoice(_req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+async function handleVoice(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
   const caller = params.get('From') || 'unknown';
   console.log('inbound call from', caller);
 
-  // If FORWARD_TO_E164 is set, try to ring the mobile first; on no-answer/busy/failed → voicemail.
-  // Action callback hits /twilio/status for missed-call detection.
-  const forward = env.FORWARD_TO_E164;
-  const baseHost = new URL(_req.url).host;
-  const statusCb = `https://${baseHost}/twilio/status`;
+  const baseHost = new URL(req.url).host;
+  const ivrCb = `https://${baseHost}/twilio/ivr`;
   const recordingCb = `https://${baseHost}/twilio/recording`;
   const transcribeCb = `https://${baseHost}/twilio/transcription`;
 
-  const dialBlock = forward
-    ? `<Dial timeout="20" callerId="${escapeXml(env.TWILIO_PHONE_E164)}" action="${escapeXml(statusCb)}" method="POST">
-    <Number>${escapeXml(forward)}</Number>
-  </Dial>`
-    : '';
-
   return xml(`<?xml version="1.0" encoding="UTF-8"?>
 <Response>
-  ${dialBlock}
-  <Say voice="Polly.Amy">You've reached Bluewater Associates. Please leave a short message after the tone and we'll get back to you within one working day.</Say>
-  <Record
-    maxLength="120"
-    playBeep="true"
-    trim="trim-silence"
-    transcribe="true"
+  <Gather numDigits="1" action="${escapeXml(ivrCb)}" method="POST" timeout="8">
+    <Say voice="Polly.Amy">Welcome to Bluewater Associates. For a Cyber Essentials enquiry, press 1. For existing clients, press 2. For I T support, press 3. Or simply hold to leave a message.</Say>
+  </Gather>
+  <Say voice="Polly.Amy">No worries. Please leave a short message after the tone and we'll get back to you within one working day.</Say>
+  <Record maxLength="120" playBeep="true" trim="trim-silence" transcribe="true"
     transcribeCallback="${escapeXml(transcribeCb)}"
-    action="${escapeXml(recordingCb)}"
-    method="POST"
-  />
-  <Say voice="Polly.Amy">We didn't catch a message. Goodbye.</Say>
+    action="${escapeXml(recordingCb)}" method="POST"/>
+  <Hangup/>
 </Response>`);
 }
 
@@ -286,6 +316,15 @@ async function handleRecording(env: Env, params: URLSearchParams): Promise<Respo
       body: 'Transcript will arrive in a follow-up email when ready.',
     }),
   );
+
+  // SMS caller: confirm voicemail received
+  if (from && from !== 'anonymous' && !from.startsWith('anonymous')) {
+    await sendSms(
+      env,
+      from,
+      `Thanks — we've got your voicemail (ref: ${id || 'pending'}). We'll be back in touch within 1 working day. Text BOOK any time to schedule a callback: https://cal.com/bluewater`,
+    );
+  }
 
   // Tell Twilio we're done (empty TwiML → hangup)
   return xml(`<?xml version="1.0" encoding="UTF-8"?><Response><Hangup/></Response>`);
@@ -323,20 +362,19 @@ async function handleTranscription(env: Env, params: URLSearchParams): Promise<R
   return new Response('ok');
 }
 
-async function handleStatus(env: Env, params: URLSearchParams): Promise<Response> {
+async function handleStatus(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
   // Fires after a <Dial> attempt. DialCallStatus = completed | no-answer | busy | failed | canceled
   const dialStatus = params.get('DialCallStatus') || '';
   const from = params.get('From') || '';
-  const callSid = params.get('CallSid') || '';
 
-  // If the call was actually answered, no missed-call ticket needed.
+  // If the call was actually answered, no ticket needed.
   if (dialStatus === 'completed') {
     return xml(`<?xml version="1.0" encoding="UTF-8"?><Response><Hangup/></Response>`);
   }
 
-  // Forward not answered → fall through to voicemail prompt
-  const baseHost = new URL(`https://${params.get('host') || 'bluewaterassociates.co.uk'}/`).host;
-  void baseHost; // not used here; just keep types tidy
+  const baseHost = new URL(req.url).host;
+  const recordingCb = `https://${baseHost}/twilio/recording`;
+  const transcribeCb = `https://${baseHost}/twilio/transcription`;
 
   const payload = Object.fromEntries(params.entries());
   const { id } = await insertTicket(env, {
@@ -346,17 +384,193 @@ async function handleStatus(env: Env, params: URLSearchParams): Promise<Response
     body: `Dial status: ${dialStatus}\nForwarding to voicemail prompt.`,
     payload,
   });
-  void id;
+
+  await sendEmail(
+    env,
+    `[Missed call] ${from}`,
+    ticketEmailHtml({
+      heading: 'Missed call',
+      rows: [
+        ['From', from],
+        ['Status', dialStatus],
+        ['Time', new Date().toUTCString()],
+        ['Ticket', id || null],
+      ],
+      body: 'Caller is being offered voicemail. Text BOOK to this number to book a callback.',
+    }),
+  );
+
+  // SMS the caller — let them know we missed them and give them an easy next step
+  if (from && from !== 'anonymous' && !from.startsWith('anonymous')) {
+    await sendSms(
+      env,
+      from,
+      `Sorry we missed your call to Bluewater Associates (0800 088 4711). Leave a voicemail after the tone, or text BOOK to this number to schedule a free callback. We aim to respond within 1 working day.`,
+    );
+  }
 
   // Continue to voicemail prompt
   return xml(`<?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Say voice="Polly.Amy">Sorry we missed you. Please leave a short message after the tone and we'll get back to you within one working day.</Say>
   <Record maxLength="120" playBeep="true" trim="trim-silence" transcribe="true"
-    transcribeCallback="https://${new URL('https://placeholder/').host}/twilio/transcription"
-    action="/twilio/recording" method="POST"/>
+    transcribeCallback="${escapeXml(transcribeCb)}"
+    action="${escapeXml(recordingCb)}" method="POST"/>
   <Hangup/>
 </Response>`);
+}
+
+async function handleIvr(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+  const digit = params.get('Digits') || '';
+  const baseHost = new URL(req.url).host;
+  const forward = env.FORWARD_TO_E164;
+  const statusCb = `https://${baseHost}/twilio/status`;
+  const recordingCb = `https://${baseHost}/twilio/recording`;
+  const transcribeCb = `https://${baseHost}/twilio/transcription`;
+
+  const intentLabels: Record<string, string> = {
+    '1': 'Cyber+Essentials+enquiry',
+    '2': 'Existing+client',
+    '3': 'IT+support',
+  };
+  const sayLabels: Record<string, string> = {
+    '1': 'Connecting you to our Cyber Essentials team.',
+    '2': 'Connecting you to our client support team.',
+    '3': 'Connecting you to I T support.',
+  };
+
+  if (forward && intentLabels[digit]) {
+    const whisperUrl = `https://${baseHost}/twilio/whisper?intent=${intentLabels[digit]}`;
+    return xml(`<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say voice="Polly.Amy">${sayLabels[digit]} Please hold.</Say>
+  <Dial timeout="20" callerId="${escapeXml(env.TWILIO_PHONE_E164)}"
+        action="${escapeXml(statusCb)}" method="POST">
+    <Number url="${escapeXml(whisperUrl)}">${escapeXml(forward)}</Number>
+  </Dial>
+</Response>`);
+  }
+
+  // No valid digit or no forward number → go straight to voicemail
+  return xml(`<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say voice="Polly.Amy">Please leave a short message after the tone and we'll get back to you within one working day.</Say>
+  <Record maxLength="120" playBeep="true" trim="trim-silence" transcribe="true"
+    transcribeCallback="${escapeXml(transcribeCb)}"
+    action="${escapeXml(recordingCb)}" method="POST"/>
+  <Hangup/>
+</Response>`);
+}
+
+async function handleWhisper(_req: Request, _env: Env, params: URLSearchParams): Promise<Response> {
+  // Plays a brief message to Paul *before* the call connects — so he knows why they're calling.
+  const rawIntent = params.get('intent') || 'unknown';
+  const intent = decodeURIComponent(rawIntent.replace(/\+/g, ' '));
+  return xml(`<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say voice="Polly.Amy">Bluewater call. Caller intent: ${escapeXml(intent)}. Connecting now.</Say>
+</Response>`);
+}
+
+async function handleSms(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+  const from = params.get('From') || '';
+  const body = (params.get('Body') || '').trim();
+  const keyword = body.toUpperCase().split(' ')[0];
+
+  if (keyword === 'BOOK' || keyword === 'BOOKING' || keyword === 'SCHEDULE') {
+    await sendSms(
+      env,
+      from,
+      'Hi! Book a free 30-min discovery call here: https://cal.com/bluewater — we usually respond within one working day. Bluewater Associates.',
+    );
+    return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
+  }
+
+  if (keyword === 'STOP' || keyword === 'HELP' || keyword === 'UNSTOP') {
+    // Let Twilio's built-in compliance handling deal with STOP/HELP; just return empty TwiML.
+    return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
+  }
+
+  // Everything else → create a ticket and reply with an acknowledgement
+  const payload = Object.fromEntries(params.entries());
+  const { id } = await insertTicket(env, {
+    source: 'contact',
+    contact_phone: from,
+    subject: `SMS from ${from}`,
+    body,
+    payload,
+  });
+
+  await sendEmail(
+    env,
+    `[SMS] ${from}`,
+    ticketEmailHtml({
+      heading: 'Inbound SMS',
+      rows: [
+        ['From', from],
+        ['Message', body],
+        ['Ticket', id || null],
+      ],
+    }),
+  );
+
+  await sendSms(
+    env,
+    from,
+    `Thanks for your message. A member of the Bluewater team will be in touch shortly. Ref: ${id || 'pending'}`,
+  );
+
+  return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
+}
+
+async function handleWhatsApp(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+  const from = params.get('From') || ''; // arrives as whatsapp:+447xxxxxxxxx
+  const body = (params.get('Body') || '').trim();
+  const keyword = body.toUpperCase().split(' ')[0];
+
+  if (keyword === 'BOOK' || keyword === 'BOOKING' || keyword === 'SCHEDULE') {
+    await sendWhatsApp(
+      env,
+      from,
+      'Hi! Book a free 30-min discovery call here: https://cal.com/bluewater — we usually respond within one working day. Bluewater Associates.',
+    );
+    return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
+  }
+
+  if (keyword === 'STOP' || keyword === 'HELP') {
+    return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
+  }
+
+  // Everything else → ticket + email + WhatsApp acknowledgement
+  const payload = Object.fromEntries(params.entries());
+  const { id } = await insertTicket(env, {
+    source: 'contact',
+    contact_phone: from,
+    subject: `WhatsApp from ${from}`,
+    body,
+    payload,
+  });
+
+  await sendEmail(
+    env,
+    `[WhatsApp] ${from}`,
+    ticketEmailHtml({
+      heading: 'Inbound WhatsApp Message',
+      rows: [
+        ['From', from],
+        ['Message', body],
+        ['Ticket', id || null],
+      ],
+    }),
+  );
+
+  await sendWhatsApp(
+    env,
+    from,
+    `Thanks for your message. A member of the Bluewater team will be in touch shortly. Ref: ${id || 'pending'}`,
+  );
+
+  return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
 }
 
 async function handleFormReadiness(req: Request, env: Env): Promise<Response> {
@@ -416,6 +630,14 @@ async function handleFormReadiness(req: Request, env: Env): Promise<Response> {
     email,
   );
 
+  if (phone) {
+    await sendSms(
+      env,
+      phone,
+      `Thanks ${name ? name.split(' ')[0] : 'there'}! We've received your Cyber Essentials readiness results and will be in touch shortly. Questions? Call 0800 088 4711. Bluewater Associates.`,
+    );
+  }
+
   return json({ ok: true, id });
 }
 
@@ -467,6 +689,14 @@ async function handleFormContact(req: Request, env: Env): Promise<Response> {
     email,
   );
 
+  if (phone) {
+    await sendSms(
+      env,
+      phone,
+      `Thanks for reaching out to Bluewater Associates. We'll be back to you within one working day. You can also call us on 0800 088 4711. Ref: ${id || 'pending'}`,
+    );
+  }
+
   return json({ ok: true, id });
 }
 
@@ -498,9 +728,13 @@ export default {
       if (!ok) return new Response('signature mismatch', { status: 403 });
 
       if (path === '/twilio/voice')          return handleVoice(req, env, params);
+      if (path === '/twilio/ivr')            return handleIvr(req, env, params);
+      if (path === '/twilio/whisper')        return handleWhisper(req, env, params);
       if (path === '/twilio/recording')      return handleRecording(env, params);
       if (path === '/twilio/transcription')  return handleTranscription(env, params);
-      if (path === '/twilio/status')         return handleStatus(env, params);
+      if (path === '/twilio/status')         return handleStatus(req, env, params);
+      if (path === '/twilio/sms')            return handleSms(req, env, params);
+      if (path === '/twilio/whatsapp')       return handleWhatsApp(req, env, params);
     }
 
     return new Response('not found', { status: 404 });
