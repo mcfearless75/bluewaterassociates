@@ -1,6 +1,8 @@
 # Copy to .dev.vars for local development (never commit).
 # In production, set via: wrangler secret put <NAME>
 TWILIO_AUTH_TOKEN=
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 SUPABASE_SERVICE_KEY=
 RESEND_API_KEY=re_xxx
+MAILERLITE_API_KEY=

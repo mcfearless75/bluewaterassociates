@@ -2,11 +2,13 @@ name = "bluewater-api"
 main = "src/index.ts"
 compatibility_date = "2026-05-01"
 
-# Set these secrets via `wrangler secret put <NAME>` (never commit them):
+# Set these via `wrangler secret put <NAME>` — never commit values:
 #   TWILIO_AUTH_TOKEN    — from Twilio console
+#   TWILIO_ACCOUNT_SID   — from Twilio console (not sensitive, but keep out of repo)
 #   SUPABASE_URL         — https://<project>.supabase.co
 #   SUPABASE_SERVICE_KEY — service_role key (Supabase → Project Settings → API)
 #   RESEND_API_KEY       — re_... key from resend.com
+#   MAILERLITE_API_KEY   — MailerLite → Integrations → API → API tokens
 #
 # Public (non-secret) vars below:
 
@@ -14,8 +16,9 @@ compatibility_date = "2026-05-01"
 ALERT_FROM    = "hello@bluewaterassociates.co.uk"
 ALERT_TO      = "hello@bluewaterassociates.co.uk"
 ALLOWED_ORIGIN = "https://bluewaterassociates.co.uk"
-TWILIO_PHONE_E164 = ""              # pending Twilio UK number approval; fill in then redeploy
-FORWARD_TO_E164   = "+447841636133" # rings before voicemail kicks in
+TWILIO_PHONE_E164   = "+448000884711"    # UK toll-free, active
+FORWARD_TO_E164     = "+447841636133"    # rings before voicemail kicks in
+MAILERLITE_GROUP_ID = ""   # fill in after creating the group in MailerLite
 
 # Custom domain (requires DNS on Cloudflare). Uncomment after migrating DNS:
 # [[routes]]

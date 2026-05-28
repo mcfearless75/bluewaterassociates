@@ -12,6 +12,7 @@
  *   POST /twilio/whatsapp       → inbound WhatsApp: BOOK → cal.com link; anything else → ticket
  *   POST /forms/readiness       → readiness checker form → ticket + email + SMS confirmation
  *   POST /forms/contact         → generic contact form → ticket + email + SMS confirmation
+ *   POST /webhooks/formspree    → Formspree webhook → add subscriber to MailerLite group
  *   GET  /healthz               → liveness probe
  *
  * All Twilio routes verify the X-Twilio-Signature HMAC.
@@ -29,6 +30,8 @@ export interface Env {
   TWILIO_PHONE_E164: string;
   FORWARD_TO_E164: string;
   WHATSAPP_PHONE_E164?: string; // optional — set once WhatsApp number is registered with Meta
+  MAILERLITE_API_KEY?: string;  // secret — wrangler secret put MAILERLITE_API_KEY
+  MAILERLITE_GROUP_ID?: string; // var — set in wrangler.toml after creating the MailerLite group
 }
 
 type TicketSource = 'voicemail' | 'missed_call' | 'call' | 'readiness' | 'contact';
@@ -114,7 +117,7 @@ async function readFormParams(req: Request): Promise<URLSearchParams> {
   if (ct.includes('multipart/form-data')) {
     const fd = await req.formData();
     const p = new URLSearchParams();
-    for (const [k, v] of fd.entries()) p.append(k, typeof v === 'string' ? v : v.name);
+    for (const [k, v] of fd.entries()) p.append(k, typeof v === 'string' ? v : (v as File).name);
     return p;
   }
   return new URLSearchParams();
@@ -264,7 +267,7 @@ async function sendWhatsApp(env: Env, to: string, body: string): Promise<void> {
 
 // ─── handlers ─────────────────────────────────────────────────────────────────
 
-async function handleVoice(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+async function handleVoice(req: Request, _env: Env, params: URLSearchParams): Promise<Response> {
   const caller = params.get('From') || 'unknown';
   console.log('inbound call from', caller);
 
@@ -287,7 +290,6 @@ async function handleVoice(req: Request, env: Env, params: URLSearchParams): Pro
 }
 
 async function handleRecording(env: Env, params: URLSearchParams): Promise<Response> {
-  const callSid = params.get('CallSid') || '';
   const from = params.get('From') || '';
   const recUrl = params.get('RecordingUrl') || '';
   const recDuration = params.get('RecordingDuration') || '';
@@ -472,7 +474,7 @@ async function handleWhisper(_req: Request, _env: Env, params: URLSearchParams):
 </Response>`);
 }
 
-async function handleSms(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+async function handleSms(_req: Request, env: Env, params: URLSearchParams): Promise<Response> {
   const from = params.get('From') || '';
   const body = (params.get('Body') || '').trim();
   const keyword = body.toUpperCase().split(' ')[0];
@@ -523,7 +525,7 @@ async function handleSms(req: Request, env: Env, params: URLSearchParams): Promi
   return xml(`<?xml version="1.0" encoding="UTF-8"?><Response/>`);
 }
 
-async function handleWhatsApp(req: Request, env: Env, params: URLSearchParams): Promise<Response> {
+async function handleWhatsApp(_req: Request, env: Env, params: URLSearchParams): Promise<Response> {
   const from = params.get('From') || ''; // arrives as whatsapp:+447xxxxxxxxx
   const body = (params.get('Body') || '').trim();
   const keyword = body.toUpperCase().split(' ')[0];
@@ -700,6 +702,59 @@ async function handleFormContact(req: Request, env: Env): Promise<Response> {
   return json({ ok: true, id });
 }
 
+async function handleFormspreeWebhook(req: Request, env: Env): Promise<Response> {
+  // Formspree sends a JSON POST to this endpoint when a form is submitted.
+  // Configure in Formspree dashboard → form → Integrations → Webhook.
+  let data: Record<string, unknown> = {};
+  try {
+    data = (await req.json()) as Record<string, unknown>;
+  } catch {
+    return json({ ok: false, error: 'invalid JSON' }, { status: 400 });
+  }
+
+  // Honour Formspree honeypot — silently accept spam submissions
+  if (typeof data._gotcha === 'string' && data._gotcha.trim() !== '') {
+    return json({ ok: true });
+  }
+
+  const email = (data.email as string) || null;
+  // Formspree maps the name field to 'name'; fall back to '_name' (legacy) or 'first_name'
+  const name = ((data.name || data._name || data.first_name) as string) || null;
+
+  if (!email) {
+    return json({ ok: false, error: 'email required' }, { status: 400 });
+  }
+
+  if (!env.MAILERLITE_API_KEY || !env.MAILERLITE_GROUP_ID) {
+    console.error('MailerLite not configured — set MAILERLITE_API_KEY secret and MAILERLITE_GROUP_ID var');
+    return json({ ok: false, error: 'ESP not configured' }, { status: 500 });
+  }
+
+  const payload: Record<string, unknown> = {
+    email,
+    groups: [env.MAILERLITE_GROUP_ID],
+  };
+  if (name) payload.fields = { name };
+
+  const r = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${env.MAILERLITE_API_KEY}`,
+      'content-type': 'application/json',
+      accept: 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!r.ok) {
+    const errText = await r.text();
+    console.error('MailerLite error', r.status, errText);
+    return json({ ok: false, error: `MailerLite ${r.status}` }, { status: 500 });
+  }
+
+  return json({ ok: true });
+}
+
 // ─── router ───────────────────────────────────────────────────────────────────
 
 export default {
@@ -719,6 +774,9 @@ export default {
     }
     if (req.method === 'POST' && path === '/forms/contact') {
       return withCors(await handleFormContact(req, env), env);
+    }
+    if (req.method === 'POST' && path === '/webhooks/formspree') {
+      return await handleFormspreeWebhook(req, env);
     }
 
     // Twilio endpoints (form-encoded, signature-verified)
