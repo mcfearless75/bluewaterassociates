@@ -18,7 +18,7 @@ ALERT_TO      = "hello@bluewaterassociates.co.uk"
 ALLOWED_ORIGIN = "https://bluewaterassociates.co.uk"
 TWILIO_PHONE_E164   = "+448000884711"    # UK toll-free, active
 FORWARD_TO_E164     = "+447841636133"    # rings before voicemail kicks in
-MAILERLITE_GROUP_ID = ""   # fill in after creating the group in MailerLite
+MAILERLITE_GROUP_ID = "188730803897763314"   # The Red Ledger — Waitlist
 
 # Custom domain (requires DNS on Cloudflare). Uncomment after migrating DNS:
 # [[routes]]
