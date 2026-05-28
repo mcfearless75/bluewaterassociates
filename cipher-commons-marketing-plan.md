@@ -28,7 +28,7 @@ Vague claims kill conversion. Specific claims build credibility.
 |-------|----------|
 | "Learn about fraud investigation" | "By module 3, you'll read a balance sheet looking for the same red flags a forensic accountant does" |
 | "AI tools for professionals" | "We'll build an automated client report in 40 minutes using Claude — no code" |
-| "Experts in the field" | "Lyndsay holds GIAC GSEC and GFACT — two of the hardest certs in cyber and forensic accounting" |
+| "Experts in the field" | "Lynsey holds GIAC GSEC and GFACT — two of the hardest certs in cyber and forensic accounting" |
 
 Use numbers, time-to-result, and named credentials everywhere.
 
@@ -85,7 +85,7 @@ The email challenge works because of psychology, not content.
 
 ## 2. Marketing Ideas by Channel
 
-### 2.1 LinkedIn (Primary — Paul + Lyndsay)
+### 2.1 LinkedIn (Primary — Paul + Lynsey)
 
 **Posting cadence**: 3×/week each, staggered. Not the same day.
 
@@ -98,7 +98,7 @@ The email challenge works because of psychology, not content.
 | 💬 Community wins | Member passed GSEC / built their first workflow / caught a red flag | 1×/week |
 | 🎯 Direct CTA | "Founding membership closes [date]. Link in bio." | 1×/month max |
 
-**Lyndsay's angle**: forensic accounting is almost invisible on LinkedIn. That's an advantage. Posts about fraud patterns, investigation workflow, GFACT vs ACFE comparisons will get traction in a near-empty space.
+**Lynsey's angle**: forensic accounting is almost invisible on LinkedIn. That's an advantage. Posts about fraud patterns, investigation workflow, GFACT vs ACFE comparisons will get traction in a near-empty space.
 
 **Paul's angle**: IT security for SMEs, Cyber Essentials war stories, AI tools that actually work. Bridges the Bluewater Associates brand into Cipher Commons.
 
@@ -110,7 +110,7 @@ The email challenge works because of psychology, not content.
 
 ---
 
-### 2.2 YouTube / Video (Secondary — Stu or Lyndsay lead)
+### 2.2 YouTube / Video (Secondary — Stu or Lynsey lead)
 
 **Not a priority for months 1–3.** Establish community first.
 
@@ -138,7 +138,7 @@ Subject line formula that works for this audience:
 Add a Cipher Commons mention to:
 - The footer ("Training arm: Cipher Commons")
 - The Cyber Essentials page (suggest upskilling)
-- The About page (Paul + Lyndsay's credentials already there)
+- The About page (Paul + Lynsey's credentials already there)
 
 Every Bluewater client is a warm lead for Cipher Commons. They already trust Paul.
 
@@ -172,11 +172,11 @@ These are partnerships where you provide access to each other's audiences. Low c
 
 ---
 
-### 3.2 UK Accounting Firms (Lyndsay's network)
+### 3.2 UK Accounting Firms (Lynsey's network)
 
-Lyndsay's forensic accounting background opens doors that cold outreach never would.
+Lynsey's forensic accounting background opens doors that cold outreach never would.
 
-- Identify 5–10 small-to-mid practices where Lyndsay has a contact
+- Identify 5–10 small-to-mid practices where Lynsey has a contact
 - Offer a **firm seat** at £399/mo — framed as CPD for their team
 - Co-host a single webinar: "Fraud patterns accountants miss" — shared to both audiences
 - The firm gets CPD content; Cipher Commons gets warm leads and credibility
@@ -202,14 +202,14 @@ Before co-marketing: agree the deal (revenue share vs build fee — from the pla
 
 Once agreed:
 - Stu co-promotes to his audience (his existing reach is part of the value proposition)
-- Joint content: "AI for finance professionals — a live demo" — Stu runs it, Paul/Lyndsay host
+- Joint content: "AI for finance professionals — a live demo" — Stu runs it, Paul/Lynsey host
 - Stu's credibility on the AI/GitHub pillar removes any "are they qualified to teach this?" objection
 
 ---
 
 ### 3.5 ACCA / ICAEW Study Groups (Grassroots)
 
-Lyndsay's forensic accounting niche overlaps with the ACCA forensic and advisory community.
+Lynsey's forensic accounting niche overlaps with the ACCA forensic and advisory community.
 
 - LinkedIn groups, Reddit communities (r/Accounting, r/UKAccounting)
 - Post value-first content, mention Cipher Commons in context — no spam
@@ -232,7 +232,7 @@ Cyber cert prep (Pillar 1) competes with bootcamps but wins on price and communi
 | Competitor | Their angle | Cipher Commons difference |
 |------------|-------------|--------------------------|
 | SANS courses | Gold standard, £2k–5k per course | 1/10th the price, community-based, ongoing |
-| Coursera/Udemy | Broad, cheapest, no community | Professional cohort, UK-specific, Lyndsay's lived experience |
+| Coursera/Udemy | Broad, cheapest, no community | Professional cohort, UK-specific, Lynsey's lived experience |
 | Other Skool communities | Often US-based, generic | UK law, UK fraud cases, GFACT/GSEC specific |
 | Big Four CPD | Expensive, passive, one-off | Active, applied, affordable monthly |
 
@@ -244,7 +244,7 @@ Cyber cert prep (Pillar 1) competes with bootcamps but wins on price and communi
 
 | Week | Action |
 |------|--------|
-| W1 | Waitlist page live. Paul + Lyndsay announce on LinkedIn. |
+| W1 | Waitlist page live. Paul + Lynsey announce on LinkedIn. |
 | W2 | 5-day email challenge begins for waitlist. First validation posts. |
 | W3 | LinkedIn: "We've had X people sign up in a week. Here's why." |
 | W4 | Cipher Commons opens to founding members (£29/mo). Hard close date announced. |

@@ -3,8 +3,8 @@
 ## Before You Log Into Skool
 
 - [ ] Confirm community name (Cipher Commons or final alternative)
-- [ ] Agree Paul / Lyndsay ownership split in writing (separate doc)
-- [ ] Paul creates the Skool account — one owner per community; Lyndsay added as admin after
+- [ ] Agree Paul / Lynsey ownership split in writing (separate doc)
+- [ ] Paul creates the Skool account — one owner per community; Lynsey added as admin after
 - [ ] Have the following ready: community logo/icon (1:1, min 400px), banner image (16:9), short description (≤160 chars)
 
 ---
@@ -54,12 +54,12 @@ Skool has one paid membership price per community on Hobby. Use the **Courses** 
 Create these courses in the **Classroom** tab in this order:
 
 ### Course 1 — Start Here
-- Module 1: Welcome to Cipher Commons (video from Paul + Lyndsay, 2–3 min)
+- Module 1: Welcome to Cipher Commons (video from Paul + Lynsey, 2–3 min)
 - Module 2: How to use this community
 - Module 3: Introduce yourself in the Community tab
 
 ### Course 2 — Cyber Cert Prep (Pillar 1)
-*Owner: Lyndsay Graham*
+*Owner: Lynsey Graham*
 - Module 1: What is GFACT and who it's for
 - Module 2: What is GSEC and who it's for
 - Module 3: CompTIA Security+ overview
@@ -68,7 +68,7 @@ Create these courses in the **Classroom** tab in this order:
 - Module 6: Practice questions (text, linked Google Form or Typeform)
 
 ### Course 3 — Forensic Accounting & Fraud Investigation (Pillar 2)
-*Owner: Lyndsay Graham*
+*Owner: Lynsey Graham*
 - Module 1: What forensic accountants actually do
 - Module 2: Reading financial statements for red flags
 - Module 3: Fraud typologies (UK cases)
@@ -97,7 +97,7 @@ Create these courses in the **Classroom** tab in this order:
 
 | Category | Purpose |
 |----------|---------|
-| 📢 Announcements | Paul/Lyndsay only post here |
+| 📢 Announcements | Paul/Lynsey only post here |
 | 💬 General | Open discussion |
 | 🔐 Cyber & Certs | Pillar 1 questions and study chat |
 | 🔍 Fraud & Forensics | Pillar 2 discussion |
@@ -111,7 +111,7 @@ Create these courses in the **Classroom** tab in this order:
 
 - [ ] Enable the Events tab
 - [ ] Schedule a **Founding Member Live Session** (date TBD — target within first 30 days of launch)
-- [ ] Schedule weekly or fortnightly **Office Hours** (Paul + Lyndsay, 45 min Zoom/Google Meet)
+- [ ] Schedule weekly or fortnightly **Office Hours** (Paul + Lynsey, 45 min Zoom/Google Meet)
 - [ ] Add event link to the pinned welcome post
 
 ---
@@ -159,7 +159,7 @@ Cipher Commons — Community Rules
 | Person | Role | Permissions |
 |--------|------|-------------|
 | Paul McWilliam | Owner | Full |
-| Lyndsay Graham | Admin | Manage courses, moderate community |
+| Lynsey Graham | Admin | Manage courses, moderate community |
 | Stu Fosker | Instructor | Pillar 3 course only (if applicable) |
 
 ---
@@ -172,7 +172,7 @@ Cipher Commons — Community Rules
 - [ ] Rules posted
 - [ ] Stripe connected and test payment passed
 - [ ] Founding member price set (£29/mo)
-- [ ] Paul and Lyndsay intro videos recorded and uploaded
+- [ ] Paul and Lynsey intro videos recorded and uploaded
 - [ ] Events tab has at least one upcoming session scheduled
 - [ ] Auto-DMs configured and tested with a dummy account
 
@@ -184,7 +184,7 @@ Before spending time on full course content, validate demand:
 
 - [ ] Set up a simple waitlist page (separate from Bluewater site — a Carrd, Notion, or Linktree will do)
 - [ ] Write and schedule the 5-day email challenge (see separate doc)
-- [ ] Post 3 LinkedIn validation posts (Paul) + 3 (Lyndsay) before community goes live
+- [ ] Post 3 LinkedIn validation posts (Paul) + 3 (Lynsey) before community goes live
 - [ ] Target: 50 waitlist sign-ups before opening paid access
 - [ ] Only open Skool when you have proof people will pay
 

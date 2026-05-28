@@ -4,7 +4,7 @@
 **Challenge premise**: Five days. Five real tests of where your knowledge stands across cyber, fraud, and AI. No fluff. No selling. Just honesty about where most professionals have a gap — and what to do about it.
 
 **Audience**: Finance professionals, accountants, IT managers, compliance officers, SME owners.
-**Sender name**: Paul McWilliam & Lyndsay Graham, Cipher Commons
+**Sender name**: Paul McWilliam & Lynsey Graham, Cipher Commons
 **Send time**: 8:00am each day
 **Platform**: Any ESP — Mailchimp, ConvertKit, MailerLite, etc.
 
@@ -51,7 +51,7 @@ Bluewater Associates / Cipher Commons
 ---
 
 ## Email 2 — Day 2
-**Subject**: What Lyndsay looks for first (most people get this wrong)
+**Subject**: What Lynsey looks for first (most people get this wrong)
 **Preview text**: The answer to yesterday's question — plus Day 2.
 
 ---
@@ -64,7 +64,7 @@ Most people say: bank statements.
 
 That's not wrong. But it's not first.
 
-**Lyndsay Graham — GIAC GSEC & GFACT certified forensic accountant — looks at this first: the supplier ledger.**
+**Lynsey Graham — GIAC GSEC & GFACT certified forensic accountant — looks at this first: the supplier ledger.**
 
 Here's why.
 
@@ -181,7 +181,7 @@ Not because they did something malicious. Because nobody told them.
 
 ---
 
-Over five days, you've had a taste of what Lyndsay and I deal with every week — the real, specific, practitioner-level knowledge that doesn't come from a one-day workshop or a YouTube video.
+Over five days, you've had a taste of what Lynsey and I deal with every week — the real, specific, practitioner-level knowledge that doesn't come from a one-day workshop or a YouTube video.
 
 Here's what we're building.
 
@@ -189,7 +189,7 @@ Here's what we're building.
 
 Three pillars:
 - Cyber cert prep — GFACT, GSEC, Security+
-- Forensic accounting and fraud investigation (Lyndsay leads this — there's genuinely nowhere else like it)
+- Forensic accounting and fraud investigation (Lynsey leads this — there's genuinely nowhere else like it)
 - Practical AI and GitHub for non-engineers
 
 We're opening **founding member access** at **£29/month** — that price is only available to people on this list, and it closes on **[CLOSE DATE]**.
@@ -205,7 +205,7 @@ If you have questions, reply to this email. I read every one.
 **Paul McWilliam**
 Cipher Commons / Bluewater Associates
 
-P.S. Lyndsay's forensic accounting module goes places the Big Four charge £1,500 for a day to cover. Just saying.
+P.S. Lynsey's forensic accounting module goes places the Big Four charge £1,500 for a day to cover. Just saying.
 
 ---
 
@@ -242,7 +242,7 @@ By Day 5, you'll know exactly where you stand — and what Cipher Commons is doi
 
 See you tomorrow.
 
-**Paul & Lyndsay**
+**Paul & Lynsey**
 Cipher Commons
 
 *If you didn't sign up for this, unsubscribe below. No hard feelings.*
@@ -272,7 +272,7 @@ If the timing isn't right, no problem. You're welcome back at the full price whe
 
 ---
 
-*Notes for Paul / Lyndsay when setting up:*
+*Notes for Paul / Lynsey when setting up:*
 - *Replace [CLOSE DATE] with the actual date — pick 14 days from when Day 1 fires*
 - *Replace [JOIN AS A FOUNDING MEMBER →] with your Skool community link*
 - *Set Day 7 chase to trigger only for subscribers who opened at least 2 emails but did not click the Day 5 join link*
