@@ -302,6 +302,16 @@
   .cred-divider{width:1px;height:48px;background:rgba(255,255,255,.12);display:none}
   @media (min-width:600px){.cred-divider{display:block}}
 
+  /* Team */
+  .team{display:grid;grid-template-columns:1fr;gap:20px;margin-top:48px}
+  @media(min-width:640px){.team{grid-template-columns:1fr 1fr}}
+  .team-card{display:flex;gap:16px;background:var(--bg);border:1px solid rgba(15,27,45,.1);border-radius:12px;padding:24px}
+  .team-avatar{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:.02em}
+  .team-info{display:flex;flex-direction:column;gap:4px}
+  .team-name{font-size:1rem;font-weight:700;color:var(--ink)}
+  .team-role{font-size:.825rem;color:var(--accent);font-style:italic}
+  .team-bio{margin:8px 0 0;font-size:.85rem;color:var(--muted);line-height:1.55}
+
   /* Section header */
   section{padding:var(--space-section) 0}
 
@@ -713,6 +723,34 @@
           <span class="cred-badge-ref">No. 16663061</span>
         </div>
       </div>
+      <div class="cred-divider" aria-hidden="true"></div>
+      <!-- GSEC -->
+      <div class="cred-badge">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="#1B4F72"/>
+          <text x="20" y="26" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">G</text>
+          <path d="M10 31h20" stroke="#C75634" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="cred-badge-text">
+          <span class="cred-badge-label">GIAC Certified</span>
+          <span class="cred-badge-name">GSEC</span>
+          <span class="cred-badge-ref">Security Essentials</span>
+        </div>
+      </div>
+      <div class="cred-divider" aria-hidden="true"></div>
+      <!-- GFACT -->
+      <div class="cred-badge">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="#1B4F72"/>
+          <text x="20" y="26" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">G</text>
+          <path d="M10 31h20" stroke="#C75634" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="cred-badge-text">
+          <span class="cred-badge-label">GIAC Certified</span>
+          <span class="cred-badge-name">GFACT</span>
+          <span class="cred-badge-ref">Foundations</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -733,6 +771,8 @@
       <article class="svc"><h3>Web Apps &amp; Portals</h3><p>Internal tools, client portals and custom software when the off-the-shelf stack runs out of road.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
       <article class="svc"><h3>IT Audit</h3><p>Full stack review - identity, endpoints, network, backups, suppliers. Risk-ranked, costed remediation plan.</p><p class="price-line"><span class="accent">Fixed price &middot; enquire</span></p></article>
       <article class="svc"><h3>Managed Compliance</h3><p>Keep CE, CE Plus and supplier questionnaires current. We own the calendar, evidence and renewals.</p><p class="price-line"><span class="accent">Fixed monthly &middot; enquire</span></p></article>
+      <article class="svc"><h3>Cyber Incident Response</h3><p>Breach containment, forensic investigation and ICO notification handled end-to-end. Technical containment and financial forensics under one roof &mdash; so you can act fast and evidence everything.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
+      <article class="svc"><h3>Financial Fraud Investigation</h3><p>Invoice fraud, business email compromise and internal fraud investigated by a qualified forensic accountant. Evidence-ready reports for insurers, solicitors and police referral.</p><p class="price-line"><span class="accent">Scoped &amp; quoted</span></p></article>
     </div>
   </div>
 </section>
@@ -802,8 +842,8 @@
       <div>
         <span class="eyebrow">About Bluewater</span>
         <h2 id="about-heading" style="font-family:var(--serif);font-weight:500;font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:18px 0 28px">Built for SMBs who are tired of agency politics.</h2>
-        <p>Bluewater Associates Limited was set up to do one thing well: be the single, accountable partner UK SMBs can trust for IT, cyber security and digital. <strong>No subcontracting. No surprise invoices. No handing you between three account managers in a quarter.</strong></p>
-        <p>We work with founders, operations leads and finance directors at businesses of 5 to 100 staff - the ones too big for &ldquo;my mate fixes our computers&rdquo; and too small to be interesting to the enterprise MSPs. That&rsquo;s exactly where fixed-price, properly delivered work changes how a business operates.</p>
+        <p>Bluewater Associates Limited was set up to do one thing well: be the single, accountable partner UK SMBs can trust for IT, cyber security and digital. <strong>Direct delivery. No surprise invoices. No handing you between account managers.</strong></p>
+        <p>We work with founders, operations leads and finance directors at businesses of 5 to 100 staff &mdash; the ones too big for &ldquo;my mate fixes our computers&rdquo; and too small to be interesting to the enterprise MSPs. That&rsquo;s exactly where fixed-price, properly delivered work changes how a business operates.</p>
         <p>Headquartered on the Wirral, on the ground across Merseyside and the North West, and delivering remotely for clients across the UK.</p>
       </div>
       <aside class="about-card" aria-label="Company details">
@@ -815,6 +855,25 @@
           <div><dt>Coverage</dt><dd>Wirral, Merseyside, North West &amp; UK-wide</dd></div>
         </dl>
       </aside>
+    </div>
+    <!-- Team -->
+    <div class="team">
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">PM</div>
+        <div class="team-info">
+          <strong class="team-name">Paul McWilliam</strong>
+          <span class="team-role">Director &amp; IT Security Consultant</span>
+          <p class="team-bio">Leads delivery across IT infrastructure, Cyber Essentials and digital projects. Works directly with every client &mdash; no hand-offs.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">LG</div>
+        <div class="team-info">
+          <strong class="team-name">Lyndsay Graham</strong>
+          <span class="team-role">Security Consultant &amp; Forensic Accountant</span>
+          <p class="team-bio">GIAC GSEC &amp; GFACT certified. Leads cyber incident response and financial fraud investigations &mdash; providing technical and financial forensics under one engagement.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -831,7 +890,7 @@
       <details><summary>What is included in a Cyber Essentials engagement? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Gap analysis against the five CE controls, remediation guidance, policy templates written for your business, evidence gathering, IASME submission via our certified-assessor relationship, the certificate, and a board-ready summary. Fixed price quoted within 48 hours of the discovery call. No surprise add-ons.</div></details>
       <details><summary>Do you also do Cyber Essentials Plus? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. CE Plus includes an external technical audit. Most clients move on to Plus 60-90 days after passing CE, once their environment is stabilised.</div></details>
       <details><summary>What if we fail the assessment? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">We remediate the gaps and resubmit at no additional cost within the engagement window. Fixed price means fixed outcome - you don&rsquo;t pay for our learning curve.</div></details>
-      <details><summary>Do you sub-contract the work? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">No. You work directly with Bluewater. One named partner, one point of contact, no agency politics and no being passed between account managers.</div></details>
+      <details><summary>Who actually does the work? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Paul McWilliam and Lyndsay Graham deliver directly &mdash; no outsourcing, no agency politics, no being passed between account managers. Lyndsay is a GIAC-certified security consultant and qualified forensic accountant; Paul leads IT infrastructure, Cyber Essentials and digital delivery. You get both, on every relevant engagement.</div></details>
       <details><summary>Do you offer ongoing retainers after delivery? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Yes. Managed IT and Managed Compliance retainers keep you certified, supported and renewed year-round. Fixed monthly fee agreed up front, no per-ticket surprises.</div></details>
       <details><summary>What areas do you cover? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Wirral, Merseyside and the wider North West (Liverpool, Chester, Warrington, Manchester) for on-site work. Remote delivery for clients nationwide across the UK.</div></details>
       <details><summary>How do you bill? <span class="plus" aria-hidden="true"></span></summary><div class="faq-body">Fixed-price projects are 50% on kick-off, 50% on certificate or handover. Retainers are billed monthly in advance by BACS or direct debit. All prices ex VAT.</div></details>
