@@ -323,7 +323,7 @@ section { padding: clamp(3rem,7vw,5.5rem) 0; }
 /* ── For who ─────────────────────────────────── */
 .forwho { background: var(--surf-1); }
 .forwho__grid {
-  display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  display: grid; grid-template-columns: repeat(3,1fr);
   gap: 1rem; margin-top: 2.5rem;
 }
 .forwho__item {
@@ -456,8 +456,12 @@ footer strong { color: var(--muted); }
 @media (max-width: 900px) {
   .hero__inner       { grid-template-columns: 1fr; }
   .pillars__grid     { grid-template-columns: 1fr; }
+  .forwho__grid      { grid-template-columns: repeat(2,1fr); }
   .founders__grid    { grid-template-columns: 1fr; }
   .stat-sep          { display: none; }
+}
+@media (max-width: 640px) {
+  .forwho__grid      { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .bottom-form       { flex-direction: column; }
@@ -726,6 +730,33 @@ footer strong { color: var(--muted); }
         <div>
           <div class="forwho__label">You're a director or business owner</div>
           <div class="forwho__role">who keeps hearing about cyber insurance, AI risk and fraud — and wants straight answers</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You work in internal audit or due diligence</div>
+          <div class="forwho__role">and need to know what a fraud red flag actually looks like in the ledger</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You work in legal or conveyancing</div>
+          <div class="forwho__role">and encounter financial crime through property transactions and client due diligence</div>
+        </div>
+      </div>
+      <div class="forwho__item">
+        <div class="forwho__check" aria-hidden="true">
+          <svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#C41E3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="forwho__label">You want to move into cyber or forensics</div>
+          <div class="forwho__role">and need structured cert prep and a community, not just a YouTube playlist</div>
         </div>
       </div>
     </div>
