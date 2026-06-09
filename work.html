@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Work | Bluewater Associates</title>
+<meta name="description" content="Selected software and websites built by Bluewater Associates — custom apps, portals and marketing sites for UK businesses." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#F5F1EA; --ink:#0F1B2D; --ink-70:rgba(15,27,45,.7); --ink-50:rgba(15,27,45,.5);
+    --ink-15:rgba(15,27,45,.15); --ink-08:rgba(15,27,45,.08);
+    --accent:#C75634; --accent-ink:#A4421F; --gold:#C9A961; --surface:#FBF8F2;
+    --serif:'Fraunces',ui-serif,Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+    --radius:14px; --radius-lg:22px;
+    --shadow:0 1px 0 rgba(15,27,45,.04), 0 12px 32px -16px rgba(15,27,45,.18);
+    --shadow-lift:0 2px 0 rgba(15,27,45,.04), 0 30px 60px -30px rgba(15,27,45,.28);
+    --maxw:1180px;
+  }
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+  /* Nav */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+  .brand .dot{color:var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-weight:500;font-size:.95rem}
+  .nav-links a{color:var(--ink-70);transition:color .2s}
+  .nav-links a:hover,.nav-links a[aria-current]{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:.95rem;padding:.7em 1.25em;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-ink);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;border-color:var(--ink-15);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
+  @media (max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* Hero */
+  .page-hero{padding:clamp(3rem,2rem+5vw,6rem) 0 clamp(1.5rem,1rem+2vw,3rem)}
+  .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+  .page-hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,1.4rem+3.4vw,4rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 1rem;max-width:16ch}
+  .page-hero p{font-size:clamp(1.05rem,1rem+.4vw,1.25rem);color:var(--ink-70);max-width:60ch;margin:0}
+
+  /* Category heading */
+  .cat-head{display:flex;align-items:baseline;gap:14px;margin:clamp(2.5rem,2rem+2vw,4rem) 0 1.5rem}
+  .cat-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,1.2rem+1vw,1.9rem);margin:0}
+  .cat-head .count{font-size:.85rem;font-weight:600;color:var(--ink-50)}
+  .cat-head .rule{flex:1;height:1px;background:var(--ink-15)}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+  .card{position:relative;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .25s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:var(--ink-15)}
+  .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .badge{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:#fff;background:var(--ink)}
+  .badge.b-accent{background:var(--accent)}
+  .badge.b-gold{background:var(--gold);color:var(--ink)}
+  .status{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.35em .7em;border-radius:999px}
+  .status.live{background:rgba(46,125,80,.12);color:#2E7D50}
+  .status.build{background:rgba(199,86,52,.12);color:var(--accent-ink)}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0 0 .3rem}
+  .card .kicker{font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-50);margin:0 0 .8rem}
+  .card p.desc{color:var(--ink-70);font-size:.96rem;margin:0 0 1.1rem;flex:1}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+  .chip{font-size:.74rem;font-weight:600;color:var(--ink-70);background:var(--ink-08);border-radius:999px;padding:.35em .7em}
+
+  /* CTA */
+  .cta{margin:clamp(3rem,2rem+4vw,6rem) 0;background:var(--ink);border-radius:var(--radius-lg);padding:clamp(2rem,1.5rem+3vw,3.5rem);color:#fff;text-align:center}
+  .cta h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,1.3rem+1.6vw,2.4rem);margin:0 0 .6rem}
+  .cta p{color:rgba(245,241,234,.75);max-width:52ch;margin:0 auto 1.6rem}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn-ghost{border-color:rgba(245,241,234,.25);color:#fff}
+  .cta .btn-ghost:hover{border-color:#fff}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--ink-08);padding:36px 0;margin-top:24px}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--ink-50);font-size:.9rem}
+  .foot a{color:var(--ink-70)}
+  .foot a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="/" class="brand">Bluewater<span class="dot">.</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#services">Services</a>
+      <a href="/#ai-assessment">AI Assessment</a>
+      <a href="/work.html" aria-current="page">Work</a>
+      <a href="/about.html">About</a>
+      <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap page-hero">
+    <span class="eyebrow">Selected work</span>
+    <h1>Software and websites we&rsquo;ve shipped.</h1>
+    <p>From custom internal platforms handling hundreds of users to fast, conversion-led marketing sites &mdash; here&rsquo;s a sample of what we&rsquo;ve designed, built and run for UK businesses.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="cat-head">
+      <h2>Apps &amp; platforms</h2>
+      <span class="count">4 projects</span>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-accent">P</span><span class="status live">Live</span></div>
+        <h3>PRL Console</h3>
+        <p class="kicker">Contractor compliance &amp; workforce platform</p>
+        <p class="desc">Internal management console for PRL Site Solutions, handling roughly 390 site contractors. Onboarding, ID and right-to-work checks, CSCS/RAMS document control with expiry alerts, induction sign-off and site assignment &mdash; all in one place.</p>
+        <div class="chips"><span class="chip">Flask</span><span class="chip">Supabase</span><span class="chip">Postgres</span><span class="chip">Render</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-accent">T</span><span class="status live">Live</span></div>
+        <h3>TrakNet</h3>
+        <p class="kicker">Security operations platform</p>
+        <p class="desc">End-to-end platform for security operations: inbound-email ticketing, job dispatch, live guard and vehicle tracking, SMS and push notifications, plus AI-drafted replies and weekly reports. Runs on a modern serverless stack at traknet.app.</p>
+        <div class="chips"><span class="chip">Vercel</span><span class="chip">Neon Postgres</span><span class="chip">Telnyx SMS</span><span class="chip">Claude AI</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span class="badge">TR</span><span class="status live">Live</span></div>
+        <h3>Tranmere Tracker</h3>
+        <p class="kicker">Squad &amp; player data tool</p>
+        <p class="desc">Internal squad-management tool for Tranmere Rovers coaching staff. Player profiles, match and fitness data and GPS performance tracking in a single, secure dashboard &mdash; built for the people who run the team, not the public.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Dashboard</span><span class="chip">GPS data</span><span class="chip">Internal</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-gold">BR</span><span class="status build">In build</span></div>
+        <h3>Beacon Risk</h3>
+        <p class="kicker">Risk assessment &amp; reporting</p>
+        <p class="desc">A structured risk-management application &mdash; capture, score and report on operational risk with audit-ready records. <em>(Summary draft &mdash; send us the detail and we&rsquo;ll firm this up.)</em></p>
+        <div class="chips"><span class="chip">Web app</span><span class="chip">Reporting</span><span class="chip">Risk scoring</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cat-head">
+      <h2>Websites</h2>
+      <span class="count">3 projects</span>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-gold">BB</span><span class="status live">Live</span></div>
+        <h3>BizzyBee</h3>
+        <p class="kicker">Brand &amp; marketing website</p>
+        <p class="desc">A bright, brand-led marketing site with a clear enquiry path &mdash; fast, mobile-first and easy for the owner to maintain. <em>(Placeholder copy &mdash; share the sector and URL and we&rsquo;ll tailor it.)</em></p>
+        <div class="chips"><span class="chip">Web design</span><span class="chip">Responsive</span><span class="chip">SEO-ready</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-gold">WK</span><span class="status live">Live</span></div>
+        <h3>WK Arb</h3>
+        <p class="kicker">Arboriculture &amp; tree surgery</p>
+        <p class="desc">Marketing website for a tree-surgery and arboriculture business &mdash; services, project gallery and a simple quote-request flow that turns visitors into enquiries. <em>(Placeholder copy &mdash; confirm details and we&rsquo;ll refine.)</em></p>
+        <div class="chips"><span class="chip">Web design</span><span class="chip">Local SEO</span><span class="chip">Lead capture</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span class="badge b-gold">PN</span><span class="status live">Live</span></div>
+        <h3>P&amp;N</h3>
+        <p class="kicker">Business marketing website</p>
+        <p class="desc">A clean, credible marketing site built to win trust and enquiries &mdash; on a platform the client can actually maintain. <em>(Placeholder copy &mdash; send the business detail and URL.)</em></p>
+        <div class="chips"><span class="chip">Web design</span><span class="chip">Responsive</span><span class="chip">CMS</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta">
+      <h2>Want something built?</h2>
+      <p>Whether it&rsquo;s an internal platform, a client portal or a marketing site that actually converts &mdash; we scope it, build it and keep it running.</p>
+      <div class="cta-btns">
+        <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a discovery call &rarr;</button>
+        <a href="https://ai.bluewaterassociates.co.uk/start" class="btn btn-ghost">Free AI assessment</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>&copy; 2026 Bluewater Associates &middot; IT &middot; Cyber Security &middot; AI</span>
+    <span><a href="/">Home</a> &middot; <a href="/about.html">About</a> &middot; <a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script src="https://app.cal.com/embed/embed.js" async></script>
+<script>
+  (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+  Cal("init","15min",{origin:"https://cal.com"});Cal.ns["15min"]("ui",{hideEventTypeDetails:false,layout:"month_view"});
+</script>
+</body>
+</html>
