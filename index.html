@@ -562,6 +562,7 @@
       <a href="#services">Services</a>
       <a href="#ai-assessment">AI Assessment</a>
       <a href="/work.html">Work</a>
+      <a href="#website-packages">Websites</a>
       <a href="/cyber-essentials.html">Cyber Essentials</a>
       <a href="/about.html">About</a>
       <a href="/blog/">Blog</a>
@@ -831,6 +832,88 @@
         </aside>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="website-packages" aria-labelledby="wp-heading">
+  <style>
+    #website-packages .wp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.5rem}
+    @media(max-width:880px){#website-packages .wp-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
+    #website-packages .tier{position:relative;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:30px 26px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s,box-shadow .25s}
+    #website-packages .tier:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+    #website-packages .tier.popular{background:var(--ink);color:#fff;border-color:var(--ink)}
+    #website-packages .tier.popular .tname,#website-packages .tier.popular .tprice{color:#fff}
+    #website-packages .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4em .9em;border-radius:999px}
+    #website-packages .tname{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0 0 .6rem}
+    #website-packages .tprice{font-family:var(--serif);font-weight:700;font-size:2.6rem;line-height:1;color:var(--ink)}
+    #website-packages .tprice .per{font-family:var(--sans);font-size:.9rem;font-weight:500;color:var(--ink-50);margin-left:.3rem}
+    #website-packages .tier.popular .tprice .per{color:rgba(245,241,234,.6)}
+    #website-packages .tsub{font-size:.85rem;color:var(--ink-50);margin:.4rem 0 1.4rem}
+    #website-packages .tier.popular .tsub{color:rgba(245,241,234,.6)}
+    #website-packages .tlist{list-style:none;padding:0;margin:0 0 1.6rem;display:flex;flex-direction:column;gap:.7rem;font-size:.93rem}
+    #website-packages .tlist li{display:flex;gap:.6rem;align-items:flex-start}
+    #website-packages .tlist li::before{content:"✓";color:var(--accent);font-weight:700;flex-shrink:0}
+    #website-packages .tier.popular .tlist li::before{color:var(--gold)}
+    #website-packages .tier .btn{margin-top:auto;width:100%;justify-content:center}
+    #website-packages .tier.popular .btn-ghost{border-color:rgba(245,241,234,.3);color:#fff}
+    #website-packages .wp-foot{text-align:center;margin-top:1.6rem;font-size:.9rem;color:var(--ink-50)}
+  </style>
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Websites</span>
+      <h2 id="wp-heading">Websites built to win work &mdash; then kept that way.</h2>
+      <p>Fast, secure, mobile-first sites that are found on Google <em>and</em> in AI search. Fixed prices, no jargon, live in days.</p>
+    </header>
+    <div class="wp-grid">
+
+      <article class="tier">
+        <p class="tname">Starter</p>
+        <p class="tprice">&pound;295<span class="per">one-off</span></p>
+        <p class="tsub">A sharp one-page site to get you online.</p>
+        <ul class="tlist">
+          <li>One-page website</li>
+          <li>Mobile-first design</li>
+          <li>Contact form included</li>
+          <li>SEO &amp; AI-search ready</li>
+          <li>Unlimited revisions</li>
+          <li>Live in days</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Get started <span class="arrow" aria-hidden="true">&rarr;</span></button>
+      </article>
+
+      <article class="tier popular">
+        <span class="pop-badge">Most popular</span>
+        <p class="tname">Business</p>
+        <p class="tprice">&pound;595<span class="per">one-off</span></p>
+        <p class="tsub">A full multi-page site that sells your services.</p>
+        <ul class="tlist">
+          <li>Up to 5 pages</li>
+          <li>Everything in Starter</li>
+          <li>Full SEO &amp; AI-search setup</li>
+          <li>Priority support by text/WhatsApp</li>
+          <li>Unlimited revisions</li>
+          <li>Live in days</li>
+        </ul>
+        <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Get started <span class="arrow" aria-hidden="true">&rarr;</span></button>
+      </article>
+
+      <article class="tier">
+        <p class="tname">Care &amp; Growth</p>
+        <p class="tprice">&pound;49<span class="per">/month</span></p>
+        <p class="tsub">We host it, maintain it and keep it growing.</p>
+        <ul class="tlist">
+          <li>Secure hosting included</li>
+          <li>Unlimited content edits</li>
+          <li>Daily backups &amp; security</li>
+          <li>Performance monitoring</li>
+          <li>Ongoing AI &amp; SEO optimisation</li>
+          <li>Priority support</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Add to any site <span class="arrow" aria-hidden="true">&rarr;</span></button>
+      </article>
+
+    </div>
+    <p class="wp-foot">Need a shop, booking system or web app? <a href="/work.html" style="color:var(--accent-ink);font-weight:600">See our work</a> or <button type="button" class="link-btn" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}' style="background:none;border:0;color:var(--accent-ink);font-weight:600;cursor:pointer;font:inherit;padding:0">book a call</button>.</p>
   </div>
 </section>
 
