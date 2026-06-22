@@ -186,6 +186,62 @@
     </div>
   </section>
 
+  <section class="wrap" id="packages">
+    <style>
+      #packages .cat-head{display:flex;align-items:baseline;gap:14px;margin:clamp(2.5rem,2rem+2vw,4rem) 0 1.5rem}
+      #packages .cat-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,1.2rem+1vw,1.9rem);margin:0}
+      #packages .cat-head .count{font-size:.85rem;font-weight:600;color:var(--ink-50)}
+      #packages .cat-head .rule{flex:1;height:1px;background:var(--ink-15)}
+      #packages .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+      @media(max-width:820px){#packages .pgrid{grid-template-columns:1fr;max-width:430px;margin:0 auto}}
+      #packages .tier{position:relative;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:30px 26px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s,box-shadow .25s}
+      #packages .tier:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+      #packages .tier.popular{background:var(--ink);color:#fff;border-color:var(--ink)}
+      #packages .pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4em .9em;border-radius:999px}
+      #packages .tname{font-family:var(--serif);font-weight:600;font-size:1.1rem;margin:0 0 .5rem}
+      #packages .tprice{font-family:var(--serif);font-weight:700;font-size:2.5rem;line-height:1}
+      #packages .tprice .per{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink-50);margin-left:.3rem}
+      #packages .tier.popular .tprice .per{color:rgba(245,241,234,.6)}
+      #packages .tsub{font-size:.85rem;color:var(--ink-50);margin:.4rem 0 1.3rem}
+      #packages .tier.popular .tsub{color:rgba(245,241,234,.6)}
+      #packages ul{list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.65rem;font-size:.92rem}
+      #packages li{display:flex;gap:.55rem}
+      #packages li::before{content:"✓";color:var(--accent);font-weight:700}
+      #packages .tier.popular li::before{color:var(--gold)}
+      #packages .tier .btn{margin-top:auto;width:100%;justify-content:center}
+      #packages .tier.popular .btn-ghost{border-color:rgba(245,241,234,.3);color:#fff}
+    </style>
+    <div class="cat-head">
+      <h2>Website packages</h2>
+      <span class="count">fixed prices</span>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <div class="pgrid">
+      <article class="tier">
+        <p class="tname">Starter</p>
+        <p class="tprice">&pound;295<span class="per">one-off</span></p>
+        <p class="tsub">A sharp one-page site to get you online.</p>
+        <ul><li>One-page website</li><li>Mobile-first design</li><li>Contact form included</li><li>SEO &amp; AI-search ready</li><li>Unlimited revisions</li><li>Live in days</li></ul>
+        <button type="button" class="btn btn-ghost" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Get started &rarr;</button>
+      </article>
+      <article class="tier popular">
+        <span class="pop">Most popular</span>
+        <p class="tname">Business</p>
+        <p class="tprice">&pound;595<span class="per">one-off</span></p>
+        <p class="tsub">A full multi-page site that sells your services.</p>
+        <ul><li>Up to 5 pages</li><li>Everything in Starter</li><li>Full SEO &amp; AI-search setup</li><li>Priority WhatsApp support</li><li>Unlimited revisions</li><li>Live in days</li></ul>
+        <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Get started &rarr;</button>
+      </article>
+      <article class="tier">
+        <p class="tname">Care &amp; Growth</p>
+        <p class="tprice">&pound;49<span class="per">/month</span></p>
+        <p class="tsub">We host it, maintain it and keep it growing.</p>
+        <ul><li>Secure hosting included</li><li>Unlimited content edits</li><li>Daily backups &amp; security</li><li>Performance monitoring</li><li>Ongoing AI &amp; SEO optimisation</li><li>Priority support</li></ul>
+        <button type="button" class="btn btn-ghost" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Add to any site &rarr;</button>
+      </article>
+    </div>
+  </section>
+
   <section class="wrap">
     <div class="cta">
       <h2>Want something built?</h2>
