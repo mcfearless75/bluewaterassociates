@@ -1,0 +1,54 @@
+# Bluewater Associates Limited
+
+> Wirral-based IT, cyber security and digital services partner for UK SMBs. Cyber Essentials and Cyber Essentials Plus in 30 days at a fixed price, with direct access to a certified CE assessor. No subcontracting, no agency hand-offs.
+
+## About
+
+Bluewater Associates Limited is a professional services company registered in England and Wales (Company No. 16663061), ICO registered (ZC156613). The company is headquartered on the Wirral, Merseyside, and delivers services on-site across Merseyside and the North West and remotely UK-wide.
+
+The company is run by two principals:
+- Paul McWilliam — Director and IT Security Consultant
+- Lynsey Graham — GIAC GSEC and GFACT certified Security Consultant and Forensic Accountant
+
+All work is delivered directly by the Bluewater team. Fixed-price proposals are issued within 48 hours of a discovery call.
+
+## Services
+
+- Cyber Essentials certification (30-day delivery, fixed price, free resubmission on failure)
+- Cyber Essentials Plus certification
+- Managed IT Support (helpdesk, endpoint management, patching, backup, monitoring)
+- IT Audit (risk-ranked, costed findings)
+- Microsoft 365 Setup and Hardening (Entra ID, SharePoint, Intune, conditional access)
+- Managed Compliance (ongoing certification renewal and policy management)
+- Website Design and Development
+- SEO (technical, local, content)
+- Web Applications and Portal Development
+- Incident Response (breach containment, forensic investigation)
+- Financial Fraud Investigation (forensic accounting, evidence-ready reporting)
+- Free AI Opportunity Assessment (2-minute workflow analysis, estimated savings)
+
+## Key Pages
+
+- Homepage: https://bluewaterassociates.co.uk/
+- About: https://bluewaterassociates.co.uk/about.html
+- Cyber Essentials: https://bluewaterassociates.co.uk/cyber-essentials.html
+- Free Readiness Check: https://bluewaterassociates.co.uk/readiness.html
+- Our Work: https://bluewaterassociates.co.uk/work.html
+- The Red Ledger (community): https://bluewaterassociates.co.uk/the-red-ledger.html
+- Privacy Policy: https://bluewaterassociates.co.uk/privacy.html
+- Terms of Use: https://bluewaterassociates.co.uk/terms.html
+
+## Coverage / Location
+
+- On-site: Wirral, Merseyside, North West England
+- Remote: UK-wide
+- Coordinates: 53.3727, -3.0736
+- Geo region: GB-MER
+
+## Contact
+
+- Phone: 0800 088 4711 (freephone)
+- Email: hello@bluewaterassociates.co.uk
+- Website: https://bluewaterassociates.co.uk/
+- LinkedIn: https://www.linkedin.com/company/bluewater-associates-uk
+- Companies House: https://find-and-update.company-information.service.gov.uk/company/16663061

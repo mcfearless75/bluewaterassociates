@@ -1,3 +1,19 @@
 User-agent: *
 Allow: /
 Sitemap: https://bluewaterassociates.co.uk/sitemap.xml
+
+# AI / LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
