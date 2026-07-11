@@ -187,9 +187,30 @@ p{max-width:62ch;color:var(--ink-70);margin:0 0 1em}
 .breadcrumb a:hover{color:var(--accent)}
 .breadcrumb span{margin:0 .4em}
 
-/* Hero */
-.hero{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(56px,8vw,120px);position:relative}
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:var(--ink-08)}
+/* Hero - dark command surface, matching homepage */
+.hero{position:relative;overflow:hidden;isolation:isolate;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(72px,9vw,128px);background:radial-gradient(ellipse at 70% 28%,#1a2a44 0%,#0F1B2D 55%,#070d18 100%)}
+.hero .h-display{color:#F5F1EA}
+.hero .h-display em{color:var(--gold)}
+.hero .lead{color:rgba(245,241,234,.78)}
+.hero .eyebrow{color:rgba(245,241,234,.72)}
+.hero .eyebrow::before{box-shadow:0 0 14px var(--accent)}
+.hero .breadcrumb{color:rgba(245,241,234,.4)}
+.hero .breadcrumb a{color:rgba(245,241,234,.65)}
+.hero .breadcrumb a:hover{color:var(--gold)}
+.hero .btn-ghost{color:#F5F1EA;border-color:rgba(245,241,234,.28)}
+.hero .btn-ghost:hover{background:rgba(245,241,234,.08);border-color:#F5F1EA;color:#F5F1EA}
+.hero .container{position:relative;z-index:3}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:2;pointer-events:none}
+.hero-hexgrid{position:absolute;inset:-8%;z-index:1;opacity:.3;pointer-events:none}
+.hero-hexgrid path{stroke:rgba(201,169,97,.22);stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+.hex-live{position:absolute;z-index:1;width:50px;height:57.7px;pointer-events:none;animation:hex-pulse 4.2s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(199,86,52,.45))}
+.hex-live svg{width:100%;height:100%;display:block}
+.hex-live path{fill:rgba(199,86,52,.04);stroke:rgba(199,86,52,.85);stroke-width:1.4}
+.hex-live.gold{filter:drop-shadow(0 0 12px rgba(201,169,97,.4))}
+.hex-live.gold path{stroke:rgba(201,169,97,.95);fill:rgba(201,169,97,.04)}
+@keyframes hex-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.hex-live{animation:none}}
+@media(max-width:560px){.hex-live{width:34px;height:39px}.hero-hexgrid{opacity:.2}}
 
 /* Generic section bg variants */
 .bg-tint{background:linear-gradient(180deg,var(--bg) 0%,#EFE9DF 100%)}
@@ -346,6 +367,17 @@ input,button,select,textarea{font-size:16px}
 
 <!-- HERO -->
 <section class="hero">
+  <svg class="hero-hexgrid" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="hexpat-ce" width="56" height="64.8" patternUnits="userSpaceOnUse">
+        <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z M28,0 L28,-16 M56,16 L70,8 M56,48 L70,56 M28,64 L28,80 M0,48 L-14,56 M0,16 L-14,8"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hexpat-ce)"/>
+  </svg>
+  <div class="hex-live"      style="top:16%;right:8%;animation-delay:0s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+  <div class="hex-live gold" style="top:62%;right:16%;animation-delay:1.2s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+  <div class="hex-live gold" style="top:74%;left:5%;animation-delay:2.1s;width:36px;height:41.5px" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span aria-hidden="true">›</span><span aria-current="page">Cyber Essentials</span>

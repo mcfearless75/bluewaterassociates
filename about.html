@@ -240,11 +240,29 @@
     max-width:60ch;
   }
 
-  /* HERO */
+  /* HERO - dark command surface, matching homepage */
   .hero{
-    padding:clamp(40px,7vw,90px) 0 clamp(60px,9vw,120px);
-    border-bottom:1px solid var(--ink-08);
+    position:relative;overflow:hidden;isolation:isolate;
+    padding:clamp(48px,7vw,96px) 0 clamp(72px,9vw,128px);
+    background:radial-gradient(ellipse at 70% 28%,#1a2a44 0%,#0F1B2D 55%,#070d18 100%);
   }
+  .hero .container{position:relative;z-index:3}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:2;pointer-events:none}
+  .hero .h-display{color:#F5F1EA}
+  .hero .h-display em{color:var(--gold)}
+  .hero .lead{color:rgba(245,241,234,.78)}
+  .hero .eyebrow{color:rgba(245,241,234,.72)}
+  .hero .eyebrow::before{box-shadow:0 0 14px var(--accent)}
+  .hero-hexgrid{position:absolute;inset:-8%;z-index:1;opacity:.3;pointer-events:none}
+  .hero-hexgrid path{stroke:rgba(201,169,97,.22);stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+  .hex-live{position:absolute;z-index:1;width:50px;height:57.7px;pointer-events:none;animation:hex-pulse 4.2s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(199,86,52,.45))}
+  .hex-live svg{width:100%;height:100%;display:block}
+  .hex-live path{fill:rgba(199,86,52,.04);stroke:rgba(199,86,52,.85);stroke-width:1.4}
+  .hex-live.gold{filter:drop-shadow(0 0 12px rgba(201,169,97,.4))}
+  .hex-live.gold path{stroke:rgba(201,169,97,.95);fill:rgba(201,169,97,.04)}
+  @keyframes hex-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+  @media(prefers-reduced-motion:reduce){.hex-live{animation:none}}
+  @media(max-width:560px){.hex-live{width:34px;height:39px}.hero-hexgrid{opacity:.2}}
   .breadcrumb{
     font-size:.85rem;
     color:var(--ink-50);
@@ -253,6 +271,10 @@
   .breadcrumb a{color:var(--ink-70);}
   .breadcrumb a:hover{color:var(--accent);}
   .breadcrumb span{margin:0 8px;color:var(--ink-50);}
+  .hero .breadcrumb{color:rgba(245,241,234,.4)}
+  .hero .breadcrumb a{color:rgba(245,241,234,.65)}
+  .hero .breadcrumb a:hover{color:var(--gold)}
+  .hero .breadcrumb span{color:rgba(245,241,234,.4)}
 
   /* SECTIONS */
   section{padding:var(--space-section) 0;}
@@ -512,6 +534,17 @@
 
 <!-- HERO -->
 <section class="hero">
+  <svg class="hero-hexgrid" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="hexpat-about" width="56" height="64.8" patternUnits="userSpaceOnUse">
+        <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z M28,0 L28,-16 M56,16 L70,8 M56,48 L70,56 M28,64 L28,80 M0,48 L-14,56 M0,16 L-14,8"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hexpat-about)"/>
+  </svg>
+  <div class="hex-live"      style="top:16%;right:8%;animation-delay:0s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+  <div class="hex-live gold" style="top:64%;right:17%;animation-delay:1.4s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+  <div class="hex-live gold" style="top:74%;left:4%;animation-delay:2.3s;width:36px;height:41.5px" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span>&rsaquo;</span>About

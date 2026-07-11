@@ -91,11 +91,25 @@
     .nav-links .btn{margin:16px auto 0;justify-content:center;width:calc(100% - 56px);padding:16px 20px;font-size:1rem;display:flex}
   }
 
-  /* Hero */
-  .page-hero{padding:clamp(3rem,2rem+5vw,6rem) 0 clamp(1.5rem,1rem+2vw,3rem)}
-  .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
-  .page-hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,1.4rem+3.4vw,4rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 1rem;max-width:16ch}
-  .page-hero p{font-size:clamp(1.05rem,1rem+.4vw,1.25rem);color:var(--ink-70);max-width:60ch;margin:0}
+  /* Hero - dark command surface, matching homepage */
+  .page-hero{position:relative;overflow:hidden;isolation:isolate;padding:clamp(3.5rem,2.5rem+5vw,6.5rem) 0 clamp(4rem,3rem+4vw,7rem);background:radial-gradient(ellipse at 70% 28%,#1a2a44 0%,#0F1B2D 55%,#070d18 100%)}
+  .page-hero .wrap{position:relative;z-index:3}
+  .page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:2;pointer-events:none}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,241,234,.72);margin-bottom:.9rem}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);display:inline-block}
+  .page-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,1.4rem+3.4vw,4rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 1rem;max-width:18ch;color:#F5F1EA}
+  .page-hero h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+  .page-hero p{font-size:clamp(1.05rem,1rem+.4vw,1.25rem);color:rgba(245,241,234,.78);max-width:60ch;margin:0}
+  .hero-hexgrid{position:absolute;inset:-8%;z-index:1;opacity:.3;pointer-events:none}
+  .hero-hexgrid path{stroke:rgba(201,169,97,.22);stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+  .hex-live{position:absolute;z-index:1;width:50px;height:57.7px;pointer-events:none;animation:hex-pulse 4.2s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(199,86,52,.45))}
+  .hex-live svg{width:100%;height:100%;display:block}
+  .hex-live path{fill:rgba(199,86,52,.04);stroke:rgba(199,86,52,.85);stroke-width:1.4}
+  .hex-live.gold{filter:drop-shadow(0 0 12px rgba(201,169,97,.4))}
+  .hex-live.gold path{stroke:rgba(201,169,97,.95);fill:rgba(201,169,97,.04)}
+  @keyframes hex-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+  @media(prefers-reduced-motion:reduce){.hex-live{animation:none}}
+  @media(max-width:560px){.hex-live{width:34px;height:39px}.hero-hexgrid{opacity:.2}}
 
   /* Category heading */
   .cat-head{display:flex;align-items:baseline;gap:14px;margin:clamp(2.5rem,2rem+2vw,4rem) 0 1.5rem}
@@ -105,8 +119,19 @@
 
   /* Cards */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
-  .card{position:relative;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .25s,border-color .2s;display:flex;flex-direction:column}
+  .card{position:relative;background:var(--surface);border:1px solid var(--ink-08);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .25s,border-color .2s;display:flex;flex-direction:column;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));opacity:0;transition:opacity .25s ease}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:var(--ink-15)}
+  .card:hover::before{opacity:1}
+  /* Scroll reveals - hidden state only applies when JS is running (html.js) */
+  html.js .card,html.js .tier{opacity:0;transform:translateY(24px)}
+  html.js .card.reveal-in,html.js .tier.reveal-in{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+  @media(prefers-reduced-motion:reduce){html.js .card,html.js .tier{opacity:1 !important;transform:none !important}}
+  /* Live status pulse */
+  .status.live{position:relative;padding-left:1.6em}
+  .status.live::before{content:"";position:absolute;left:.7em;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:#2E7D50;animation:live-pulse 2s ease-in-out infinite}
+  @keyframes live-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @media(prefers-reduced-motion:reduce){.status.live::before{animation:none}}
   .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
   .badge{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:#fff;background:var(--ink)}
   .badge.b-accent{background:var(--accent)}
@@ -164,10 +189,23 @@
 </script>
 
 <main>
-  <section class="wrap page-hero">
-    <span class="eyebrow">Selected work</span>
-    <h1>Software and websites we&rsquo;ve shipped.</h1>
-    <p>From custom internal platforms handling hundreds of users to fast, conversion-led marketing sites &mdash; here&rsquo;s a sample of what we&rsquo;ve designed, built and run for UK businesses.</p>
+  <section class="page-hero">
+    <svg class="hero-hexgrid" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="hexpat-work" width="56" height="64.8" patternUnits="userSpaceOnUse">
+          <path d="M28,0 L56,16 L56,48 L28,64 L0,48 L0,16 Z M28,0 L28,-16 M56,16 L70,8 M56,48 L70,56 M28,64 L28,80 M0,48 L-14,56 M0,16 L-14,8"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexpat-work)"/>
+    </svg>
+    <div class="hex-live"      style="top:18%;right:9%;animation-delay:0s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live gold" style="top:60%;right:18%;animation-delay:1.3s" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="hex-live gold" style="top:72%;left:4%;animation-delay:2.2s;width:36px;height:41.5px" aria-hidden="true"><svg viewBox="0 0 56 65"><path d="M28,1 L55,16 L55,48 L28,64 L1,48 L1,16 Z"/></svg></div>
+    <div class="wrap">
+      <span class="eyebrow">Selected work</span>
+      <h1>Software and websites <em>we&rsquo;ve shipped.</em></h1>
+      <p>From custom internal platforms handling hundreds of users to fast, conversion-led marketing sites &mdash; here&rsquo;s a sample of what we&rsquo;ve designed, built and run for UK businesses.</p>
+    </div>
   </section>
 
   <section class="wrap">
@@ -323,6 +361,27 @@
   </div>
 </footer>
 
+<script>
+/* Staggered scroll reveals for project cards and pricing tiers */
+(function(){
+  document.documentElement.classList.add('js');
+  var items=[].slice.call(document.querySelectorAll('.card,.tier'));
+  if(!items.length)return;
+  function revealAll(){items.forEach(function(el){el.classList.add('reveal-in');});}
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window)){revealAll();return;}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var siblings=[].slice.call(e.target.parentElement.children);
+      setTimeout(function(){e.target.classList.add('reveal-in');},(siblings.indexOf(e.target)%3)*80);
+      obs.unobserve(e.target);
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  items.forEach(function(el){obs.observe(el);});
+  /* Failsafe: everything visible after 3s no matter what */
+  setTimeout(revealAll,3000);
+})();
+</script>
 <script src="https://app.cal.com/embed/embed.js" async></script>
 <script>
   (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
