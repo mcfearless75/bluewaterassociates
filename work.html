@@ -7,23 +7,26 @@
 <meta name="description" content="Selected software and websites built by Bluewater Associates — custom apps, portals and marketing sites for UK businesses." />
 <link rel="canonical" href="https://bluewaterassociates.co.uk/work.html" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+<meta name="theme-color" content="#F5F1EA" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bluewaterassociates.co.uk/work.html">
 <meta property="og:title" content="Our Work | Bluewater Associates">
 <meta property="og:description" content="Selected software and websites built by Bluewater Associates — custom apps, portals and marketing sites for UK businesses.">
-<meta property="og:image" content="https://bluewaterassociates.co.uk/assets/og-image.jpg">
+<meta property="og:image" content="https://bluewaterassociates.co.uk/og-image.svg">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Bluewater Associates Limited">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Our Work | Bluewater Associates">
 <meta name="twitter:description" content="Selected software and websites built by Bluewater Associates — custom apps, portals and marketing sites for UK businesses.">
-<meta name="twitter:image" content="https://bluewaterassociates.co.uk/assets/og-image.jpg">
+<meta name="twitter:image" content="https://bluewaterassociates.co.uk/og-image.svg">
 <meta name="geo.region" content="GB-MER">
 <meta name="geo.placename" content="Wirral, Merseyside">
 <meta name="geo.position" content="53.3727;-3.0736">
 <meta name="ICBM" content="53.3727, -3.0736">
+<script defer data-domain="bluewaterassociates.co.uk" src="https://plausible.io/js/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
@@ -49,7 +52,7 @@
   /* Nav */
   header.site{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-08)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .brand{font-family:var(--serif);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:-.01em}
   .brand .dot{color:var(--accent)}
   .nav-links{display:flex;align-items:center;gap:26px;font-weight:500;font-size:.95rem}
   .nav-links a{color:var(--ink-70);transition:color .2s}
@@ -59,7 +62,34 @@
   .btn-accent:hover{background:var(--accent-ink);transform:translateY(-1px)}
   .btn-ghost{background:transparent;border-color:var(--ink-15);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
-  @media (max-width:760px){.nav-links a:not(.btn){display:none}}
+  /* Mobile hamburger nav */
+  .nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--ink-15);border-radius:10px;cursor:pointer;padding:0;transition:border-color .2s ease}
+  .nav-toggle:hover{border-color:var(--ink)}
+  .nav-toggle .bar{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .25s ease,background .15s ease}
+  .nav-toggle .bar::before,.nav-toggle .bar::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .25s ease}
+  .nav-toggle .bar::before{top:-6px}
+  .nav-toggle .bar::after{top:6px}
+  [data-nav-open] .nav-toggle .bar{background:transparent}
+  [data-nav-open] .nav-toggle .bar::before{transform:translateY(6px) rotate(45deg)}
+  [data-nav-open] .nav-toggle .bar::after{transform:translateY(-6px) rotate(-45deg)}
+  @media (max-width:760px){
+    .nav-toggle{display:inline-flex}
+    .nav{position:relative}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:0;
+      background:var(--bg);border-bottom:1px solid var(--ink-08);
+      box-shadow:0 18px 32px -22px rgba(15,27,45,.22);
+      padding:0;max-height:0;overflow:hidden;
+      transition:max-height .3s ease,padding .3s ease;
+      pointer-events:none;
+    }
+    [data-nav-open] .nav-links{max-height:90vh;padding:8px 0 22px;pointer-events:auto}
+    .nav-links a{padding:16px 28px;font-size:1.05rem;color:var(--ink);text-align:center;border-top:1px solid var(--ink-08);display:block}
+    .nav-links a:first-child{border-top:none}
+    .nav-links a:hover{background:rgba(15,27,45,.04);color:var(--accent)}
+    .nav-links .btn{margin:16px auto 0;justify-content:center;width:calc(100% - 56px);padding:16px 20px;font-size:1rem;display:flex}
+  }
 
   /* Hero */
   .page-hero{padding:clamp(3rem,2rem+5vw,6rem) 0 clamp(1.5rem,1rem+2vw,3rem)}
@@ -110,15 +140,28 @@
 <header class="site">
   <div class="wrap nav">
     <a href="/" class="brand">Bluewater<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="/#services">Services</a>
       <a href="/#ai-assessment">AI Assessment</a>
       <a href="/work.html" aria-current="page">Work</a>
+      <a href="/cyber-essentials.html">Cyber Essentials</a>
       <a href="/about.html">About</a>
       <button type="button" class="btn btn-accent" data-cal-link="bluewater" data-cal-namespace="15min" data-cal-config='{"layout":"month_view"}'>Book a call</button>
     </nav>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false"><span class="bar"></span></button>
   </div>
 </header>
+<script>
+(function(){
+  var btn=document.getElementById('nav-toggle');if(!btn)return;
+  var doc=document.documentElement;
+  function close(){doc.removeAttribute('data-nav-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu');}
+  function open(){doc.setAttribute('data-nav-open','');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Close menu');}
+  btn.addEventListener('click',function(){doc.hasAttribute('data-nav-open')?close():open();});
+  document.querySelectorAll('.nav-links a, .nav-links button').forEach(function(el){el.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 
 <main>
   <section class="wrap page-hero">
@@ -163,7 +206,7 @@
         <div class="card-top"><span class="badge b-gold">BR</span><span class="status build">In build</span></div>
         <h3>Beacon Risk</h3>
         <p class="kicker">Risk assessment &amp; reporting</p>
-        <p class="desc">A structured risk-management application &mdash; capture, score and report on operational risk with audit-ready records. <em>(Summary draft &mdash; send us the detail and we&rsquo;ll firm this up.)</em></p>
+        <p class="desc">A structured risk-management application in active development &mdash; capture, score and report on operational risk with audit-ready records, built for teams that need evidence, not spreadsheets.</p>
         <div class="chips"><span class="chip">Web app</span><span class="chip">Reporting</span><span class="chip">Risk scoring</span></div>
       </article>
 
@@ -182,7 +225,7 @@
         <div class="card-top"><span class="badge b-gold">BB</span><span class="status live">Live</span></div>
         <h3>BizzyBee</h3>
         <p class="kicker">Brand &amp; marketing website</p>
-        <p class="desc">A bright, brand-led marketing site with a clear enquiry path &mdash; fast, mobile-first and easy for the owner to maintain. <em>(Placeholder copy &mdash; share the sector and URL and we&rsquo;ll tailor it.)</em></p>
+        <p class="desc">A bright, brand-led marketing site with a clear enquiry path &mdash; fast, mobile-first and easy for the owner to maintain without calling a developer every time the copy changes.</p>
         <div class="chips"><span class="chip">Web design</span><span class="chip">Responsive</span><span class="chip">SEO-ready</span></div>
       </article>
 
@@ -190,7 +233,7 @@
         <div class="card-top"><span class="badge b-gold">WK</span><span class="status live">Live</span></div>
         <h3>WK Arb</h3>
         <p class="kicker">Arboriculture &amp; tree surgery</p>
-        <p class="desc">Marketing website for a tree-surgery and arboriculture business &mdash; services, project gallery and a simple quote-request flow that turns visitors into enquiries. <em>(Placeholder copy &mdash; confirm details and we&rsquo;ll refine.)</em></p>
+        <p class="desc">Marketing website for a tree-surgery and arboriculture business &mdash; services, project gallery and a simple quote-request flow that turns visitors into enquiries.</p>
         <div class="chips"><span class="chip">Web design</span><span class="chip">Local SEO</span><span class="chip">Lead capture</span></div>
       </article>
 
@@ -198,7 +241,7 @@
         <div class="card-top"><span class="badge b-gold">PN</span><span class="status live">Live</span></div>
         <h3>P&amp;N</h3>
         <p class="kicker">Business marketing website</p>
-        <p class="desc">A clean, credible marketing site built to win trust and enquiries &mdash; on a platform the client can actually maintain. <em>(Placeholder copy &mdash; send the business detail and URL.)</em></p>
+        <p class="desc">A clean, credible marketing site built to win trust and enquiries &mdash; delivered on a platform the client can actually maintain themselves, with SEO handled from day one.</p>
         <div class="chips"><span class="chip">Web design</span><span class="chip">Responsive</span><span class="chip">CMS</span></div>
       </article>
 
@@ -276,7 +319,7 @@
 <footer class="site">
   <div class="wrap foot">
     <span>&copy; 2026 Bluewater Associates &middot; IT &middot; Cyber Security &middot; AI</span>
-    <span><a href="/">Home</a> &middot; <a href="/about.html">About</a> &middot; <a href="/privacy.html">Privacy</a></span>
+    <span><a href="/">Home</a> &middot; <a href="/about.html">About</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a></span>
   </div>
 </footer>
 
