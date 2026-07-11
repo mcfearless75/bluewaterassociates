@@ -16,14 +16,14 @@
 <meta property="og:url" content="https://bluewaterassociates.co.uk/">
 <meta property="og:title" content="Bluewater Associates Limited">
 <meta property="og:description" content="Bluewater Associates — Cyber Essentials &amp; IT support for UK SMBs. Fixed price, 30-day delivery, direct line to a certified CE assessor. Wirral &amp; UK-wide.">
-<meta property="og:image" content="https://bluewaterassociates.co.uk/og-image.svg">
+<meta property="og:image" content="https://bluewaterassociates.co.uk/og-image.png">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Bluewater Associates Limited">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bluewater Associates Limited">
 <meta name="twitter:description" content="Bluewater Associates — Cyber Essentials &amp; IT support for UK SMBs. Fixed price, 30-day delivery, direct line to a certified CE assessor. Wirral &amp; UK-wide.">
-<meta name="twitter:image" content="https://bluewaterassociates.co.uk/og-image.svg">
+<meta name="twitter:image" content="https://bluewaterassociates.co.uk/og-image.png">
 
 <meta name="geo.region" content="GB-MER">
 <meta name="geo.placename" content="Wirral, Merseyside">
@@ -1103,11 +1103,31 @@
 <script>
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "15min", {origin:"https://cal.com"});
-Cal.ns["15min"]("inline", {
-  elementOrSelector:"#my-cal-inline",
-  config: {"layout":"month_view"},
-  calLink: "bluewater",
-});
+/* Lazy-load the inline booking iframe only when the #book section approaches the viewport.
+   Popup CTAs (data-cal-link) stay live from page load. */
+(function(){
+  var mounted = false;
+  function mountInline(){
+    if (mounted) return;
+    mounted = true;
+    Cal.ns["15min"]("inline", {
+      elementOrSelector:"#my-cal-inline",
+      config: {"layout":"month_view"},
+      calLink: "bluewater",
+    });
+  }
+  var slot = document.getElementById('my-cal-inline');
+  if (slot && 'IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) { mountInline(); obs.disconnect(); }
+    }, {rootMargin:'800px 0px'});
+    obs.observe(slot);
+    /* Safety net: mount regardless after 12s so the calendar can never fail to appear */
+    setTimeout(mountInline, 12000);
+  } else {
+    mountInline();
+  }
+})();
 /* Hamburger menu toggle */
 (function(){
   var nav = document.querySelector('.nav');
@@ -1218,13 +1238,27 @@ Tawk_API.onLoad=function(){
     }
   };
 };
+/* Defer chat widget: load on first interaction or after 5s, whichever comes first.
+   Keeps ~300KB of third-party JS out of the critical load path. */
 (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6a17e23f3341271c378be8ad/1jpmknhr8';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
+  var loaded = false;
+  function loadTawk(){
+    if (loaded) return;
+    loaded = true;
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a17e23f3341271c378be8ad/1jpmknhr8';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    ['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){
+      window.removeEventListener(ev, loadTawk);
+    });
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){
+    window.addEventListener(ev, loadTawk, {passive:true, once:false});
+  });
+  setTimeout(loadTawk, 5000);
 })();
 </script>
 </body>
